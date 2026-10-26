@@ -121,7 +121,7 @@ nrep=sum(1 for i in items if i['kind']=='report')
 body=f'''<section class="home"><div class="hero"><div class="fr"><div><img src="assets/vortex_logo.jpg" alt="Thoughts in the Vortex"></div></div></div>
 <p class="tagl">D.B. Cooper research from the FBI Vault files</p>
 <nav class="tiles">
-<a class="tile" href="writeups/"><span class="tk">Write-ups</span><span class="td">{nrep} reports on the jump, the drop zone and the parachutes, every claim cited to the FBI's pages</span><span class="tg">Read →</span></a>
+<a class="tile" href="writeups/"><span class="tk">Write-ups</span><span class="td">Long form summaries on key Cooper topics</span><span class="tg">Read →</span></a>
 <a class="tile hot" href="{S["timeline"]["href"]}"><span class="tk">Timeline</span><span class="td">Flight 305 minute by minute: 246 entries from Portland to Reno, each beside the FBI page it comes from</span><span class="tg">Open the wheel →</span></a>
 <a class="tile" href="downloads/"><span class="tk">FBI Files</span><span class="td">All 44,238 pages of the FBI's Cooper file as searchable OCR text, with links to every scan</span><span class="tg">Download →</span></a>
 </nav></section>'''

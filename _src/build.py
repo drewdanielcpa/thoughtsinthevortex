@@ -1,0 +1,103 @@
+#!/usr/bin/env python3
+"""Build thoughtsinthevortex.com from _src/site.json.
+Run from the repo root:  python3 _src/build.py
+Writes index.html, r/<slug>/index.html, 404.html. PDFs live in files/, cover thumbnails in assets/covers/.
+"""
+import json, html, os
+ROOT=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+S=json.load(open(os.path.join(ROOT,'_src','site.json'),encoding='utf-8'))
+E=lambda x: html.escape(x, quote=True)
+
+CSS='''
+:root{--bg:#fbf7ee;--paper:#fffdf7;--ink:#211d1c;--muted:#5d6b69;--teal:#2f4a4c;--teal2:#466567;--line:#d8d0bb;--gold:#c47f0e;--blue:#2b6cb0;--red:#a82828}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "Lora",Georgia,serif}
+a{color:var(--teal);text-decoration-thickness:1px;text-underline-offset:3px}a:hover{color:var(--gold)}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+header.top{background:var(--teal);color:#f2ead3}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:12px;padding-bottom:12px}
+.brand{font-family:"Poppins",sans-serif;font-weight:600;letter-spacing:.5px;color:#f2ead3;text-decoration:none;font-size:17px}
+.brand:hover{color:#fff}
+nav a{font-family:"Poppins",sans-serif;font-size:14px;color:#dfe8e5;text-decoration:none;margin-left:18px}nav a:hover{color:#fff}
+.hero{padding:28px 0 8px}.hero img{width:100%;max-width:760px;display:block;border-radius:3px;border:2px solid var(--teal2)}
+.kicker{font-family:"Poppins",sans-serif;font-size:12px;letter-spacing:2.4px;text-transform:uppercase;color:var(--teal2);font-weight:600;margin:28px 0 8px;display:flex;align-items:center;gap:12px}
+.kicker:after{content:"";flex:1;height:1px;background:#9fb6b2}
+h1,h2,h3{font-family:"Poppins",sans-serif;color:var(--teal);font-weight:600;letter-spacing:-.3px}
+h1{font-size:clamp(28px,4.4vw,40px);line-height:1.12;margin:6px 0 4px}
+.sub{font-style:italic;color:var(--teal2);font-size:clamp(18px,2.4vw,22px);margin:0 0 12px}
+.lede{font-size:17px;max-width:760px;color:#3c3836}
+.feature{display:grid;grid-template-columns:220px 1fr;gap:28px;background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:22px;margin:10px 0 6px}
+.feature img,.card img,.rp img{width:100%;display:block;border:1px solid var(--line);border-radius:3px;background:#fff}
+.chips{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0}
+.chip{border-radius:5px;padding:9px 12px;color:#fff;font-family:"Poppins",sans-serif;font-size:13px;line-height:1.4}.chip b{display:block;font-size:14px;font-weight:600;margin-bottom:2px}
+.chip:nth-child(1){background:var(--blue)}.chip:nth-child(2){background:var(--gold)}.chip:nth-child(3){background:var(--red)}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.btn{font-family:"Poppins",sans-serif;font-size:14px;font-weight:500;background:var(--teal);color:#fff;text-decoration:none;padding:9px 14px;border-radius:5px;display:inline-block}
+.btn:hover{background:var(--gold);color:#fff}.btn.alt{background:transparent;color:var(--teal);border:1.5px solid var(--teal)}.btn.alt:hover{border-color:var(--gold);color:var(--gold)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px;margin:8px 0 10px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:14px;text-decoration:none;color:var(--ink);display:flex;flex-direction:column;gap:10px;transition:border-color .15s}
+.card:hover{border-color:var(--gold);color:var(--ink)}.card h3{margin:2px 0 0;font-size:17px;line-height:1.25}.card p{margin:0;font-size:14.5px;color:#4a4644}
+.card .meta,.meta{font-family:"Poppins",sans-serif;font-size:12px;color:var(--muted);letter-spacing:.3px}
+.card img{aspect-ratio:17/22;object-fit:cover;object-position:top}
+.tl{display:flex;gap:20px;align-items:center;background:var(--teal);color:#f2ead3;border-radius:6px;padding:20px 22px;text-decoration:none;margin:8px 0}
+.tl h3{color:#fff;margin:0 0 4px}.tl p{margin:0;color:#dfe8e5}.tl:hover{background:#26403f;color:#fff}
+.tl .go{margin-left:auto;font-family:"Poppins",sans-serif;font-weight:600;white-space:nowrap}
+.about{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:18px 22px;margin:10px 0 30px;font-size:15.5px}
+code{font-family:ui-monospace,Menlo,monospace;font-size:.9em;background:#efe8d3;padding:1px 5px;border-radius:3px}
+footer{border-top:1px solid var(--line);padding:18px 0 34px;color:var(--muted);font-size:14px}
+.crumb{font-family:"Poppins",sans-serif;font-size:13px;margin:22px 0 0}
+.rp{display:grid;grid-template-columns:300px 1fr;gap:32px;margin:14px 0 30px}
+.rp ul{padding-left:20px}.rp li{margin-bottom:6px}
+@media (max-width:760px){header.top .wrap{flex-wrap:wrap;gap:4px 16px}.brand{white-space:nowrap;font-size:15px}nav a:first-child{margin-left:0}.feature,.rp{grid-template-columns:1fr}.feature img,.rp img{max-width:190px}.chips{grid-template-columns:1fr}nav a{margin-left:12px;font-size:13px}.tl{flex-direction:column;align-items:flex-start}.tl .go{margin-left:0}}
+'''
+FONTS='<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Poppins:wght@500;600&display=swap">'
+
+def page(title, desc, body, depth=0, og_img=None):
+    up='../'*depth
+    og=f'<meta property="og:image" content="https://{S["domain"]}/{og_img}">' if og_img else ''
+    return f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{E(title)}</title><meta name="description" content="{E(desc)}">
+<meta property="og:title" content="{E(title)}"><meta property="og:description" content="{E(desc)}"><meta property="og:type" content="website">{og}
+<link rel="icon" href="{up}assets/vortex_logo.jpg">{FONTS}<link rel="stylesheet" href="{up}assets/site.css"></head><body>
+<header class="top"><div class="wrap"><a class="brand" href="{up or './'}">THOUGHTS IN THE VORTEX</a><nav><a href="{up}#reports">Reports</a><a href="{up}timeline/">Timeline</a><a href="{up}#about">About</a></nav></div></header>
+<main class="wrap">{body}</main>
+<footer><div class="wrap">Thoughts in the Vortex · Research on NORJAK / Northwest Orient Flight 305 from the <a href="https://vault.fbi.gov/D-B-Cooper%20">FBI Vault D.B. Cooper files</a>. Citations read Vault part / PDF page / Bates number.</div></footer>
+</body></html>'''
+
+def card(it):
+    return f'''<a class="card" href="r/{it["slug"]}/"><img src="assets/covers/{it["cover"]}" alt="Cover of {E(it["title"])}" loading="lazy"><div><div class="meta">{"Report" if it["kind"]=="report" else "Source packet"} · {E(it["date"])}</div><h3>{E(it["title"])}</h3></div><p>{E(it["subtitle"])}</p></a>'''
+
+items=S['items']; feat=next(i for i in items if i.get('featured'))
+chips=''.join(f'<div class="chip"><b>{E(a)}</b>{E(b)}</div>' for a,b in feat.get('points',[]))
+fbtn=''.join(f'<a class="btn{" alt" if k else ""}" href="files/{f}">{E(lbl)}</a>' for k,(lbl,f) in enumerate(feat['files']))
+packets=(f'<div class="kicker" id="packets">Source packets: the FBI pages, highlighted</div><div class="grid">'+''.join(card(i) for i in items if i['kind']=='packet')+'</div>') if any(i['kind']=='packet' for i in items) else ''
+body=f'''<section class="hero"><img src="assets/vortex_logo.jpg" alt="Thoughts in the Vortex"></section>
+<p class="lede">{E(S["intro"])}</p>
+<div class="kicker">Latest report</div>
+<div class="feature"><a href="r/{feat["slug"]}/"><img src="assets/covers/{feat["cover"]}" alt="Cover of {E(feat["title"])}"></a><div>
+<div class="meta">Report · {E(feat["date"])}</div><h2 style="margin:4px 0 2px;font-size:26px"><a href="r/{feat["slug"]}/" style="text-decoration:none">{E(feat["title"])}</a></h2><p class="sub">{E(feat["subtitle"])}</p>
+<p>{E(feat["summary"])}</p><div class="chips">{chips}</div><div class="btns">{fbtn}<a class="btn alt" href="r/{feat["slug"]}/">More about this report</a></div></div></div>
+<div class="kicker" id="reports">Reports</div><div class="grid">{"".join(card(i) for i in items if i["kind"]=="report")}</div>
+{packets}
+<div class="kicker">Interactive</div>
+<a class="tl" href="{S["timeline"]["href"]}"><div><h3>{E(S["timeline"]["title"])}</h3><p>{E(S["timeline"]["summary"])}</p></div><span class="go">Open the timeline →</span></a>
+<div class="kicker" id="about">About</div>
+<div class="about"><p style="margin-top:0">Everything here comes from the FBI's own NORJAK file as released on the <a href="https://vault.fbi.gov/D-B-Cooper%20">FBI Vault</a>, plus clearly marked outside sources. A citation like <code>110 / 267 / 566</code> means Vault Part 110, PDF page 267, Bates stamp DB Cooper-566, so you can open the page and read it yourself.</p>
+<p style="margin-bottom:0">Each report comes with its sources: the Oscillations report has a companion PDF reproducing every FBI page it cites, with a header on each page naming the sections that use it.</p></div>'''
+os.makedirs(os.path.join(ROOT,'assets'),exist_ok=True)
+open(os.path.join(ROOT,'assets','site.css'),'w').write(CSS)
+open(os.path.join(ROOT,'index.html'),'w',encoding='utf-8').write(page(S['site_title']+' · D.B. Cooper research', S['tagline'], body, 0, 'assets/vortex_logo.jpg'))
+
+for it in items:
+    pts=''.join(f'<li><b>{E(a)}.</b> {E(b)}</li>' for a,b in it.get('points',[]))
+    btn=''.join(f'<a class="btn{" alt" if k else ""}" href="../../files/{f}">{E(lbl)}</a>' for k,(lbl,f) in enumerate(it['files']))
+    lnk=''.join(f'<a class="btn alt" href="{E(u)}">{E(l)}</a>' for l,u in it.get('links',[]))
+    b=f'''<div class="crumb"><a href="../../">Home</a> › {"Reports" if it["kind"]=="report" else "Source packets"}</div>
+<div class="rp"><a href="../../files/{it["files"][0][1]}"><img src="../../assets/covers/{it["cover"]}" alt="Cover of {E(it["title"])}"></a><div>
+<div class="meta">{"Report" if it["kind"]=="report" else "Source packet"} · {E(it["date"])}</div><h1>{E(it["title"])}</h1><p class="sub">{E(it["subtitle"])}</p>
+<p>{E(it["summary"])}</p>{f"<h3>Key findings</h3><ul>{pts}</ul>" if pts else ""}<div class="btns">{btn}{lnk}</div>
+<p class="meta" style="margin-top:18px">PDFs open in your browser. Citations read Vault part / PDF page / Bates number; every FBI page is in the <a href="https://vault.fbi.gov/D-B-Cooper%20">FBI Vault</a>.</p></div></div>'''
+    d=os.path.join(ROOT,'r',it['slug']); os.makedirs(d,exist_ok=True)
+    open(os.path.join(d,'index.html'),'w',encoding='utf-8').write(page(f'{it["title"]} · Thoughts in the Vortex', it['summary'][:200], b, 2, 'assets/covers/'+it['cover']))
+open(os.path.join(ROOT,'404.html'),'w',encoding='utf-8').write(page('Not found · Thoughts in the Vortex','Page not found','<h1 style="margin-top:40px">Lost in the vortex</h1><p>That page isn\'t here. <a href="/">Back to the home page</a>.</p>',0).replace('href="assets/','href="/assets/').replace('href="#','href="/#').replace('href="timeline/','href="/timeline/').replace('href="./"','href="/"'))
+print('built', len(items), 'item pages')

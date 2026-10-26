@@ -1,0 +1,82 @@
+{
+  "site_title": "Thoughts in the Vortex",
+  "domain": "thoughtsinthevortex.com",
+  "tagline": "Research notes on the 1971 NORJAK hijacking, built from the FBI Vault D.B. Cooper files.",
+  "intro": "Long-form write-ups on Northwest Orient Flight 305, the D.B. Cooper hijacking of November 24, 1971. Every claim is tied to the FBI's own pages, cited as Vault part / PDF page / Bates number, so you can check it yourself.",
+  "items": [
+    {
+      "slug": "oscillations",
+      "kind": "report",
+      "featured": true,
+      "title": "We're Getting Some Oscillations in My Sanity",
+      "subtitle": "Where the F@$# Did He Jump",
+      "date": "October 2026",
+      "summary": "When Cooper left the plane, where the plane was, and every place the FBI decided he could have landed. The report also tests the \"later jump\" theory, shows how Cooper's own demands pinned the plane to Victor 23, and rebuilds the drop zone with the 1971 weather-balloon winds.",
+      "points": [
+        [
+          "Jump: 8:11 PM, ±1 minute",
+          "Heard live on the company radio and reproduced by the January 1972 sled test."
+        ],
+        [
+          "Drop zone: the 1972 zone holds",
+          "Every 8:11 zone rebuilt with the real 1971 winds falls inside NWA's envelope."
+        ],
+        [
+          "Route: V-23 or bust",
+          "Low, slow and gear-down left one workable way south."
+        ]
+      ],
+      "files": [
+        [
+          "Read the report (PDF, 23 pages)",
+          "oscillations-in-my-sanity.pdf"
+        ],
+        [
+          "Companion: every FBI page cited (PDF, 101 pages)",
+          "oscillations-in-my-sanity-companion.pdf"
+        ]
+      ],
+      "links": [
+        [
+          "Interactive drop-zone map (Google My Maps)",
+          "https://www.google.com/maps/d/viewer?mid=1d67-LrLwjPTCPZahP06Hrg1cofUbos8"
+        ]
+      ],
+      "cover": "oscillations-in-my-sanity.jpg"
+    },
+    {
+      "slug": "two-cards-one-chute",
+      "kind": "report",
+      "title": "Two Cards, One Chute",
+      "subtitle": "Reconciling the Cooper Packing Cards",
+      "date": "October 2026",
+      "summary": "The leftover back parachute from Flight 305 carried two packing cards, both signed by rigger Earl Cossey on May 21, 1971. What the FBI recorded, what the 2011 inspection shows, and how the second card got there.",
+      "points": [
+        [
+          "Two cards, both from 5/21/71",
+          "One for a 26′ Pioneer canopy, one for a 24′ Steinthal canopy, both signed by Cossey."
+        ],
+        [
+          "Both were already there in Reno",
+          "The night-of reports draw details from both cards."
+        ],
+        [
+          "The FBI read the form one line off",
+          "Correcting it explains \"type 226, SN 9/57\"; nothing on the rig matches Card B."
+        ]
+      ],
+      "files": [
+        [
+          "Read the report (PDF, 12 pages)",
+          "two-cards-one-chute.pdf"
+        ]
+      ],
+      "cover": "two-cards-one-chute.jpg"
+    }
+  ],
+  "timeline": {
+    "title": "Flight 305 Timeline Wheel",
+    "summary": "The hijacking minute by minute, from the ticket counter in Portland to the FBI's first look inside the empty cabin at Reno: 246 entries, each with the FBI page it comes from.",
+    "href": "timeline/"
+  }
+}

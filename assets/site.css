@@ -1,0 +1,41 @@
+
+:root{--bg:#fbf7ee;--paper:#fffdf7;--ink:#211d1c;--muted:#5d6b69;--teal:#2f4a4c;--teal2:#466567;--line:#d8d0bb;--gold:#c47f0e;--blue:#2b6cb0;--red:#a82828}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "Lora",Georgia,serif}
+a{color:var(--teal);text-decoration-thickness:1px;text-underline-offset:3px}a:hover{color:var(--gold)}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+header.top{background:var(--teal);color:#f2ead3}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:12px;padding-bottom:12px}
+.brand{font-family:"Poppins",sans-serif;font-weight:600;letter-spacing:.5px;color:#f2ead3;text-decoration:none;font-size:17px}
+.brand:hover{color:#fff}
+nav a{font-family:"Poppins",sans-serif;font-size:14px;color:#dfe8e5;text-decoration:none;margin-left:18px}nav a:hover{color:#fff}
+.hero{padding:28px 0 8px}.hero img{width:100%;max-width:760px;display:block;border-radius:3px;border:2px solid var(--teal2)}
+.kicker{font-family:"Poppins",sans-serif;font-size:12px;letter-spacing:2.4px;text-transform:uppercase;color:var(--teal2);font-weight:600;margin:28px 0 8px;display:flex;align-items:center;gap:12px}
+.kicker:after{content:"";flex:1;height:1px;background:#9fb6b2}
+h1,h2,h3{font-family:"Poppins",sans-serif;color:var(--teal);font-weight:600;letter-spacing:-.3px}
+h1{font-size:clamp(28px,4.4vw,40px);line-height:1.12;margin:6px 0 4px}
+.sub{font-style:italic;color:var(--teal2);font-size:clamp(18px,2.4vw,22px);margin:0 0 12px}
+.lede{font-size:17px;max-width:760px;color:#3c3836}
+.feature{display:grid;grid-template-columns:220px 1fr;gap:28px;background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:22px;margin:10px 0 6px}
+.feature img,.card img,.rp img{width:100%;display:block;border:1px solid var(--line);border-radius:3px;background:#fff}
+.chips{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0}
+.chip{border-radius:5px;padding:9px 12px;color:#fff;font-family:"Poppins",sans-serif;font-size:13px;line-height:1.4}.chip b{display:block;font-size:14px;font-weight:600;margin-bottom:2px}
+.chip:nth-child(1){background:var(--blue)}.chip:nth-child(2){background:var(--gold)}.chip:nth-child(3){background:var(--red)}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.btn{font-family:"Poppins",sans-serif;font-size:14px;font-weight:500;background:var(--teal);color:#fff;text-decoration:none;padding:9px 14px;border-radius:5px;display:inline-block}
+.btn:hover{background:var(--gold);color:#fff}.btn.alt{background:transparent;color:var(--teal);border:1.5px solid var(--teal)}.btn.alt:hover{border-color:var(--gold);color:var(--gold)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px;margin:8px 0 10px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:14px;text-decoration:none;color:var(--ink);display:flex;flex-direction:column;gap:10px;transition:border-color .15s}
+.card:hover{border-color:var(--gold);color:var(--ink)}.card h3{margin:2px 0 0;font-size:17px;line-height:1.25}.card p{margin:0;font-size:14.5px;color:#4a4644}
+.card .meta,.meta{font-family:"Poppins",sans-serif;font-size:12px;color:var(--muted);letter-spacing:.3px}
+.card img{aspect-ratio:17/22;object-fit:cover;object-position:top}
+.tl{display:flex;gap:20px;align-items:center;background:var(--teal);color:#f2ead3;border-radius:6px;padding:20px 22px;text-decoration:none;margin:8px 0}
+.tl h3{color:#fff;margin:0 0 4px}.tl p{margin:0;color:#dfe8e5}.tl:hover{background:#26403f;color:#fff}
+.tl .go{margin-left:auto;font-family:"Poppins",sans-serif;font-weight:600;white-space:nowrap}
+.about{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:18px 22px;margin:10px 0 30px;font-size:15.5px}
+code{font-family:ui-monospace,Menlo,monospace;font-size:.9em;background:#efe8d3;padding:1px 5px;border-radius:3px}
+footer{border-top:1px solid var(--line);padding:18px 0 34px;color:var(--muted);font-size:14px}
+.crumb{font-family:"Poppins",sans-serif;font-size:13px;margin:22px 0 0}
+.rp{display:grid;grid-template-columns:300px 1fr;gap:32px;margin:14px 0 30px}
+.rp ul{padding-left:20px}.rp li{margin-bottom:6px}
+@media (max-width:760px){header.top .wrap{flex-wrap:wrap;gap:4px 16px}.brand{white-space:nowrap;font-size:15px}nav a:first-child{margin-left:0}.feature,.rp{grid-template-columns:1fr}.feature img,.rp img{max-width:190px}.chips{grid-template-columns:1fr}nav a{margin-left:12px;font-size:13px}.tl{flex-direction:column;align-items:flex-start}.tl .go{margin-left:0}}

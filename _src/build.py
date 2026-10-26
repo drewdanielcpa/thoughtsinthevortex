@@ -65,7 +65,15 @@ a.tcard:hover{border-color:var(--gold)}
 .rbar button{font:600 15px "Poppins",sans-serif;width:30px;height:28px;border:1px solid var(--teal);background:transparent;color:var(--teal);border-radius:4px;cursor:pointer;margin-left:4px}
 #pages{display:flex;flex-direction:column;align-items:center;gap:14px;padding-bottom:40px;overflow-x:auto}
 .pg{position:relative;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.18);flex:none}.pg canvas{display:block}.pg a.lk{position:absolute;display:block}.pg a.lk:hover{background:rgba(196,127,14,.15)}
-@media (max-width:760px){header.top .wrap{flex-wrap:wrap;gap:4px 16px}.brand{white-space:nowrap;font-size:15px}nav a:first-child{margin-left:0}.feature,.rp{grid-template-columns:1fr}.feature .tcard,.rp .tcard{max-width:340px}.chips{grid-template-columns:1fr}nav a{margin-left:12px;font-size:13px}.tl{flex-direction:column;align-items:flex-start}.tl .go{margin-left:0}}
+.home{padding:10px 0 30px}.home .hero{display:flex;justify-content:center;padding-top:34px}.home .hero .fr{max-width:820px;width:100%}
+.tagl{text-align:center;font-family:"Poppins",sans-serif;font-size:13px;letter-spacing:2.6px;text-transform:uppercase;color:var(--teal2);font-weight:600;margin:20px 0 22px}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:880px;margin:0 auto}
+.tile{display:flex;flex-direction:column;gap:8px;background:var(--teal);color:#f2ead3;text-decoration:none;border-radius:6px;padding:22px 20px 18px;border:2px solid var(--teal);transition:transform .12s,border-color .12s}
+.tile:hover{transform:translateY(-2px);border-color:var(--gold);color:#fff}
+.tile .tk{font-family:"Poppins",sans-serif;font-weight:600;font-size:24px;color:#fff;letter-spacing:-.3px}
+.tile .td{font-size:14.5px;line-height:1.45;color:#dfe8e5;flex:1}.tile .tg{font-family:"Poppins",sans-serif;font-weight:600;font-size:14px;color:#f4c86a}
+.tile.hot{background:var(--gold);border-color:var(--gold)}.tile.hot .td{color:#fff6e0}.tile.hot .tg{color:#fff}.tile.hot:hover{border-color:var(--teal)}
+@media (max-width:760px){.tiles{grid-template-columns:1fr}.home .hero{padding-top:18px}header.top .wrap{flex-wrap:wrap;gap:4px 16px}.brand{white-space:nowrap;font-size:15px}nav a:first-child{margin-left:0}.feature,.rp{grid-template-columns:1fr}.feature .tcard,.rp .tcard{max-width:340px}.chips{grid-template-columns:1fr}nav a{margin-left:12px;font-size:13px}.tl{flex-direction:column;align-items:flex-start}.tl .go{margin-left:0}}
 '''
 FONTS='<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Poppins:wght@500;600&display=swap">'
 
@@ -76,7 +84,7 @@ def page(title, desc, body, depth=0, og_img=None):
 <title>{E(title)}</title><meta name="description" content="{E(desc)}">
 <meta property="og:title" content="{E(title)}"><meta property="og:description" content="{E(desc)}"><meta property="og:type" content="website">{og}
 <link rel="icon" href="{up}assets/vortex_logo.jpg">{FONTS}<link rel="stylesheet" href="{up}assets/site.css"></head><body>
-<header class="top"><div class="wrap"><a class="brand" href="{up or './'}">THOUGHTS IN THE VORTEX</a><nav><a href="{up}#reports">Reports</a><a href="{up}timeline/">Timeline</a><a href="{up}downloads/">FBI files</a><a href="{up}#about">About</a></nav></div></header>
+<header class="top"><div class="wrap"><a class="brand" href="{up or './'}">THOUGHTS IN THE VORTEX</a><nav><a href="{up}writeups/">Write-ups</a><a href="{up}timeline/">Timeline</a><a href="{up}downloads/">FBI Files</a></nav></div></header>
 <main class="wrap">{body}</main>
 <footer><div class="wrap">Thoughts in the Vortex · Research on NORJAK / Northwest Orient Flight 305 from the <a href="https://vault.fbi.gov/D-B-Cooper%20">FBI Vault D.B. Cooper files</a>. Citations read Vault part / PDF page / Bates number.</div></footer>
 </body></html>'''
@@ -93,34 +101,41 @@ def card(it):
 
 items=S['items']; feat=next(i for i in items if i.get('featured'))
 chips=''.join(f'<div class="chip"><b>{E(a)}</b>{E(b)}</div>' for a,b in feat.get('points',[]))
-fbtn=''.join(f'<a class="btn{" alt" if k else ""}" href="{rd(f, feat["title"] if k==0 else feat["title"]+" · Companion")}">{E(lbl)}</a>' for k,(lbl,f) in enumerate(feat['files']))
-packets=(f'<div class="kicker" id="packets">Source packets: the FBI pages, highlighted</div><div class="grid">'+''.join(card(i) for i in items if i['kind']=='packet')+'</div>') if any(i['kind']=='packet' for i in items) else ''
-body=f'''<section class="hero"><div class="fr"><div><img src="assets/vortex_logo.jpg" alt="Thoughts in the Vortex"></div></div></section>
-<p class="lede">{E(S["intro"])}</p>
+U='../'
+fbtn=''.join(f'<a class="btn{" alt" if k else ""}" href="{rd(f, feat["title"] if k==0 else feat["title"]+" · Companion", U)}">{E(lbl)}</a>' for k,(lbl,f) in enumerate(feat['files']))
+def card2(it): return card(it).replace('href="r/','href="../r/')
+packets=(f'<div class="kicker" id="packets">Source packets: the FBI pages, highlighted</div><div class="grid">'+''.join(card2(i) for i in items if i['kind']=='packet')+'</div>') if any(i['kind']=='packet' for i in items) else ''
+wbody=f'''<div class="crumb"><a href="../">Home</a> › Write-ups</div>
+<h1>Write-ups</h1><p class="lede">{E(S["intro"])}</p>
 <div class="kicker">Latest report</div>
-<div class="feature">{tcard(feat, "r/"+feat["slug"]+"/")}<div>
-<div class="meta">Report · {E(feat["date"])}</div><h2 style="margin:4px 0 2px;font-size:26px"><a href="r/{feat["slug"]}/" style="text-decoration:none">{E(feat["title"])}</a></h2><p class="sub">{E(feat["subtitle"])}</p>
-<p>{E(feat["summary"])}</p><div class="btns">{fbtn}<a class="btn alt" href="r/{feat["slug"]}/">More about this report</a></div></div></div>
-<div class="kicker" id="reports">Reports</div><div class="grid">{"".join(card(i) for i in items if i["kind"]=="report")}</div>
+<div class="feature">{tcard(feat, "../r/"+feat["slug"]+"/")}<div>
+<div class="meta">Report · {E(feat["date"])}</div><h2 style="margin:4px 0 2px;font-size:26px"><a href="../r/{feat["slug"]}/" style="text-decoration:none">{E(feat["title"])}</a></h2><p class="sub">{E(feat["subtitle"])}</p>
+<p>{E(feat["summary"])}</p><div class="btns">{fbtn}<a class="btn alt" href="../r/{feat["slug"]}/">More about this report</a></div></div></div>
+<div class="kicker" id="reports">All reports</div><div class="grid">{"".join(card2(i) for i in items if i["kind"]=="report")}</div>
 {packets}
-<div class="kicker">Interactive</div>
-<a class="tl" href="{S["timeline"]["href"]}"><div><h3>{E(S["timeline"]["title"])}</h3><p>{E(S["timeline"]["summary"])}</p></div><span class="go">Open the timeline →</span></a>
-<div class="kicker" id="files">The FBI files, searchable</div>
-<div class="about" style="margin-bottom:6px"><p style="margin-top:0">The FBI's NORJAK file on the Vault is 44,238 scanned pages with no usable text. We ran every page through OCR. Download the text, labeled page by page with Part, PDF page and Bates number, and search the whole file yourself.</p>
-<div class="btns"><a class="btn" href="downloads/norjak-fbi-ocr-text.zip">Download the OCR text (ZIP, 18 MB)</a><a class="btn alt" href="downloads/norjak-fbi-database.zip">Searchable database (ZIP, 37 MB)</a><a class="btn alt" href="downloads/">What's in them</a></div></div>
-<div class="kicker" id="about">About</div>
+<div class="kicker" id="about">About the write-ups</div>
 <div class="about"><p style="margin-top:0">Everything here comes from the FBI's own NORJAK file as released on the <a href="https://vault.fbi.gov/D-B-Cooper%20">FBI Vault</a>, plus clearly marked outside sources. A citation like <code>110 / 267 / 566</code> means Vault Part 110, PDF page 267, Bates stamp DB Cooper-566, so you can open the page and read it yourself.</p>
 <p style="margin-bottom:0">Each report comes with its sources: the Oscillations report has a companion PDF reproducing every FBI page it cites, with a header on each page naming the sections that use it.</p></div>'''
+os.makedirs(os.path.join(ROOT,'writeups'),exist_ok=True)
+nrep=sum(1 for i in items if i['kind']=='report')
+body=f'''<section class="home"><div class="hero"><div class="fr"><div><img src="assets/vortex_logo.jpg" alt="Thoughts in the Vortex"></div></div></div>
+<p class="tagl">D.B. Cooper research from the FBI Vault files</p>
+<nav class="tiles">
+<a class="tile" href="writeups/"><span class="tk">Write-ups</span><span class="td">{nrep} reports on the jump, the drop zone and the parachutes, every claim cited to the FBI's pages</span><span class="tg">Read →</span></a>
+<a class="tile hot" href="{S["timeline"]["href"]}"><span class="tk">Timeline</span><span class="td">Flight 305 minute by minute: 246 entries from Portland to Reno, each beside the FBI page it comes from</span><span class="tg">Open the wheel →</span></a>
+<a class="tile" href="downloads/"><span class="tk">FBI Files</span><span class="td">All 44,238 pages of the FBI's Cooper file as searchable OCR text, with links to every scan</span><span class="tg">Download →</span></a>
+</nav></section>'''
 os.makedirs(os.path.join(ROOT,'assets'),exist_ok=True)
 open(os.path.join(ROOT,'assets','site.css'),'w').write(CSS)
 open(os.path.join(ROOT,'index.html'),'w',encoding='utf-8').write(page(S['site_title']+' · D.B. Cooper research', S['tagline'], body, 0, 'assets/vortex_logo.jpg'))
+open(os.path.join(ROOT,'writeups','index.html'),'w',encoding='utf-8').write(page('Write-ups · Thoughts in the Vortex', S['intro'], wbody, 1, 'assets/vortex_logo.jpg'))
 
 for it in items:
     pts=''.join(f'<li><b>{E(a)}.</b> {E(b)}</li>' for a,b in it.get('points',[]))
     btn=''.join(f'<a class="btn{" alt" if k else ""}" href="{rd(f, it["title"] if k==0 else it["title"]+" · "+lbl.split(" (")[0], "../../")}">{E(lbl)}</a>' for k,(lbl,f) in enumerate(it['files']))
     dls=' · '.join(f'<a href="../../files/{f}" download>{E(lbl.split(" (")[0].replace("Read the report","the report"))}</a>' for lbl,f in it['files'])
     lnk=''.join(f'<a class="btn alt" href="{E(u)}">{E(l)}</a>' for l,u in it.get('links',[]))
-    b=f'''<div class="crumb"><a href="../../">Home</a> › {"Reports" if it["kind"]=="report" else "Source packets"}</div>
+    b=f'''<div class="crumb"><a href="../../">Home</a> › <a href="../../writeups/">Write-ups</a></div>
 <div class="rp">{tcard(it, rd(it["files"][0][1], it["title"], "../../"))}<div>
 <div class="meta">{"Report" if it["kind"]=="report" else "Source packet"} · {E(it["date"])}</div><h1>{E(it["title"])}</h1><p class="sub">{E(it["subtitle"])}</p>
 <p>{E(it["summary"])}</p>{f"<h3>Key findings</h3><ul>{pts}</ul>" if pts else ""}<div class="btns">{btn}{lnk}</div>
@@ -130,10 +145,16 @@ for it in items:
 rb=open(os.path.join(ROOT,'_src','reader_body.html'),encoding='utf-8').read()
 os.makedirs(os.path.join(ROOT,'read'),exist_ok=True)
 open(os.path.join(ROOT,'read','index.html'),'w',encoding='utf-8').write(page('Reader · Thoughts in the Vortex','Read Thoughts in the Vortex reports in your browser.',rb,1))
+tlp=os.path.join(ROOT,'timeline','index.html'); t=open(tlp,encoding='utf-8').read()
+import re as _re
+t=_re.sub(r'<!--tv-bar-->.*?<!--/tv-bar-->','',t,flags=_re.S)
+bar='<!--tv-bar--><div style="background:#2f4a4c;padding:9px 16px;font:600 13.5px Poppins,Arial,sans-serif;letter-spacing:.4px;display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center"><a href="../" style="color:#f2ead3;text-decoration:none">THOUGHTS IN THE VORTEX</a><span style="flex:1"></span><a href="../writeups/" style="color:#dfe8e5;text-decoration:none;font-weight:500">Write-ups</a><a href="../timeline/" style="color:#fff;text-decoration:none;font-weight:500">Timeline</a><a href="../downloads/" style="color:#dfe8e5;text-decoration:none;font-weight:500">FBI Files</a></div><!--/tv-bar-->'
+t=_re.sub(r'(<body[^>]*>)',lambda m:m.group(1)+bar,t,count=1)
+open(tlp,'w',encoding='utf-8').write(t)
 PARTS=json.load(open(os.path.join(ROOT,'_src','parts.json')))
 rows=''.join(f'<tr><td>Part {p}</td><td>{n:,}</td><td><a href="{E(u)}">Scans on the FBI Vault ↗</a></td></tr>' for p,u,n in PARTS)
 total=sum(n for _,_,n in PARTS)
-dl=f'''<div class="crumb"><a href="../">Home</a> › FBI files</div>
+dl=f'''<div class="crumb"><a href="../">Home</a> › FBI Files</div>
 <h1>The FBI files, searchable</h1><p class="sub">All {len(PARTS)} Vault parts, {total:,} pages, as OCR text</p>
 <p class="lede">The FBI Vault's D.B. Cooper release is a set of scanned PDFs whose built-in text is unusable. Every page was re-read with OCR (Tesseract, 300 dpi). Two downloads hold the result; the scans themselves stay on the FBI Vault, linked below.</p>
 <div class="grid" style="grid-template-columns:repeat(auto-fill,minmax(300px,1fr))">

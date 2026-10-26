@@ -59,7 +59,7 @@ def page(title, desc, body, depth=0, og_img=None):
 <title>{E(title)}</title><meta name="description" content="{E(desc)}">
 <meta property="og:title" content="{E(title)}"><meta property="og:description" content="{E(desc)}"><meta property="og:type" content="website">{og}
 <link rel="icon" href="{up}assets/vortex_logo.jpg">{FONTS}<link rel="stylesheet" href="{up}assets/site.css"></head><body>
-<header class="top"><div class="wrap"><a class="brand" href="{up or './'}">THOUGHTS IN THE VORTEX</a><nav><a href="{up}#reports">Reports</a><a href="{up}timeline/">Timeline</a><a href="{up}#about">About</a></nav></div></header>
+<header class="top"><div class="wrap"><a class="brand" href="{up or './'}">THOUGHTS IN THE VORTEX</a><nav><a href="{up}#reports">Reports</a><a href="{up}timeline/">Timeline</a><a href="{up}downloads/">FBI files</a><a href="{up}#about">About</a></nav></div></header>
 <main class="wrap">{body}</main>
 <footer><div class="wrap">Thoughts in the Vortex · Research on NORJAK / Northwest Orient Flight 305 from the <a href="https://vault.fbi.gov/D-B-Cooper%20">FBI Vault D.B. Cooper files</a>. Citations read Vault part / PDF page / Bates number.</div></footer>
 </body></html>'''
@@ -81,6 +81,9 @@ body=f'''<section class="hero"><img src="assets/vortex_logo.jpg" alt="Thoughts i
 {packets}
 <div class="kicker">Interactive</div>
 <a class="tl" href="{S["timeline"]["href"]}"><div><h3>{E(S["timeline"]["title"])}</h3><p>{E(S["timeline"]["summary"])}</p></div><span class="go">Open the timeline →</span></a>
+<div class="kicker" id="files">The FBI files, searchable</div>
+<div class="about" style="margin-bottom:6px"><p style="margin-top:0">The FBI's NORJAK file on the Vault is 44,238 scanned pages with no usable text. We ran every page through OCR. Download the text, labeled page by page with Part, PDF page and Bates number, and search the whole file yourself.</p>
+<div class="btns"><a class="btn" href="downloads/norjak-fbi-ocr-text.zip">Download the OCR text (ZIP, 18 MB)</a><a class="btn alt" href="downloads/norjak-fbi-database.zip">Searchable database (ZIP, 37 MB)</a><a class="btn alt" href="downloads/">What's in them</a></div></div>
 <div class="kicker" id="about">About</div>
 <div class="about"><p style="margin-top:0">Everything here comes from the FBI's own NORJAK file as released on the <a href="https://vault.fbi.gov/D-B-Cooper%20">FBI Vault</a>, plus clearly marked outside sources. A citation like <code>110 / 267 / 566</code> means Vault Part 110, PDF page 267, Bates stamp DB Cooper-566, so you can open the page and read it yourself.</p>
 <p style="margin-bottom:0">Each report comes with its sources: the Oscillations report has a companion PDF reproducing every FBI page it cites, with a header on each page naming the sections that use it.</p></div>'''
@@ -99,5 +102,22 @@ for it in items:
 <p class="meta" style="margin-top:18px">PDFs open in your browser. Citations read Vault part / PDF page / Bates number; every FBI page is in the <a href="https://vault.fbi.gov/D-B-Cooper%20">FBI Vault</a>.</p></div></div>'''
     d=os.path.join(ROOT,'r',it['slug']); os.makedirs(d,exist_ok=True)
     open(os.path.join(d,'index.html'),'w',encoding='utf-8').write(page(f'{it["title"]} · Thoughts in the Vortex', it['summary'][:200], b, 2, 'assets/covers/'+it['cover']))
+PARTS=json.load(open(os.path.join(ROOT,'_src','parts.json')))
+rows=''.join(f'<tr><td>Part {p}</td><td>{n:,}</td><td><a href="{E(u)}">Scans on the FBI Vault ↗</a></td></tr>' for p,u,n in PARTS)
+total=sum(n for _,_,n in PARTS)
+dl=f'''<div class="crumb"><a href="../">Home</a> › FBI files</div>
+<h1>The FBI files, searchable</h1><p class="sub">All {len(PARTS)} Vault parts, {total:,} pages, as OCR text</p>
+<p class="lede">The FBI Vault's D.B. Cooper release is a set of scanned PDFs whose built-in text is unusable. Every page was re-read with OCR (Tesseract, 300 dpi). Two downloads hold the result; the scans themselves stay on the FBI Vault, linked below.</p>
+<div class="grid" style="grid-template-columns:repeat(auto-fill,minmax(300px,1fr))">
+<div class="card"><div class="meta">ZIP · 18 MB · {len(PARTS)} text files</div><h3>OCR text pack</h3><p>One plain-text file per Vault part. Every page starts with a header line, <code>==== Part 64 · PDF page 304 · Bates DB Cooper-27170 ====</code>, so any search hit tells you exactly which page to open. Search it with any editor that searches across files, or with grep.</p><div class="btns"><a class="btn" href="norjak-fbi-ocr-text.zip">Download the OCR text</a></div></div>
+<div class="card"><div class="meta">ZIP · 37 MB · SQLite</div><h3>Searchable database</h3><p>The same text in a SQLite database with a full-text index, plus a small Python search tool for phrases, words near each other and sound-alike matches, e.g. <code>python3 search.py '"Tena Bar"'</code>. No extra packages needed.</p><div class="btns"><a class="btn alt" href="norjak-fbi-database.zip">Download the database</a></div></div></div>
+<h3>Before you quote anything</h3><ul>
+<li>OCR is imperfect. Much of the file is 1970s teletypes, carbons and handwriting, and photos and clippings often come through poorly. A search that finds nothing doesn't prove the file is silent; try spelling variants.</li>
+<li>"PDF page" is the page number in the Vault's PDF viewer. The Bates number is the FBI's stamp in the bottom-right corner. It was read by OCR, so it is missing on some pages and occasionally off by a digit.</li>
+<li>Names the FBI redacted appear as blanks or exemption codes (b6, b7C).</li>
+<li>Always check the scan on the FBI Vault before quoting.</li></ul>
+<h3>The {len(PARTS)} parts</h3><table style="width:100%;border-collapse:collapse;font-size:15px;margin:6px 0 30px"><tr style="text-align:left;border-bottom:1.5px solid var(--teal)"><th>Part</th><th>Pages</th><th>Scans</th></tr>{rows}</table>'''
+dl=dl.replace('<tr><td>','<tr style="border-bottom:1px solid var(--line)"><td>')
+open(os.path.join(ROOT,'downloads','index.html'),'w',encoding='utf-8').write(page('The FBI files, searchable · Thoughts in the Vortex', 'OCR text of all 44,238 pages of the FBI Vault D.B. Cooper file, labeled by Part, PDF page and Bates number.', dl, 1))
 open(os.path.join(ROOT,'404.html'),'w',encoding='utf-8').write(page('Not found · Thoughts in the Vortex','Page not found','<h1 style="margin-top:40px">Lost in the vortex</h1><p>That page isn\'t here. <a href="/">Back to the home page</a>.</p>',0).replace('href="assets/','href="/assets/').replace('href="#','href="/#').replace('href="timeline/','href="/timeline/').replace('href="./"','href="/"'))
 print('built', len(items), 'item pages')

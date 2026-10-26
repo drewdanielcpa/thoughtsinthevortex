@@ -16,7 +16,7 @@ h1,h2,h3{font-family:"Poppins",sans-serif;color:var(--teal);font-weight:600;lett
 h1{font-size:clamp(28px,4.4vw,40px);line-height:1.12;margin:6px 0 4px}
 .sub{font-style:italic;color:var(--teal2);font-size:clamp(18px,2.4vw,22px);margin:0 0 12px}
 .lede{font-size:17px;max-width:760px;color:#3c3836}
-.feature{display:grid;grid-template-columns:220px 1fr;gap:28px;background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:22px;margin:10px 0 6px}
+.feature{display:grid;grid-template-columns:260px 1fr;gap:28px;background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:22px;margin:10px 0 6px}
 .feature img,.card img,.rp img{width:100%;display:block;border:1px solid var(--line);border-radius:3px;background:#fff}
 .chips{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0}
 .chip{border-radius:5px;padding:9px 12px;color:#fff;font-family:"Poppins",sans-serif;font-size:13px;line-height:1.4}.chip b{display:block;font-size:14px;font-weight:600;margin-bottom:2px}
@@ -24,7 +24,7 @@ h1{font-size:clamp(28px,4.4vw,40px);line-height:1.12;margin:6px 0 4px}
 .btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
 .btn{font-family:"Poppins",sans-serif;font-size:14px;font-weight:500;background:var(--teal);color:#fff;text-decoration:none;padding:9px 14px;border-radius:5px;display:inline-block}
 .btn:hover{background:var(--gold);color:#fff}.btn.alt{background:transparent;color:var(--teal);border:1.5px solid var(--teal)}.btn.alt:hover{border-color:var(--gold);color:var(--gold)}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px;margin:8px 0 10px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:18px;margin:8px 0 10px}
 .card{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:14px;text-decoration:none;color:var(--ink);display:flex;flex-direction:column;gap:10px;transition:border-color .15s}
 .card:hover{border-color:var(--gold);color:var(--ink)}.card h3{margin:2px 0 0;font-size:17px;line-height:1.25}.card p{margin:0;font-size:14.5px;color:#4a4644}
 .card .meta,.meta{font-family:"Poppins",sans-serif;font-size:12px;color:var(--muted);letter-spacing:.3px}
@@ -36,6 +36,23 @@ h1{font-size:clamp(28px,4.4vw,40px);line-height:1.12;margin:6px 0 4px}
 code{font-family:ui-monospace,Menlo,monospace;font-size:.9em;background:#efe8d3;padding:1px 5px;border-radius:3px}
 footer{border-top:1px solid var(--line);padding:18px 0 34px;color:var(--muted);font-size:14px}
 .crumb{font-family:"Poppins",sans-serif;font-size:13px;margin:22px 0 0}
-.rp{display:grid;grid-template-columns:300px 1fr;gap:32px;margin:14px 0 30px}
+.rp{display:grid;grid-template-columns:300px 1fr;align-items:start;gap:32px;margin:14px 0 30px}
 .rp ul{padding-left:20px}.rp li{margin-bottom:6px}
-@media (max-width:760px){header.top .wrap{flex-wrap:wrap;gap:4px 16px}.brand{white-space:nowrap;font-size:15px}nav a:first-child{margin-left:0}.feature,.rp{grid-template-columns:1fr}.feature img,.rp img{max-width:190px}.chips{grid-template-columns:1fr}nav a{margin-left:12px;font-size:13px}.tl{flex-direction:column;align-items:flex-start}.tl .go{margin-left:0}}
+
+.tcard{display:block;background:var(--bg);border:2.5px solid var(--teal2);border-radius:4px;padding:5px;text-decoration:none;color:var(--ink)}
+.tcard .in{border:1px solid #9fb6b2;border-radius:2px;padding:16px 15px 15px;height:100%}
+.tcard .ser{font-family:"Poppins",sans-serif;font-size:9.5px;letter-spacing:1.8px;text-transform:uppercase;color:var(--teal2);font-weight:600;line-height:1.5}
+.tcard .tt{font-family:"Poppins",sans-serif;font-weight:600;color:var(--teal);font-size:21px;line-height:1.12;letter-spacing:-.4px;margin:8px 0 4px}
+.tcard .st{font-style:italic;color:var(--teal2);font-size:14.5px;line-height:1.35;margin-bottom:12px}
+.tcard .ch{border-radius:4px;padding:7px 10px;color:#fff;font-family:"Poppins",sans-serif;font-size:11.5px;line-height:1.4;margin-top:7px}
+.tcard .ch b{display:block;font-size:13px;font-weight:600}
+.ch.blue{background:var(--blue)}.ch.gold{background:var(--gold)}.ch.red{background:var(--red)}
+a.tcard:hover{border-color:var(--gold)}
+.hero{padding:26px 0 6px}.hero .fr{max-width:720px;background:var(--bg);border:2.5px solid var(--teal2);border-radius:4px;padding:6px}.hero .fr div{border:1px solid #9fb6b2;padding:12px;border-radius:2px}.hero img{border:0;border-radius:2px;max-width:100%}
+.card .tcard{pointer-events:none;flex:1}.card{padding:12px}
+.rbar{position:sticky;top:0;z-index:5;display:flex;align-items:center;gap:14px;flex-wrap:wrap;background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:8px 12px;margin:16px 0 14px;font-family:"Poppins",sans-serif;font-size:13.5px}
+.rbar .rt{font-weight:600;color:var(--teal);flex:1;min-width:180px}.rbar .rp2{color:var(--muted);white-space:nowrap}.rbar a.rb{text-decoration:none;white-space:nowrap}
+.rbar button{font:600 15px "Poppins",sans-serif;width:30px;height:28px;border:1px solid var(--teal);background:transparent;color:var(--teal);border-radius:4px;cursor:pointer;margin-left:4px}
+#pages{display:flex;flex-direction:column;align-items:center;gap:14px;padding-bottom:40px;overflow-x:auto}
+.pg{position:relative;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.18);flex:none}.pg canvas{display:block}.pg a.lk{position:absolute;display:block}.pg a.lk:hover{background:rgba(196,127,14,.15)}
+@media (max-width:760px){header.top .wrap{flex-wrap:wrap;gap:4px 16px}.brand{white-space:nowrap;font-size:15px}nav a:first-child{margin-left:0}.feature,.rp{grid-template-columns:1fr}.feature .tcard,.rp .tcard{max-width:340px}.chips{grid-template-columns:1fr}nav a{margin-left:12px;font-size:13px}.tl{flex-direction:column;align-items:flex-start}.tl .go{margin-left:0}}

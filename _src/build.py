@@ -26,7 +26,7 @@ h1,h2,h3{font-family:"Poppins",sans-serif;color:var(--teal);font-weight:600;lett
 h1{font-size:clamp(28px,4.4vw,40px);line-height:1.12;margin:6px 0 4px}
 .sub{font-style:italic;color:var(--teal2);font-size:clamp(18px,2.4vw,22px);margin:0 0 12px}
 .lede{font-size:17px;max-width:760px;color:#3c3836}
-.feature{display:grid;grid-template-columns:220px 1fr;gap:28px;background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:22px;margin:10px 0 6px}
+.feature{display:grid;grid-template-columns:260px 1fr;gap:28px;background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:22px;margin:10px 0 6px}
 .feature img,.card img,.rp img{width:100%;display:block;border:1px solid var(--line);border-radius:3px;background:#fff}
 .chips{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0}
 .chip{border-radius:5px;padding:9px 12px;color:#fff;font-family:"Poppins",sans-serif;font-size:13px;line-height:1.4}.chip b{display:block;font-size:14px;font-weight:600;margin-bottom:2px}
@@ -34,7 +34,7 @@ h1{font-size:clamp(28px,4.4vw,40px);line-height:1.12;margin:6px 0 4px}
 .btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
 .btn{font-family:"Poppins",sans-serif;font-size:14px;font-weight:500;background:var(--teal);color:#fff;text-decoration:none;padding:9px 14px;border-radius:5px;display:inline-block}
 .btn:hover{background:var(--gold);color:#fff}.btn.alt{background:transparent;color:var(--teal);border:1.5px solid var(--teal)}.btn.alt:hover{border-color:var(--gold);color:var(--gold)}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px;margin:8px 0 10px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:18px;margin:8px 0 10px}
 .card{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:14px;text-decoration:none;color:var(--ink);display:flex;flex-direction:column;gap:10px;transition:border-color .15s}
 .card:hover{border-color:var(--gold);color:var(--ink)}.card h3{margin:2px 0 0;font-size:17px;line-height:1.25}.card p{margin:0;font-size:14.5px;color:#4a4644}
 .card .meta,.meta{font-family:"Poppins",sans-serif;font-size:12px;color:var(--muted);letter-spacing:.3px}
@@ -46,9 +46,26 @@ h1{font-size:clamp(28px,4.4vw,40px);line-height:1.12;margin:6px 0 4px}
 code{font-family:ui-monospace,Menlo,monospace;font-size:.9em;background:#efe8d3;padding:1px 5px;border-radius:3px}
 footer{border-top:1px solid var(--line);padding:18px 0 34px;color:var(--muted);font-size:14px}
 .crumb{font-family:"Poppins",sans-serif;font-size:13px;margin:22px 0 0}
-.rp{display:grid;grid-template-columns:300px 1fr;gap:32px;margin:14px 0 30px}
+.rp{display:grid;grid-template-columns:300px 1fr;align-items:start;gap:32px;margin:14px 0 30px}
 .rp ul{padding-left:20px}.rp li{margin-bottom:6px}
-@media (max-width:760px){header.top .wrap{flex-wrap:wrap;gap:4px 16px}.brand{white-space:nowrap;font-size:15px}nav a:first-child{margin-left:0}.feature,.rp{grid-template-columns:1fr}.feature img,.rp img{max-width:190px}.chips{grid-template-columns:1fr}nav a{margin-left:12px;font-size:13px}.tl{flex-direction:column;align-items:flex-start}.tl .go{margin-left:0}}
+
+.tcard{display:block;background:var(--bg);border:2.5px solid var(--teal2);border-radius:4px;padding:5px;text-decoration:none;color:var(--ink)}
+.tcard .in{border:1px solid #9fb6b2;border-radius:2px;padding:16px 15px 15px;height:100%}
+.tcard .ser{font-family:"Poppins",sans-serif;font-size:9.5px;letter-spacing:1.8px;text-transform:uppercase;color:var(--teal2);font-weight:600;line-height:1.5}
+.tcard .tt{font-family:"Poppins",sans-serif;font-weight:600;color:var(--teal);font-size:21px;line-height:1.12;letter-spacing:-.4px;margin:8px 0 4px}
+.tcard .st{font-style:italic;color:var(--teal2);font-size:14.5px;line-height:1.35;margin-bottom:12px}
+.tcard .ch{border-radius:4px;padding:7px 10px;color:#fff;font-family:"Poppins",sans-serif;font-size:11.5px;line-height:1.4;margin-top:7px}
+.tcard .ch b{display:block;font-size:13px;font-weight:600}
+.ch.blue{background:var(--blue)}.ch.gold{background:var(--gold)}.ch.red{background:var(--red)}
+a.tcard:hover{border-color:var(--gold)}
+.hero{padding:26px 0 6px}.hero .fr{max-width:720px;background:var(--bg);border:2.5px solid var(--teal2);border-radius:4px;padding:6px}.hero .fr div{border:1px solid #9fb6b2;padding:12px;border-radius:2px}.hero img{border:0;border-radius:2px;max-width:100%}
+.card .tcard{pointer-events:none;flex:1}.card{padding:12px}
+.rbar{position:sticky;top:0;z-index:5;display:flex;align-items:center;gap:14px;flex-wrap:wrap;background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:8px 12px;margin:16px 0 14px;font-family:"Poppins",sans-serif;font-size:13.5px}
+.rbar .rt{font-weight:600;color:var(--teal);flex:1;min-width:180px}.rbar .rp2{color:var(--muted);white-space:nowrap}.rbar a.rb{text-decoration:none;white-space:nowrap}
+.rbar button{font:600 15px "Poppins",sans-serif;width:30px;height:28px;border:1px solid var(--teal);background:transparent;color:var(--teal);border-radius:4px;cursor:pointer;margin-left:4px}
+#pages{display:flex;flex-direction:column;align-items:center;gap:14px;padding-bottom:40px;overflow-x:auto}
+.pg{position:relative;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.18);flex:none}.pg canvas{display:block}.pg a.lk{position:absolute;display:block}.pg a.lk:hover{background:rgba(196,127,14,.15)}
+@media (max-width:760px){header.top .wrap{flex-wrap:wrap;gap:4px 16px}.brand{white-space:nowrap;font-size:15px}nav a:first-child{margin-left:0}.feature,.rp{grid-template-columns:1fr}.feature .tcard,.rp .tcard{max-width:340px}.chips{grid-template-columns:1fr}nav a{margin-left:12px;font-size:13px}.tl{flex-direction:column;align-items:flex-start}.tl .go{margin-left:0}}
 '''
 FONTS='<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Poppins:wght@500;600&display=swap">'
 
@@ -64,19 +81,26 @@ def page(title, desc, body, depth=0, og_img=None):
 <footer><div class="wrap">Thoughts in the Vortex · Research on NORJAK / Northwest Orient Flight 305 from the <a href="https://vault.fbi.gov/D-B-Cooper%20">FBI Vault D.B. Cooper files</a>. Citations read Vault part / PDF page / Bates number.</div></footer>
 </body></html>'''
 
+from urllib.parse import quote
+def rd(f,title,up=''):
+    return f'{up}read/?f={quote(f)}&t={quote(title)}'
+def tcard(it, href=None, cls='tcard'):
+    ch=''.join(f'<div class="ch {c}"><b>{E(a)}</b>{E(b)}</div>' for a,b,c in it.get('chips',[]))
+    tag='a' if href else 'div'; h=f' href="{href}"' if href else ''
+    return f'<{tag} class="{cls}"{h}><div class="in"><div class="ser">{E(it.get("series",""))}</div><div class="tt">{E(it["title"])}</div><div class="st">{E(it["subtitle"])}</div>{ch}</div></{tag}>'
 def card(it):
-    return f'''<a class="card" href="r/{it["slug"]}/"><img src="assets/covers/{it["cover"]}" alt="Cover of {E(it["title"])}" loading="lazy"><div><div class="meta">{"Report" if it["kind"]=="report" else "Source packet"} · {E(it["date"])}</div><h3>{E(it["title"])}</h3></div><p>{E(it["subtitle"])}</p></a>'''
+    return f'''<a class="card" href="r/{it["slug"]}/">{tcard(it)}<div class="meta">{"Report" if it["kind"]=="report" else "Source packet"} · {E(it["date"])}</div></a>'''
 
 items=S['items']; feat=next(i for i in items if i.get('featured'))
 chips=''.join(f'<div class="chip"><b>{E(a)}</b>{E(b)}</div>' for a,b in feat.get('points',[]))
-fbtn=''.join(f'<a class="btn{" alt" if k else ""}" href="files/{f}">{E(lbl)}</a>' for k,(lbl,f) in enumerate(feat['files']))
+fbtn=''.join(f'<a class="btn{" alt" if k else ""}" href="{rd(f, feat["title"] if k==0 else feat["title"]+" · Companion")}">{E(lbl)}</a>' for k,(lbl,f) in enumerate(feat['files']))
 packets=(f'<div class="kicker" id="packets">Source packets: the FBI pages, highlighted</div><div class="grid">'+''.join(card(i) for i in items if i['kind']=='packet')+'</div>') if any(i['kind']=='packet' for i in items) else ''
-body=f'''<section class="hero"><img src="assets/vortex_logo.jpg" alt="Thoughts in the Vortex"></section>
+body=f'''<section class="hero"><div class="fr"><div><img src="assets/vortex_logo.jpg" alt="Thoughts in the Vortex"></div></div></section>
 <p class="lede">{E(S["intro"])}</p>
 <div class="kicker">Latest report</div>
-<div class="feature"><a href="r/{feat["slug"]}/"><img src="assets/covers/{feat["cover"]}" alt="Cover of {E(feat["title"])}"></a><div>
+<div class="feature">{tcard(feat, "r/"+feat["slug"]+"/")}<div>
 <div class="meta">Report · {E(feat["date"])}</div><h2 style="margin:4px 0 2px;font-size:26px"><a href="r/{feat["slug"]}/" style="text-decoration:none">{E(feat["title"])}</a></h2><p class="sub">{E(feat["subtitle"])}</p>
-<p>{E(feat["summary"])}</p><div class="chips">{chips}</div><div class="btns">{fbtn}<a class="btn alt" href="r/{feat["slug"]}/">More about this report</a></div></div></div>
+<p>{E(feat["summary"])}</p><div class="btns">{fbtn}<a class="btn alt" href="r/{feat["slug"]}/">More about this report</a></div></div></div>
 <div class="kicker" id="reports">Reports</div><div class="grid">{"".join(card(i) for i in items if i["kind"]=="report")}</div>
 {packets}
 <div class="kicker">Interactive</div>
@@ -93,15 +117,19 @@ open(os.path.join(ROOT,'index.html'),'w',encoding='utf-8').write(page(S['site_ti
 
 for it in items:
     pts=''.join(f'<li><b>{E(a)}.</b> {E(b)}</li>' for a,b in it.get('points',[]))
-    btn=''.join(f'<a class="btn{" alt" if k else ""}" href="../../files/{f}">{E(lbl)}</a>' for k,(lbl,f) in enumerate(it['files']))
+    btn=''.join(f'<a class="btn{" alt" if k else ""}" href="{rd(f, it["title"] if k==0 else it["title"]+" · "+lbl.split(" (")[0], "../../")}">{E(lbl)}</a>' for k,(lbl,f) in enumerate(it['files']))
+    dls=' · '.join(f'<a href="../../files/{f}" download>{E(lbl.split(" (")[0].replace("Read the report","the report"))}</a>' for lbl,f in it['files'])
     lnk=''.join(f'<a class="btn alt" href="{E(u)}">{E(l)}</a>' for l,u in it.get('links',[]))
     b=f'''<div class="crumb"><a href="../../">Home</a> › {"Reports" if it["kind"]=="report" else "Source packets"}</div>
-<div class="rp"><a href="../../files/{it["files"][0][1]}"><img src="../../assets/covers/{it["cover"]}" alt="Cover of {E(it["title"])}"></a><div>
+<div class="rp">{tcard(it, rd(it["files"][0][1], it["title"], "../../"))}<div>
 <div class="meta">{"Report" if it["kind"]=="report" else "Source packet"} · {E(it["date"])}</div><h1>{E(it["title"])}</h1><p class="sub">{E(it["subtitle"])}</p>
 <p>{E(it["summary"])}</p>{f"<h3>Key findings</h3><ul>{pts}</ul>" if pts else ""}<div class="btns">{btn}{lnk}</div>
-<p class="meta" style="margin-top:18px">PDFs open in your browser. Citations read Vault part / PDF page / Bates number; every FBI page is in the <a href="https://vault.fbi.gov/D-B-Cooper%20">FBI Vault</a>.</p></div></div>'''
+<p class="meta" style="margin-top:18px">Download the PDF: {dls}.<br>Citations read Vault part / PDF page / Bates number; every FBI page is in the <a href="https://vault.fbi.gov/D-B-Cooper%20">FBI Vault</a>.</p></div></div>'''
     d=os.path.join(ROOT,'r',it['slug']); os.makedirs(d,exist_ok=True)
     open(os.path.join(d,'index.html'),'w',encoding='utf-8').write(page(f'{it["title"]} · Thoughts in the Vortex', it['summary'][:200], b, 2, 'assets/covers/'+it['cover']))
+rb=open(os.path.join(ROOT,'_src','reader_body.html'),encoding='utf-8').read()
+os.makedirs(os.path.join(ROOT,'read'),exist_ok=True)
+open(os.path.join(ROOT,'read','index.html'),'w',encoding='utf-8').write(page('Reader · Thoughts in the Vortex','Read Thoughts in the Vortex reports in your browser.',rb,1))
 PARTS=json.load(open(os.path.join(ROOT,'_src','parts.json')))
 rows=''.join(f'<tr><td>Part {p}</td><td>{n:,}</td><td><a href="{E(u)}">Scans on the FBI Vault ↗</a></td></tr>' for p,u,n in PARTS)
 total=sum(n for _,_,n in PARTS)

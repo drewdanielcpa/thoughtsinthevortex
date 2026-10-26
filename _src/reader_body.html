@@ -1,0 +1,49 @@
+<div class="rbar"><a class="rb" id="back" href="../">← Back</a><span class="rt" id="ttl">Loading…</span><span class="rp2" id="pg"></span><span class="rz"><button id="zo" aria-label="Zoom out">−</button><button id="zi" aria-label="Zoom in">+</button></span><a class="rb" id="dl" href="#" download>Download PDF</a></div>
+<div id="pages"><p id="msg" style="text-align:center;margin:60px 0">Loading the report…</p></div>
+<script src="../assets/pdfjs/pdf.min.js"></script>
+<script>
+(function(){
+  const q=new URLSearchParams(location.search), f=q.get('f')||'', t=q.get('t')||'Report';
+  const msg=document.getElementById('msg');
+  if(!/^[a-z0-9-]+\.pdf$/.test(f)){msg.textContent='No report selected.';return;}
+  const url='../files/'+f;
+  document.title=t+' · Thoughts in the Vortex';
+  document.getElementById('ttl').textContent=t;
+  document.getElementById('dl').href=url;
+  if(document.referrer && document.referrer.indexOf(location.host)>-1) document.getElementById('back').href=document.referrer;
+  if(!window.pdfjsLib){msg.innerHTML='The reader could not load. <a href="'+url+'">Open the PDF directly</a>.';return;}
+  pdfjsLib.GlobalWorkerOptions.workerSrc='../assets/pdfjs/pdf.worker.min.js';
+  const box=document.getElementById('pages'); let doc, zoom=1, base, pages=[], io, vis;
+  const width=()=>Math.min(box.clientWidth-8, 920)*zoom;
+  function layout(){
+    pages.forEach(p=>{const w=width(); p.el.style.width=w+'px'; p.el.style.height=(w*p.ratio)+'px'; p.el.innerHTML=''; p.done=false;});
+    pages.forEach(p=>{io.unobserve(p.el); io.observe(p.el);});
+  }
+  async function render(p){
+    if(p.done) return; p.done=true;
+    const page=await doc.getPage(p.n), v1=page.getViewport({scale:1}), w=width(), sc=w/v1.width, dpr=Math.min(window.devicePixelRatio||1,2.5);
+    const vp=page.getViewport({scale:sc}), c=document.createElement('canvas');
+    c.width=Math.floor(vp.width*dpr); c.height=Math.floor(vp.height*dpr); c.style.width=vp.width+'px'; c.style.height=vp.height+'px';
+    p.el.style.height=vp.height+'px'; p.el.innerHTML=''; p.el.appendChild(c);
+    await page.render({canvasContext:c.getContext('2d'), viewport:vp, transform:dpr!==1?[dpr,0,0,dpr,0,0]:null}).promise;
+    const anns=await page.getAnnotations();
+    for(const a of anns){ if(a.subtype!=='Link') continue;
+      const r=vp.convertToViewportRectangle(a.rect), x=Math.min(r[0],r[2]), y=Math.min(r[1],r[3]);
+      const l=document.createElement('a'); l.className='lk'; Object.assign(l.style,{left:x+'px',top:y+'px',width:Math.abs(r[2]-r[0])+'px',height:Math.abs(r[3]-r[1])+'px'});
+      if(a.url){l.href=a.url; l.target='_blank'; l.rel='noopener';}
+      else if(a.dest){l.href='#'; l.onclick=async e=>{e.preventDefault(); let d=typeof a.dest==='string'?await doc.getDestination(a.dest):a.dest; const i=await doc.getPageIndex(d[0]); pages[i].el.scrollIntoView({behavior:'smooth'});};}
+      else continue;
+      p.el.appendChild(l);}
+  }
+  pdfjsLib.getDocument(url).promise.then(async d=>{
+    doc=d; const p1=await doc.getPage(1), v=p1.getViewport({scale:1}); base=v.height/v.width; box.innerHTML='';
+    io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting) render(pages[+e.target.dataset.i]);}),{rootMargin:'1200px 0px'});
+    vis=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting) document.getElementById('pg').textContent='Page '+(+e.target.dataset.i+1)+' / '+doc.numPages;}),{threshold:0.5});
+    for(let i=0;i<doc.numPages;i++){const el=document.createElement('div'); el.className='pg'; el.dataset.i=i; box.appendChild(el); pages.push({n:i+1,el,ratio:base,done:false}); vis.observe(el);}
+    layout();
+  }).catch(()=>{msg.innerHTML='The report could not load. <a href="'+url+'">Open the PDF directly</a>.'; box.appendChild(msg);});
+  document.getElementById('zi').onclick=()=>{zoom=Math.min(zoom*1.2,3); layout();};
+  document.getElementById('zo').onclick=()=>{zoom=Math.max(zoom/1.2,0.5); layout();};
+  let rt; window.addEventListener('resize',()=>{clearTimeout(rt); rt=setTimeout(layout,250);});
+})();
+</script>

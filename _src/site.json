@@ -42,7 +42,25 @@
           "https://www.google.com/maps/d/viewer?mid=1d67-LrLwjPTCPZahP06Hrg1cofUbos8"
         ]
       ],
-      "cover": "oscillations-in-my-sanity.jpg"
+      "cover": "oscillations-in-my-sanity.jpg",
+      "series": "NORJAK · Flight 305 · The jump and the drop zone",
+      "chips": [
+        [
+          "Jump · 8:11 PM ±1 min",
+          "Heard live on the company radio and reproduced by the January 1972 sled test",
+          "blue"
+        ],
+        [
+          "Drop zone · 1972 zone holds",
+          "Every 8:11 zone rebuilt with real 1971 winds falls inside NWA's envelope",
+          "gold"
+        ],
+        [
+          "Route · V-23 or bust",
+          "Low, slow and gear-down left one workable way south",
+          "red"
+        ]
+      ]
     },
     {
       "slug": "two-cards-one-chute",
@@ -71,7 +89,20 @@
           "two-cards-one-chute.pdf"
         ]
       ],
-      "cover": "two-cards-one-chute.jpg"
+      "cover": "two-cards-one-chute.jpg",
+      "series": "NORJAK · Flight 305 · The parachute left behind",
+      "chips": [
+        [
+          "Card A · 26′",
+          "Pioneer Parachute Co. · 26′ ripstop conical · survives with the chute (photographed 2011)",
+          "blue"
+        ],
+        [
+          "Card B · 24′",
+          "Steinthal Mfg. Co. · 24′ rip stop · 60-9707 · 7/60 · known only from FBI paperwork",
+          "gold"
+        ]
+      ]
     }
   ],
   "timeline": {

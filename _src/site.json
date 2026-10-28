@@ -3,6 +3,7 @@
   "domain": "thoughtsinthevortex.com",
   "tagline": "Research notes on the 1971 NORJAK hijacking, built from the FBI Vault D.B. Cooper files.",
   "intro": "Long-form write-ups on Northwest Orient Flight 305, the D.B. Cooper hijacking of November 24, 1971. Every claim is tied to the FBI's own pages, cited as Vault part / PDF page / Bates number, so you can check it yourself.",
+  "feedback_api": "https://tv-feedback.drewdanielcpa-281.workers.dev",
   "items": [
     {
       "slug": "oscillations",

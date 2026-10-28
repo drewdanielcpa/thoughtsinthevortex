@@ -1,0 +1,50 @@
+<div class="crumb"><a href="../../">Home</a> › <a href="../">Feedback</a> › Inbox</div>
+<h1>Feedback inbox</h1>
+<p class="lede">Private. Enter the admin key to load submissions. The key stays in this browser tab only.</p>
+<form class="akey" id="keyform" data-api="{{API}}"><input id="key" type="password" autocomplete="current-password" placeholder="Admin key"><button type="submit">Load</button><button type="button" class="alt" id="forget">Forget key</button></form>
+<div id="panel" hidden>
+<div class="afil">Show <select id="fkind"><option value="">Feedback &amp; suggestions</option><option value="feedback">Feedback only</option><option value="suggestion">Suggestions only</option></select>
+<select id="fstatus"><option value="">Any status</option><option value="new" selected>New</option><option value="read">Read</option><option value="archived">Archived</option></select>
+<button type="button" class="alt" id="csv" style="font:500 13px Poppins,sans-serif;padding:6px 10px;border:1.5px solid var(--teal);border-radius:5px;background:transparent;color:var(--teal);cursor:pointer">Download CSV</button>
+<span id="count" class="meta"></span></div>
+<div id="list"></div>
+</div>
+<p class="fmsg err" id="err"></p>
+<script>
+(function(){
+  var API=document.getElementById('keyform').getAttribute('data-api').replace(/\/$/,''), keyEl=document.getElementById('key'), err=document.getElementById('err');
+  function store(k,v){try{if(v===null)sessionStorage.removeItem(k);else sessionStorage.setItem(k,v);}catch(e){}}
+  function get(k){try{return sessionStorage.getItem(k);}catch(e){return null;}}
+  var key=get('tvkey')||'';
+  function q(){var p=new URLSearchParams(),k=document.getElementById('fkind').value,s=document.getElementById('fstatus').value;if(k)p.set('kind',k);if(s)p.set('status',s);var t=p.toString();return t?'?'+t:'';}
+  function call(path,opt){opt=opt||{};opt.headers=Object.assign({'Authorization':'Bearer '+key},opt.headers||{});return fetch(API+path,opt).then(function(r){if(r.status===401)throw new Error('That key was not accepted.');if(!r.ok)throw new Error('Server error ('+r.status+').');return r;});}
+  function fmt(iso){var d=new Date(iso);return isNaN(d)?iso:d.toLocaleString([], {dateStyle:'medium',timeStyle:'short'});}
+  function el(tag,cls,text){var e=document.createElement(tag);if(cls)e.className=cls;if(text!=null)e.textContent=text;return e;}
+  function load(){
+    err.textContent='';
+    call('/entries'+q()).then(function(r){return r.json();}).then(function(j){
+      store('tvkey',key);document.getElementById('panel').hidden=false;
+      var list=document.getElementById('list');list.innerHTML='';
+      document.getElementById('count').textContent=j.entries.length+(j.entries.length===1?' entry':' entries');
+      if(!j.entries.length){list.appendChild(el('p','meta','Nothing here yet.'));}
+      j.entries.forEach(function(e){
+        var box=el('div','aitem '+e.status), m=el('div','meta');
+        var b=el('b',null,e.kind==='feedback'?'Feedback':'Suggestion');m.appendChild(b);
+        m.appendChild(document.createTextNode((e.kind==='feedback'?' on '+(e.writeup_title||e.writeup):'')+' · '+fmt(e.created_at)+' · #'+e.id+' · '+e.status));
+        box.appendChild(m);box.appendChild(el('div','msg',e.message));
+        var row=el('div','arow');
+        ['new','read','archived'].forEach(function(s){if(s===e.status)return;var bt=el('button','alt','Mark '+s);bt.type='button';
+          bt.onclick=function(){call('/entries/'+e.id+'/status',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({status:s})}).then(load).catch(function(x){err.textContent=x.message;});};row.appendChild(bt);});
+        box.appendChild(row);list.appendChild(box);
+      });
+    }).catch(function(x){err.textContent=x.message==='Failed to fetch'?"Couldn't reach the server.":x.message;});
+  }
+  document.getElementById('keyform').addEventListener('submit',function(e){e.preventDefault();key=keyEl.value.trim();if(key)load();});
+  document.getElementById('forget').onclick=function(){store('tvkey',null);key='';keyEl.value='';document.getElementById('panel').hidden=true;};
+  document.getElementById('fkind').onchange=load;document.getElementById('fstatus').onchange=load;
+  document.getElementById('csv').onclick=function(){
+    call('/entries.csv'+q()).then(function(r){return r.blob();}).then(function(b){var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='vortex-feedback-'+new Date().toISOString().slice(0,10)+'.csv';document.body.appendChild(a);a.click();a.remove();}).catch(function(x){err.textContent=x.message;});
+  };
+  if(key){keyEl.value=key;load();}
+})();
+</script>

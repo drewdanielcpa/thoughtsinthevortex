@@ -11,6 +11,8 @@ Drew Daniel's D.B. Cooper (NORJAK) research site, published with GitHub Pages fr
 - `downloads/`: the OCR text pack and the SQLite database ZIPs, plus `index.html` (built from `_src/parts.json`). Rebuild the ZIPs from Drew's `dbcooper.db` when the OCR changes.
 - `timeline/`: the Flight 305 Timeline Wheel, a self-contained page plus its `pages/` images. build.py injects a slim site bar right after `<body>` (between `<!--tv-bar-->` markers), so a replacement timeline picks it up automatically.
 - Home (`index.html`) is the logo plus three tiles: Write-ups (`writeups/`), Timeline and FBI Files (`downloads/`).
+- `feedback/`: the anonymous Feedback & suggestions page (templates `_src/feedback_body.html`; the write-up dropdown is built from site.json) and `feedback/admin/`, the private inbox (enter the admin key; view, mark read/archived, download CSV).
+- `_feedback-worker/`: the Cloudflare Worker + D1 database that stores submissions (`tv-feedback`). Its URL is `feedback_api` in site.json. It keeps no name, email, IP or user agent; rate limiting uses a one-way daily hash.
 - `CNAME` (thoughtsinthevortex.com) and `.nojekyll`: leave these in place.
 
 ## Adding or updating a write-up
@@ -19,3 +21,19 @@ Drew Daniel's D.B. Cooper (NORJAK) research site, published with GitHub Pages fr
 3. Run `python3 _src/build.py`, check the pages, then commit and push to `main`. Pages redeploys in a minute or two.
 
 The source of truth for every PDF is Drew's research folder, `DBC FBI\Projects\<Project>\`. The site holds published copies only.
+
+## Feedback & suggestions
+Submissions go to the `tv-feedback` Worker and its D1 database `tv-feedback`, both in Drew's Cloudflare account.
+- Read them at `thoughtsinthevortex.com/feedback/admin/` with the admin key, or from a terminal in `_feedback-worker/`:
+  `npx wrangler d1 execute tv-feedback --remote --command "SELECT * FROM entries ORDER BY id DESC"`
+- New write-ups appear in the dropdown automatically after `python3 _src/build.py`.
+- Redeploy the Worker after changing it: `cd _feedback-worker && npx wrangler deploy`. Change the key with `npx wrangler secret put ADMIN_KEY`.
+
+### First-time Worker setup
+```
+cd _feedback-worker
+npx wrangler d1 create tv-feedback          # already done; database_id is in wrangler.jsonc
+npx wrangler d1 execute tv-feedback --remote --file=schema.sql
+npx wrangler secret put ADMIN_KEY           # any long random string; it unlocks the inbox
+npx wrangler deploy                         # URL must match feedback_api in site.json
+```

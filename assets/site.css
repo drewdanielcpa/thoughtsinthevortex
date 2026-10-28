@@ -63,4 +63,21 @@ a.tcard:hover{border-color:var(--gold)}
 .tile .tk{font-family:"Poppins",sans-serif;font-weight:600;font-size:24px;color:#fff;letter-spacing:-.3px}
 .tile .td{font-size:14.5px;line-height:1.45;color:#dfe8e5;flex:1}.tile .tg{font-family:"Poppins",sans-serif;font-weight:600;font-size:14px;color:#f4c86a}
 .tile.hot{background:var(--gold);border-color:var(--gold)}.tile.hot .td{color:#fff6e0}.tile.hot .tg{color:#fff}.tile.hot:hover{border-color:var(--teal)}
+.fbnote{text-align:center;font-size:15px;color:var(--muted);margin:22px auto 0;max-width:880px}
+.notice{background:var(--paper);border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:6px;padding:14px 18px;margin:14px 0 6px;font-size:15.5px;max-width:880px}.notice p{margin:0}.notice p+p{margin-top:8px}
+.fbgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:8px 0 34px}
+.fbox{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:20px 20px 18px;scroll-margin-top:16px}.fbox h2{margin:0 0 4px;font-size:21px}.fbox>p{margin:0 0 14px;font-size:15px;color:#4a4644}
+.fbox label{display:block;font-family:"Poppins",sans-serif;font-size:13px;font-weight:600;color:var(--teal);margin:12px 0 5px}
+.fbox select,.fbox textarea,.akey input{width:100%;font:16px/1.5 "Lora",Georgia,serif;color:var(--ink);background:#fff;border:1.5px solid var(--line);border-radius:5px;padding:9px 11px}
+.fbox textarea{min-height:170px;resize:vertical}.fbox select:focus,.fbox textarea:focus,.akey input:focus{outline:none;border-color:var(--teal)}
+.fbox .row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:12px;flex-wrap:wrap}.fbox .cnt{font-family:"Poppins",sans-serif;font-size:12px;color:var(--muted)}
+.fbox button,.akey button,.arow button{font-family:"Poppins",sans-serif;font-size:14px;font-weight:500;background:var(--teal);color:#fff;border:0;padding:10px 16px;border-radius:5px;cursor:pointer}
+.fbox button:hover,.akey button:hover{background:var(--gold)}.fbox button:disabled{opacity:.6;cursor:default}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.fmsg{font-family:"Poppins",sans-serif;font-size:13.5px;margin-top:10px;min-height:1.4em}.fmsg.ok{color:#2f6b3a}.fmsg.err{color:var(--red)}
+.akey{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0}.akey input{flex:1;min-width:220px}.akey button.alt,.arow button.alt{background:transparent;color:var(--teal);border:1.5px solid var(--teal)}
+.afil{display:flex;gap:8px;flex-wrap:wrap;align-items:center;font-family:"Poppins",sans-serif;font-size:13.5px;margin:10px 0}.afil select{font:14px "Poppins",sans-serif;padding:6px 8px;border:1.5px solid var(--line);border-radius:5px;background:#fff}
+.aitem{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:14px 16px;margin:10px 0}.aitem.read{opacity:.75}.aitem.archived{opacity:.5}
+.aitem .meta b{color:var(--teal)}.aitem .msg{white-space:pre-wrap;margin:8px 0 10px;overflow-wrap:anywhere}.arow{display:flex;gap:8px;flex-wrap:wrap}.arow button{font-size:12.5px;padding:6px 10px}
+@media (max-width:760px){.fbgrid{grid-template-columns:1fr}}
 @media (max-width:760px){.tiles{grid-template-columns:1fr}.home .hero{padding-top:18px}header.top .wrap{flex-wrap:wrap;gap:4px 16px}.brand{white-space:nowrap;font-size:15px}nav a:first-child{margin-left:0}.feature,.rp{grid-template-columns:1fr}.feature .tcard,.rp .tcard{max-width:340px}.chips{grid-template-columns:1fr}nav a{margin-left:12px;font-size:13px}.tl{flex-direction:column;align-items:flex-start}.tl .go{margin-left:0}}

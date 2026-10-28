@@ -1,0 +1,61 @@
+<div class="crumb"><a href="../">Home</a> › Feedback</div>
+<h1>Feedback &amp; suggestions</h1>
+<p class="lede">Spot something that doesn't square with the files, have a source worth a look, or want a topic covered next? Send it here.</p>
+<div class="notice">
+<p><b>Everything is anonymous.</b> There's no name or email field, and the site doesn't keep your IP address. Please leave out anything you wouldn't want read.</p>
+<p>We'll consider feedback and suggestions periodically and may or may not respond to them in future write-ups. Individual messages don't get a direct reply.</p>
+</div>
+<div class="fbgrid" data-api="{{API}}">
+<form class="fbox" id="feedback" data-kind="feedback" novalidate>
+<h2>Feedback on a write-up</h2>
+<p>Corrections, questions, sources, or anything else about a specific write-up.</p>
+<label for="fb-w">Which write-up?</label>
+<select id="fb-w" name="writeup" required><option value="">Choose a write-up…</option>{{OPTIONS}}</select>
+<label for="fb-m">Your feedback</label>
+<textarea id="fb-m" name="message" maxlength="5000" required placeholder="If you're citing the FBI file, Vault part / PDF page / Bates number helps."></textarea>
+<div class="hp" aria-hidden="true"><label>Website <input name="website" tabindex="-1" autocomplete="off"></label></div>
+<div class="row"><span class="cnt">0 / 5000</span><button type="submit">Send feedback</button></div>
+<div class="fmsg" role="status" aria-live="polite"></div>
+</form>
+<form class="fbox" id="suggest" data-kind="suggestion" novalidate>
+<h2>Suggest a future topic</h2>
+<p>A question, a document, a theory or a person you'd like a future write-up to dig into.</p>
+<label for="sg-m">Your suggestion</label>
+<textarea id="sg-m" name="message" maxlength="5000" required placeholder="What should a future write-up cover? Add any leads or file pages worth starting from."></textarea>
+<div class="hp" aria-hidden="true"><label>Website <input name="website" tabindex="-1" autocomplete="off"></label></div>
+<div class="row"><span class="cnt">0 / 5000</span><button type="submit">Send suggestion</button></div>
+<div class="fmsg" role="status" aria-live="polite"></div>
+</form>
+</div>
+<script>
+(function(){
+  var grid=document.querySelector('.fbgrid'), API=grid.getAttribute('data-api').replace(/\/$/,''), t0=Date.now();
+  var sel=document.getElementById('fb-w'), w=new URLSearchParams(location.search).get('w');
+  if(w){for(var i=0;i<sel.options.length;i++){if(sel.options[i].value===w){sel.selectedIndex=i;break;}}}
+  if(location.hash==='#suggest'){document.getElementById('sg-m').focus();}
+  else if(w){document.getElementById('fb-m').focus();}
+  document.querySelectorAll('.fbox').forEach(function(f){
+    var ta=f.querySelector('textarea'), cnt=f.querySelector('.cnt'), msg=f.querySelector('.fmsg'), btn=f.querySelector('button');
+    var label=btn.textContent;
+    ta.addEventListener('input',function(){cnt.textContent=ta.value.length+' / 5000';});
+    function say(text,cls){msg.textContent=text;msg.className='fmsg'+(cls?' '+cls:'');}
+    f.addEventListener('submit',function(e){
+      e.preventDefault();
+      var kind=f.getAttribute('data-kind'), s=f.querySelector('select');
+      if(s&&!s.value){say('Choose which write-up this is about.','err');s.focus();return;}
+      if(ta.value.trim().length<3){say('Please write a little more.','err');ta.focus();return;}
+      btn.disabled=true;btn.textContent='Sending…';say('');
+      var data={kind:kind,message:ta.value,website:f.querySelector('[name=website]').value,t:Date.now()-t0};
+      if(s){data.writeup=s.value;data.writeup_title=s.options[s.selectedIndex].text;}
+      fetch(API+'/submit',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)})
+        .then(function(r){return r.json().catch(function(){return {ok:false};}).then(function(j){return {r:r,j:j};});})
+        .then(function(x){
+          if(x.j&&x.j.ok){ta.value='';cnt.textContent='0 / 5000';say(kind==='feedback'?'Thanks, your feedback was received.':'Thanks, your suggestion was received.','ok');}
+          else{say((x.j&&x.j.error)||'Something went wrong. Please try again later.','err');}
+        })
+        .catch(function(){say("Couldn't reach the server. Please try again later.",'err');})
+        .then(function(){btn.disabled=false;btn.textContent=label;});
+    });
+  });
+})();
+</script>

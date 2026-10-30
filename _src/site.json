@@ -6,9 +6,60 @@
   "feedback_api": "https://tv-feedback.drewdanielcpa-281.workers.dev",
   "items": [
     {
-      "slug": "oscillations",
+      "slug": "elsinore-ghost",
       "kind": "report",
       "featured": true,
+      "title": "Elsinore Ghost",
+      "subtitle": "D.B. Cooper Premonition or Total Booo-sheet?",
+      "date": "October 2026",
+      "summary": "In August 1971 a fortyish stranger in military jump boots asked Skydiver editor Lyle Cameron at Skylark Field, Elsinore, how a man could jump out of a jet. After the hijacking the FBI went through 12,000 registration cards looking for him. Who the tipster was, how the card sweep worked, who was on the list, and what is still unreleased.",
+      "points": [
+        [
+          "The tip: jets, rear stairs, Portland",
+          "Three months before Flight 305 the stranger asked how to exit a jet and where the Seattle and Portland jump centers were."
+        ],
+        [
+          "The sweep: 12,000 cards to 15 leads",
+          "14 run down, 13 documented eliminations; the Los Gatos lead and one Utah alibi check never come back."
+        ],
+        [
+          "The list: eight names left unredacted",
+          "Profiles of all eight, and why redaction-width fits are possibilities, not identifications."
+        ]
+      ],
+      "files": [
+        [
+          "Read the report (PDF, 36 pages)",
+          "elsinore-ghost.pdf"
+        ],
+        [
+          "Companion: every FBI page cited (PDF, 96 pages)",
+          "elsinore-ghost-companion.pdf"
+        ]
+      ],
+      "cover": "elsinore-ghost.jpg",
+      "series": "NORJAK · Flight 305 · The Elsinore lead",
+      "chips": [
+        [
+          "The tip · Aug 1971",
+          "A stranger asked how to jump from a jet and where the Seattle & Portland jump centers were",
+          "blue"
+        ],
+        [
+          "The sweep · 12,000 → 15",
+          "433 cards photographed; 13 of 15 leads closed; Los Gatos & the JPL man left open",
+          "gold"
+        ],
+        [
+          "The list · 8 named men",
+          "8 unredacted names from the FBI's ~125-jumper list, profiled",
+          "red"
+        ]
+      ]
+    },
+    {
+      "slug": "oscillations",
+      "kind": "report",
       "title": "We're Getting Some Oscillations in My Sanity",
       "subtitle": "Where the F@$# Did He Jump",
       "date": "October 2026",

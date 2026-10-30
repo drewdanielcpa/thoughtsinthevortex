@@ -132,7 +132,7 @@ wbody=f'''<div class="crumb"><a href="../">Home</a> › Write-ups</div>
 {packets}
 <div class="kicker" id="about">About the write-ups</div>
 <div class="about"><p style="margin-top:0">Everything here comes from the FBI's own NORJAK file as released on the <a href="https://vault.fbi.gov/D-B-Cooper%20">FBI Vault</a>, plus clearly marked outside sources. A citation like <code>110 / 267 / 566</code> means Vault Part 110, PDF page 267, Bates stamp DB Cooper-566, so you can open the page and read it yourself.</p>
-<p style="margin-bottom:0">Each report comes with its sources: the Oscillations report has a companion PDF reproducing every FBI page it cites, with a header on each page naming the sections that use it.</p></div>'''
+<p style="margin-bottom:0">Each report comes with its sources: the Elsinore Ghost and Oscillations reports have companion PDFs reproducing every FBI page they cite, each page labeled with its Part, PDF page and Bates number.</p></div>'''
 os.makedirs(os.path.join(ROOT,'writeups'),exist_ok=True)
 nrep=sum(1 for i in items if i['kind']=='report')
 body=f'''<section class="home"><div class="hero"><div class="fr"><div><img src="assets/vortex_logo.jpg" alt="Thoughts in the Vortex"></div></div></div>

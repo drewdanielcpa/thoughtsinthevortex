@@ -1,0 +1,472 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FOIA Tracker · Thoughts in the Vortex</title><meta name="description" content="Every Freedom of Information Act (FOIA) request filed for Thoughts in the Vortex, why we filed it, the exact serials or exhibits targeted, and where it stands in the agency queue. Days since submission update automatically every day until a final determination is issued.">
+<meta property="og:title" content="FOIA Tracker · Thoughts in the Vortex"><meta property="og:description" content="Every Freedom of Information Act (FOIA) request filed for Thoughts in the Vortex, why we filed it, the exact serials or exhibits targeted, and where it stands in the agency queue. Days since submission update automatically every day until a final determination is issued."><meta property="og:type" content="website"><meta property="og:image" content="https://thoughtsinthevortex.com/assets/vortex_logo.jpg">
+<link rel="icon" href="../assets/vortex_logo.jpg"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Poppins:wght@500;600&display=swap"><link rel="stylesheet" href="../assets/site.css"></head><body>
+<header class="top"><div class="wrap"><a class="brand" href="../">THOUGHTS IN THE VORTEX</a><nav><a href="../writeups/">Write-ups</a><a href="../timeline/">Timeline</a><a href="../downloads/">FBI Files</a><a href="../foia/">FOIA</a><a href="../feedback/">Feedback</a></nav></div></header>
+<main class="wrap"><div class="crumb"><a href="../">Home</a> › FOIA Tracker</div>
+<h1>FOIA Tracker</h1>
+<p class="sub">Primary-source requests for unreleased NORJAK serials, physical exhibits, and unredacted files</p>
+<p class="lede">Every Freedom of Information Act (FOIA) request filed for Thoughts in the Vortex, why we filed it, the exact serials or exhibits targeted, and where it stands in the agency queue. Days since submission update automatically every day until a final determination is issued.</p>
+
+<div class="foia-stats">
+  <div class="fstat">
+    <div class="num" id="stat-total">6</div>
+    <div class="lbl">Requests Filed</div>
+    <div class="subl">Active primary-source filings</div>
+  </div>
+  <div class="fstat gold">
+    <div class="num" id="stat-pending">6</div>
+    <div class="lbl">Awaiting Agency Action</div>
+    <div class="subl">In FBI RIDS intake or queue</div>
+  </div>
+  <div class="fstat blue">
+    <div class="num" id="stat-max-days">—</div>
+    <div class="lbl">Longest Active Wait</div>
+    <div class="subl" id="stat-avg-days">Calculated live each day</div>
+  </div>
+  <div class="fstat green">
+    <div class="num" id="stat-resolved">0</div>
+    <div class="lbl">Resolved / Released</div>
+    <div class="subl">Processed or final determination</div>
+  </div>
+</div>
+
+<div class="foia-bar">
+  <div class="foia-pills" role="group" aria-label="Filter by investigation">
+    <button type="button" class="fpill active" data-filter-slug="all" onclick="setFoiaSlug('all', this)">All Requests (6)</button>
+    <button type="button" class="fpill" data-filter-slug="elsinore-ghost" onclick="setFoiaSlug('elsinore-ghost', this)">Elsinore Ghost (5)</button>
+    <button type="button" class="fpill" data-filter-slug="oscillations" onclick="setFoiaSlug('oscillations', this)">Oscillations / Flight 305 Tape (1)</button>
+  </div>
+  <div class="foia-ctrls">
+    <input type="search" id="foia-q" placeholder="Search file #, Bates, name…" aria-label="Search FOIA requests" oninput="filterFoia()">
+    <select id="foia-sort" aria-label="Sort requests" onchange="sortFoia()">
+      <option value="wait-desc">Sort: Longest wait first</option>
+      <option value="date-desc">Sort: Newest filed first</option>
+      <option value="title-asc">Sort: Title (A–Z)</option>
+    </select>
+    <button type="button" id="foia-exp-btn" onclick="toggleAllFoia()">Expand all</button>
+  </div>
+</div>
+
+<div class="foia-list" id="foia-list">
+<article class="fcard" id="fbi-nwa-radio-tape" data-filed="2026-10-22" data-closed="" data-slug="oscillations" data-track="Case File / Audio &amp; Paper" data-status="Submitted" data-title="Northwest Airlines Company-Radio Tape, Minneapolis &quot;NWA Monitors&quot; Reply &amp; Seattle Sub I Index">
+  <div class="fhead" role="button" tabindex="0" aria-expanded="false" onclick="toggleFoiaCard('fbi-nwa-radio-tape')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFoiaCard('fbi-nwa-radio-tape');}">
+    <div>
+      <div class="fbadges">
+        <span class="fbadge gold">Submitted</span>
+        <span class="fbadge blue">FBI · Case File / Audio &amp; Paper</span>
+        <a class="fbadge teal" href="../r/oscillations/" onclick="event.stopPropagation()">Report: We&#x27;re Getting Some Oscillations in My Sanity ↗</a>
+      </div>
+      <h3>Northwest Airlines Company-Radio Tape, Minneapolis &quot;NWA Monitors&quot; Reply &amp; Seattle Sub I Index</h3>
+      <div class="ftarget"><b>Target File:</b> <code>Bufile 164-2111 · Seattle 164-81 (Sub I &amp; 1A-622) · Minneapolis 164-73 · Butte 164-26</code> · <b>Case #:</b> Pending RIDS Intake</div>
+      <p class="fwhy-preview">Northwest Airlines&#x27; January 9, 1972 drop-zone memo (110 / 267 / 566) and Seattle&#x27;s May 30, 1973 report (41 / 30–32 / 11398–11400) both cite an NWA communications-network tape recording and timed printout of Flight 305&#x27;s radio traffic, including the 8:11 PM oscillation call. Neither the audio recording, the voice-recorder printout sought by Seattle in 1977 (40 / 218–219 / 15913–15914), nor Minneapolis&#x27;s reply to the November 26, 1971 &quot;NWA monitors&quot; lead (111 / 23 / 1737) appears in Parts 1–122 of the FBI Vault release.</p>
+      <div class="ftoggle"><span class="ftoggle-lbl">Why we filed &amp; exact records requested ↓</span></div>
+    </div>
+    <div class="fclock" data-clock-for="fbi-nwa-radio-tape">
+      <div>
+        <div class="days-num" data-days-num>—</div>
+        <div class="days-lbl" data-days-lbl>Days Since Submission</div>
+      </div>
+      <div>
+        <div class="days-sub" data-days-sub>Filed 2026-10-22</div>
+        <div class="bar-wrap" title="Progress against 20-business-day statutory FOIA response window"><div class="bar-fill" data-days-bar style="width:0%"></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="fbody">
+    <div class="fbody-grid">
+      <div>
+        <h4>Why This Request Was Filed</h4>
+        <p>Northwest Airlines&#x27; January 9, 1972 drop-zone memo (110 / 267 / 566) and Seattle&#x27;s May 30, 1973 report (41 / 30–32 / 11398–11400) both cite an NWA communications-network tape recording and timed printout of Flight 305&#x27;s radio traffic, including the 8:11 PM oscillation call. Neither the audio recording, the voice-recorder printout sought by Seattle in 1977 (40 / 218–219 / 15913–15914), nor Minneapolis&#x27;s reply to the November 26, 1971 &quot;NWA monitors&quot; lead (111 / 23 / 1737) appears in Parts 1–122 of the FBI Vault release.</p>
+        <div class="foutcome">
+          <b>Current Status &amp; Outcome</b>
+          Submitted electronically via the FBI eFOIPA portal on October 22, 2026 ($100 fee limit authorized). Awaiting RIDS case number assignment and queue placement.
+        </div>
+      </div>
+      <div>
+        <h4>Exact Records &amp; Serials Requested</h4>
+        <ol><li>Minneapolis (164-73) and Seattle (164-81) serials from 11/26/1971–12/31/1971 responding to Director teletype 164-81-79 (111 / 23 / 1737: &quot;MINNEAPOLIS CONDUCT SIMILAR INQUIRY NORTHWEST ORIENT AIRLINES MONITORS&quot;).</li><li>Any copy, dub, transcript, or timed printout of the &quot;NWA communications network tape recording&quot; (110 / 267 / 566; 41 / 30–32 / 11398–11400; 40 / 218–219 / 15913–15914), plus any FD-192, FD-597, or 1A/1B custody, transfer, or destruction records.</li><li>The complete index or serial list of Seattle 164-81 Sub I (&quot;Tapes and Films&quot;, 50 / 388 / 21088) and any Sub I serial concerning Northwest Airlines recordings.</li><li>Exhibit 164-81-1A-622 forwarded with Butte letter dated 10/13/1977 (40 / 307 / 16109), containing investigative notes from the 9/27/1977 interview of a former NWA official.</li></ol>
+      </div>
+    </div>
+    <div class="fmeta-foot">
+      <span><b>Date Submitted:</b> 2026-10-22 · <b>Last Updated:</b> 2026-10-22 · <b>Queue:</b> Case File / Audio &amp; Paper</span>
+      <span><a href="../r/oscillations/">Read We&#x27;re Getting Some Oscillations in My Sanity →</a> · <a href="../feedback/?w=foia">Have a tip on these records? →</a></span>
+    </div>
+  </div>
+</article><article class="fcard" id="fbi-elsinore-omitted-serials" data-filed="2026-10-30" data-closed="" data-slug="elsinore-ghost" data-track="Small Track (&lt;25 pp.)" data-status="Submitted" data-title="Omitted Elsinore Return Serials: San Francisco &quot;Los Gatos&quot; Lead, SLC/Provo JPL Alibi &amp; 2002 LA ECC Inventory">
+  <div class="fhead" role="button" tabindex="0" aria-expanded="false" onclick="toggleFoiaCard('fbi-elsinore-omitted-serials')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFoiaCard('fbi-elsinore-omitted-serials');}">
+    <div>
+      <div class="fbadges">
+        <span class="fbadge gold">Submitted</span>
+        <span class="fbadge blue">FBI · Small Track (&lt;25 pp.)</span>
+        <a class="fbadge teal" href="../r/elsinore-ghost/" onclick="event.stopPropagation()">Report: Elsinore Ghost ↗</a>
+      </div>
+      <h3>Omitted Elsinore Return Serials: San Francisco &quot;Los Gatos&quot; Lead, SLC/Provo JPL Alibi &amp; 2002 LA ECC Inventory</h3>
+      <div class="ftarget"><b>Target File:</b> <code>Los Angeles 164-497 Sub A · Seattle 164A-81-G</code> · <b>Case #:</b> Pending RIDS Intake</div>
+      <p class="fwhy-preview">After pulling 12,000 Elsinore parachute registration cards and narrowing them to 15 suspect cards in December 1971, the FBI set out leads to interview all 15 men. Fourteen return serials appear in the Vault release (recording 13 eliminations), but the return serial for the 15th cardholder in Los Gatos, California and the Salt Lake City/Provo alibi check on the JPL Pasadena jumper were omitted—along with the 2002 Los Angeles Evidence Control Center search reply when LA shipped its Elsinore files to Seattle.</p>
+      <div class="ftoggle"><span class="ftoggle-lbl">Why we filed &amp; exact records requested ↓</span></div>
+    </div>
+    <div class="fclock" data-clock-for="fbi-elsinore-omitted-serials">
+      <div>
+        <div class="days-num" data-days-num>—</div>
+        <div class="days-lbl" data-days-lbl>Days Since Submission</div>
+      </div>
+      <div>
+        <div class="days-sub" data-days-sub>Filed 2026-10-30</div>
+        <div class="bar-wrap" title="Progress against 20-business-day statutory FOIA response window"><div class="bar-fill" data-days-bar style="width:0%"></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="fbody">
+    <div class="fbody-grid">
+      <div>
+        <h4>Why This Request Was Filed</h4>
+        <p>After pulling 12,000 Elsinore parachute registration cards and narrowing them to 15 suspect cards in December 1971, the FBI set out leads to interview all 15 men. Fourteen return serials appear in the Vault release (recording 13 eliminations), but the return serial for the 15th cardholder in Los Gatos, California and the Salt Lake City/Provo alibi check on the JPL Pasadena jumper were omitted—along with the 2002 Los Angeles Evidence Control Center search reply when LA shipped its Elsinore files to Seattle.</p>
+        <div class="foutcome">
+          <b>Current Status &amp; Outcome</b>
+          Submitted electronically via the FBI eFOIPA portal on October 30, 2026. Narrowly scoped to three specific omitted paper serials (&lt;25 pages total) to qualify for RIDS Small Track routing.
+        </div>
+      </div>
+      <div>
+        <h4>Exact Records &amp; Serials Requested</h4>
+        <ol><li>The San Francisco Division return serial (FD-302 / airtel) for the &quot;Los Gatos, California&quot; lead set out by Los Angeles airtel dated 12/22/1971 (64 / 405 / 26855; duplicate at 70 / 100 / 29852) to interview and eliminate the 15th Elsinore registration cardholder.</li><li>The Salt Lake City Division return serial (FD-302 / airtel) for the &quot;Provo / Salt Lake City, Utah&quot; alibi verification referenced in LA communication dated 1/17/1972 (56 / 21 / 23406) for the Elsinore jumper employed at Jet Propulsion Laboratory (JPL) in Pasadena.</li><li>The July 2002 or later Los Angeles Evidence Control Center (ECC) reply, inventory, or FD-192 generated in response to the 7/23/2002 LA-to-Seattle file transfer (52 / 34–36 / 21635–21637) instructing ECC to search for any 1B and 1C exhibits.</li></ol>
+      </div>
+    </div>
+    <div class="fmeta-foot">
+      <span><b>Date Submitted:</b> 2026-10-30 · <b>Last Updated:</b> 2026-10-30 · <b>Queue:</b> Small Track (&lt;25 pp.)</span>
+      <span><a href="../r/elsinore-ghost/">Read Elsinore Ghost →</a> · <a href="../feedback/?w=foia">Have a tip on these records? →</a></span>
+    </div>
+  </div>
+</article><article class="fcard" id="fbi-elsinore-bulky-exhibits" data-filed="2026-10-30" data-closed="" data-slug="elsinore-ghost" data-track="Physical Exhibit / Complex Track" data-status="Submitted" data-title="Bulky Exhibit LA 164-497-1B1 (433 Card Photos &amp; 55 Flight Logs) &amp; Seattle Enclosure 1A(827) (McCary Photo &amp; Logbook)">
+  <div class="fhead" role="button" tabindex="0" aria-expanded="false" onclick="toggleFoiaCard('fbi-elsinore-bulky-exhibits')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFoiaCard('fbi-elsinore-bulky-exhibits');}">
+    <div>
+      <div class="fbadges">
+        <span class="fbadge gold">Submitted</span>
+        <span class="fbadge blue">FBI · Physical Exhibit / Complex Track</span>
+        <a class="fbadge teal" href="../r/elsinore-ghost/" onclick="event.stopPropagation()">Report: Elsinore Ghost ↗</a>
+      </div>
+      <h3>Bulky Exhibit LA 164-497-1B1 (433 Card Photos &amp; 55 Flight Logs) &amp; Seattle Enclosure 1A(827) (McCary Photo &amp; Logbook)</h3>
+      <div class="ftarget"><b>Target File:</b> <code>Bulky Exhibit LA 164-497-1B1 · Seattle 164A-81-G Enclosure 1A(827)</code> · <b>Case #:</b> Pending RIDS Intake</div>
+      <p class="fwhy-preview">Form FD-192 (&quot;Register of Bulky Exhibits&quot;) in Part 53 (p. 338, Bates 22174) shows that Los Angeles logged Bulky Exhibit 164-497-1B1 on February 4, 1972 containing 433 photographs of Elsinore registration cards and 55 photographs of August 1971 flight records, with signed semi-annual retention checks through January 28, 1983. Meanwhile, Part 89 (pp. 23–31) reproduces only a degraded photocopy of Seattle Enclosure 1A(827)—Don Allen McCary&#x27;s 8½×10 Skylark Field photograph and 5-page jump logbook—obscuring the aircraft tail number (&quot;...810&quot;) and redacted certifying signatures.</p>
+      <div class="ftoggle"><span class="ftoggle-lbl">Why we filed &amp; exact records requested ↓</span></div>
+    </div>
+    <div class="fclock" data-clock-for="fbi-elsinore-bulky-exhibits">
+      <div>
+        <div class="days-num" data-days-num>—</div>
+        <div class="days-lbl" data-days-lbl>Days Since Submission</div>
+      </div>
+      <div>
+        <div class="days-sub" data-days-sub>Filed 2026-10-30</div>
+        <div class="bar-wrap" title="Progress against 20-business-day statutory FOIA response window"><div class="bar-fill" data-days-bar style="width:0%"></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="fbody">
+    <div class="fbody-grid">
+      <div>
+        <h4>Why This Request Was Filed</h4>
+        <p>Form FD-192 (&quot;Register of Bulky Exhibits&quot;) in Part 53 (p. 338, Bates 22174) shows that Los Angeles logged Bulky Exhibit 164-497-1B1 on February 4, 1972 containing 433 photographs of Elsinore registration cards and 55 photographs of August 1971 flight records, with signed semi-annual retention checks through January 28, 1983. Meanwhile, Part 89 (pp. 23–31) reproduces only a degraded photocopy of Seattle Enclosure 1A(827)—Don Allen McCary&#x27;s 8½×10 Skylark Field photograph and 5-page jump logbook—obscuring the aircraft tail number (&quot;...810&quot;) and redacted certifying signatures.</p>
+        <div class="foutcome">
+          <b>Current Status &amp; Outcome</b>
+          Submitted electronically via the FBI eFOIPA portal on October 30, 2026 as a separate physical-exhibit request so the Evidence Control Center search does not hold up the fast-track paper unredactions.
+        </div>
+      </div>
+      <div>
+        <h4>Exact Records &amp; Serials Requested</h4>
+        <ol><li>Digital copies (or complete FD-192 / FD-340 disposition and destruction logs if destroyed after 1/28/1983) of Bulky Exhibit LA 164-497-1B1: 433 photographs of Elsinore registration cards (1969–1971) and 55 photographs of August 1971 flight records (53 / 338 / 22174; transferred to Seattle 164A-81-G in July 2002 per 52 / 34–36 / 21635–21637).</li><li>High-resolution color or grayscale scan of the original 8½×10 photograph in Seattle Enclosure 1A(827) (106 / 148 / 48444; low-res copy at 89 / 24 / 39411) so the aircraft tail number (&quot;...810&quot;) and jump pilot in the doorway can be read clearly.</li><li>Reprocessing of Exemption (b)(6)/(b)(7)(C) redactions in the &quot;Signature &amp; License No.&quot; column on McCary&#x27;s 5-page jump logbook (89 / 27–31 / 39414–39418) for any deceased certifying pilot or instructor (including Lyle Hazen Cameron, d. 6/19/1993, FOIPA #1358876-000).</li></ol>
+      </div>
+    </div>
+    <div class="fmeta-foot">
+      <span><b>Date Submitted:</b> 2026-10-30 · <b>Last Updated:</b> 2026-10-30 · <b>Queue:</b> Physical Exhibit / Complex Track</span>
+      <span><a href="../r/elsinore-ghost/">Read Elsinore Ghost →</a> · <a href="../feedback/?w=foia">Have a tip on these records? →</a></span>
+    </div>
+  </div>
+</article><article class="fcard" id="fbi-elsinore-jack-douglas" data-filed="2026-10-30" data-closed="" data-slug="elsinore-ghost" data-track="Small Track (100-Yr Rule + Proof of Death)" data-status="Submitted" data-title="Deceased Elsinore Jumper: Jack D. Douglas (born John David Swacina, 1919–1994) — CRS Search &amp; Part 56/64 Unredactions">
+  <div class="fhead" role="button" tabindex="0" aria-expanded="false" onclick="toggleFoiaCard('fbi-elsinore-jack-douglas')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFoiaCard('fbi-elsinore-jack-douglas');}">
+    <div>
+      <div class="fbadges">
+        <span class="fbadge gold">Submitted</span>
+        <span class="fbadge blue">FBI · Small Track (100-Yr Rule + Proof of Death)</span>
+        <a class="fbadge teal" href="../r/elsinore-ghost/" onclick="event.stopPropagation()">Report: Elsinore Ghost ↗</a>
+      </div>
+      <h3>Deceased Elsinore Jumper: Jack D. Douglas (born John David Swacina, 1919–1994) — CRS Search &amp; Part 56/64 Unredactions</h3>
+      <div class="ftarget"><b>Target File:</b> <code>Los Angeles 164-497 Sub A · Seattle 164A-81-G (Deceased Subject)</code> · <b>Case #:</b> Pending RIDS Intake</div>
+      <p class="fwhy-preview">Jack D. Douglas (born John David Swacina, DOB 12/2/1919, DOD 6/24/1994; 13023 Cimmaron Ave., Gardena, CA) is one of eight men left unredacted on the December 10, 1971 Elsinore Paricenter jumper list (64 / 373 / 26823). Redaction-width measurements show that &quot;JACK D. DOUGLAS&quot; and his 19-character former street address (&quot;13023 Cimmaron Ave.&quot;) are an exact character-width fit for the redacted Hawthorne/Big Bear jumper interviewed by SA Edward A. Romanoff on January 19, 1972 (64 / 386 / 26836). Because he was born 106 years ago and died in 1994, privacy exemptions (b)(6) and (b)(7)(C) are waived.</p>
+      <div class="ftoggle"><span class="ftoggle-lbl">Why we filed &amp; exact records requested ↓</span></div>
+    </div>
+    <div class="fclock" data-clock-for="fbi-elsinore-jack-douglas">
+      <div>
+        <div class="days-num" data-days-num>—</div>
+        <div class="days-lbl" data-days-lbl>Days Since Submission</div>
+      </div>
+      <div>
+        <div class="days-sub" data-days-sub>Filed 2026-10-30</div>
+        <div class="bar-wrap" title="Progress against 20-business-day statutory FOIA response window"><div class="bar-fill" data-days-bar style="width:0%"></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="fbody">
+    <div class="fbody-grid">
+      <div>
+        <h4>Why This Request Was Filed</h4>
+        <p>Jack D. Douglas (born John David Swacina, DOB 12/2/1919, DOD 6/24/1994; 13023 Cimmaron Ave., Gardena, CA) is one of eight men left unredacted on the December 10, 1971 Elsinore Paricenter jumper list (64 / 373 / 26823). Redaction-width measurements show that &quot;JACK D. DOUGLAS&quot; and his 19-character former street address (&quot;13023 Cimmaron Ave.&quot;) are an exact character-width fit for the redacted Hawthorne/Big Bear jumper interviewed by SA Edward A. Romanoff on January 19, 1972 (64 / 386 / 26836). Because he was born 106 years ago and died in 1994, privacy exemptions (b)(6) and (b)(7)(C) are waived.</p>
+        <div class="foutcome">
+          <b>Current Status &amp; Outcome</b>
+          Submitted electronically via the FBI eFOIPA portal on October 30, 2026 with official 1941 WWII draft card (establishing DOB 12/2/1919 under the 100-Year Rule) and California Death Index proof of death (6/24/1994) attached.
+        </div>
+      </div>
+      <div>
+        <h4>Exact Records &amp; Serials Requested</h4>
+        <ol><li>All Central Records System (CRS) main file and cross-reference serials indexed to Jack D. Douglas / John David Swacina (DOB 12/2/1919, DOD 6/24/1994).</li><li>Reprocessing and lifting of Exemption (b)(6) and (b)(7)(C) privacy redactions for Jack D. Douglas on 64 / 386 / 26836 (the 1/19/1972 Hawthorne / Big Bear jumper interview) and 56 / 21, 190–191 (23406, 23591–23592).</li><li>Unredaction of whichever of the 15 photographed Elsinore &quot;Adult Registration Form&quot; cards (64 / 396–403 / 26846–26853) belongs to Jack D. Douglas.</li></ol>
+      </div>
+    </div>
+    <div class="fmeta-foot">
+      <span><b>Date Submitted:</b> 2026-10-30 · <b>Last Updated:</b> 2026-10-30 · <b>Queue:</b> Small Track (100-Yr Rule + Proof of Death)</span>
+      <span><a href="../r/elsinore-ghost/">Read Elsinore Ghost →</a> · <a href="../feedback/?w=foia">Have a tip on these records? →</a></span>
+    </div>
+  </div>
+</article><article class="fcard" id="fbi-elsinore-john-nowell" data-filed="2026-10-30" data-closed="" data-slug="elsinore-ghost" data-track="Small Track (100-Yr Rule + Proof of Death)" data-status="Submitted" data-title="Deceased Elsinore Jumper: John Loftin Nowell Jr. (1921–1992) — CRS Search &amp; Part 56/64 Unredactions">
+  <div class="fhead" role="button" tabindex="0" aria-expanded="false" onclick="toggleFoiaCard('fbi-elsinore-john-nowell')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFoiaCard('fbi-elsinore-john-nowell');}">
+    <div>
+      <div class="fbadges">
+        <span class="fbadge gold">Submitted</span>
+        <span class="fbadge blue">FBI · Small Track (100-Yr Rule + Proof of Death)</span>
+        <a class="fbadge teal" href="../r/elsinore-ghost/" onclick="event.stopPropagation()">Report: Elsinore Ghost ↗</a>
+      </div>
+      <h3>Deceased Elsinore Jumper: John Loftin Nowell Jr. (1921–1992) — CRS Search &amp; Part 56/64 Unredactions</h3>
+      <div class="ftarget"><b>Target File:</b> <code>Los Angeles 164-497 Sub A · Seattle 164A-81-G (Deceased Subject)</code> · <b>Case #:</b> Pending RIDS Intake</div>
+      <p class="fwhy-preview">John Loftin Nowell Jr. (DOB 2/13/1921, DOD 10/21/1992; 6432 Los Arcos St., Long Beach, CA) is the only jumper whose name appears unredacted twice on the December 10, 1971 Elsinore Paricenter list (64 / 377 / 26827). His name length fits multiple redacted boxes in the January–March 1972 Southern California jumper interviews (including the Long Beach / Epp Bros. Construction interview at 64 / 385 / 26835 and Orange County interviews at 56 / 190–191). Both the FBI 100-Year Rule (born 105 years ago) and his confirmed 1992 death extinguish privacy withholdings.</p>
+      <div class="ftoggle"><span class="ftoggle-lbl">Why we filed &amp; exact records requested ↓</span></div>
+    </div>
+    <div class="fclock" data-clock-for="fbi-elsinore-john-nowell">
+      <div>
+        <div class="days-num" data-days-num>—</div>
+        <div class="days-lbl" data-days-lbl>Days Since Submission</div>
+      </div>
+      <div>
+        <div class="days-sub" data-days-sub>Filed 2026-10-30</div>
+        <div class="bar-wrap" title="Progress against 20-business-day statutory FOIA response window"><div class="bar-fill" data-days-bar style="width:0%"></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="fbody">
+    <div class="fbody-grid">
+      <div>
+        <h4>Why This Request Was Filed</h4>
+        <p>John Loftin Nowell Jr. (DOB 2/13/1921, DOD 10/21/1992; 6432 Los Arcos St., Long Beach, CA) is the only jumper whose name appears unredacted twice on the December 10, 1971 Elsinore Paricenter list (64 / 377 / 26827). His name length fits multiple redacted boxes in the January–March 1972 Southern California jumper interviews (including the Long Beach / Epp Bros. Construction interview at 64 / 385 / 26835 and Orange County interviews at 56 / 190–191). Both the FBI 100-Year Rule (born 105 years ago) and his confirmed 1992 death extinguish privacy withholdings.</p>
+        <div class="foutcome">
+          <b>Current Status &amp; Outcome</b>
+          Submitted electronically via the FBI eFOIPA portal on October 30, 2026 with official 1942 WWII draft card (establishing DOB 2/13/1921 under the 100-Year Rule) and California Death Index proof of death (10/21/1992) attached.
+        </div>
+      </div>
+      <div>
+        <h4>Exact Records &amp; Serials Requested</h4>
+        <ol><li>All Central Records System (CRS) main file and cross-reference serials indexed to John Loftin Nowell Jr. (JOHN L. NOWELL, DOB 2/13/1921, DOD 10/21/1992).</li><li>Reprocessing and lifting of Exemption (b)(6) and (b)(7)(C) redactions for John L. Nowell on 56 / 190–191 / 23591–23592 (Orange County / Laguna Beach / Anaheim jumper interviews), 64 / 385 / 26835 &amp; 56 / 23 / 23408 (Long Beach / Epp Bros. Construction interview), and 56 / 21 / 23406 (JPL Pasadena interview).</li><li>Unredaction of any of the 15 photographed Elsinore registration cards (64 / 396–403 / 26846–26853) belonging to John L. Nowell.</li></ol>
+      </div>
+    </div>
+    <div class="fmeta-foot">
+      <span><b>Date Submitted:</b> 2026-10-30 · <b>Last Updated:</b> 2026-10-30 · <b>Queue:</b> Small Track (100-Yr Rule + Proof of Death)</span>
+      <span><a href="../r/elsinore-ghost/">Read Elsinore Ghost →</a> · <a href="../feedback/?w=foia">Have a tip on these records? →</a></span>
+    </div>
+  </div>
+</article><article class="fcard" id="fbi-elsinore-gerald-booth" data-filed="2026-10-30" data-closed="" data-slug="elsinore-ghost" data-track="Small Track (100-Yr Rule + Proof of Death)" data-status="Submitted" data-title="Deceased Elsinore Jumper: Gerald Edwin Booth (1918–2009) — CRS Search &amp; Part 56/64 Unredactions">
+  <div class="fhead" role="button" tabindex="0" aria-expanded="false" onclick="toggleFoiaCard('fbi-elsinore-gerald-booth')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFoiaCard('fbi-elsinore-gerald-booth');}">
+    <div>
+      <div class="fbadges">
+        <span class="fbadge gold">Submitted</span>
+        <span class="fbadge blue">FBI · Small Track (100-Yr Rule + Proof of Death)</span>
+        <a class="fbadge teal" href="../r/elsinore-ghost/" onclick="event.stopPropagation()">Report: Elsinore Ghost ↗</a>
+      </div>
+      <h3>Deceased Elsinore Jumper: Gerald Edwin Booth (1918–2009) — CRS Search &amp; Part 56/64 Unredactions</h3>
+      <div class="ftarget"><b>Target File:</b> <code>Los Angeles 164-497 Sub A · Seattle 164A-81-G (Deceased Subject)</code> · <b>Case #:</b> Pending RIDS Intake</div>
+      <p class="fwhy-preview">Gerald Edwin Booth (DOB 7/2/1918, DOD 1/7/2009; 2275 W. Carson St., Torrance, CA)—a Morrison-Knudsen civilian contractor captured on Wake Island in December 1941 and held as a WWII POW in Japan for 44 months—appears unredacted on the December 10, 1971 Elsinore jumper list (64 / 372 / 26822). His character width matches several redacted boxes across the January–March 1972 Elsinore interview memos and registration cards, and both his 1918 birth (108 years ago) and 2009 death waive (b)(6)/(b)(7)(C) privacy redactions.</p>
+      <div class="ftoggle"><span class="ftoggle-lbl">Why we filed &amp; exact records requested ↓</span></div>
+    </div>
+    <div class="fclock" data-clock-for="fbi-elsinore-gerald-booth">
+      <div>
+        <div class="days-num" data-days-num>—</div>
+        <div class="days-lbl" data-days-lbl>Days Since Submission</div>
+      </div>
+      <div>
+        <div class="days-sub" data-days-sub>Filed 2026-10-30</div>
+        <div class="bar-wrap" title="Progress against 20-business-day statutory FOIA response window"><div class="bar-fill" data-days-bar style="width:0%"></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="fbody">
+    <div class="fbody-grid">
+      <div>
+        <h4>Why This Request Was Filed</h4>
+        <p>Gerald Edwin Booth (DOB 7/2/1918, DOD 1/7/2009; 2275 W. Carson St., Torrance, CA)—a Morrison-Knudsen civilian contractor captured on Wake Island in December 1941 and held as a WWII POW in Japan for 44 months—appears unredacted on the December 10, 1971 Elsinore jumper list (64 / 372 / 26822). His character width matches several redacted boxes across the January–March 1972 Elsinore interview memos and registration cards, and both his 1918 birth (108 years ago) and 2009 death waive (b)(6)/(b)(7)(C) privacy redactions.</p>
+        <div class="foutcome">
+          <b>Current Status &amp; Outcome</b>
+          Submitted electronically via the FBI eFOIPA portal on October 30, 2026 with official 1940 WWII draft card (establishing DOB 7/2/1918 under the 100-Year Rule) and Wake Island CPNAB POW roster / SSDI proof of death (1/7/2009) attached.
+        </div>
+      </div>
+      <div>
+        <h4>Exact Records &amp; Serials Requested</h4>
+        <ol><li>All Central Records System (CRS) main file and cross-reference serials indexed to Gerald Edwin Booth (GERALD E. BOOTH, DOB 7/2/1918, DOD 1/7/2009).</li><li>Reprocessing and lifting of Exemption (b)(6) and (b)(7)(C) privacy redactions for Gerald E. Booth across the January–March 1972 Elsinore interview memos (56 / 20–23, 190–191; 64 / 383–386) and the 15 photographed Elsinore registration cards (64 / 396–403).</li></ol>
+      </div>
+    </div>
+    <div class="fmeta-foot">
+      <span><b>Date Submitted:</b> 2026-10-30 · <b>Last Updated:</b> 2026-10-30 · <b>Queue:</b> Small Track (100-Yr Rule + Proof of Death)</span>
+      <span><a href="../r/elsinore-ghost/">Read Elsinore Ghost →</a> · <a href="../feedback/?w=foia">Have a tip on these records? →</a></span>
+    </div>
+  </div>
+</article>
+</div>
+<div class="foia-empty" id="foia-empty">No FOIA requests match that filter or search query.</div>
+
+<div class="kicker" id="about-foia">How the FOIA clock &amp; privacy waivers work</div>
+<div class="about">
+  <p style="margin-top:0"><b>Live "Days Since Submission" Counter:</b> Under the Freedom of Information Act (<code>5 U.S.C. § 552(a)(6)(A)(i)</code>), federal agencies have <b>20 business days</b> (roughly 28 calendar days, excluding weekends and federal holidays) to make an initial determination on a request. Each card above calculates the exact elapsed calendar days and estimated business days in your browser every day until a final determination is logged.</p>
+  <p><b>Why Requests Are Split by Track:</b> The FBI's Record/Information Dissemination Section (RIDS) routes requests by page volume and subject type. Narrow paper requests under 50 pages qualify for the <b>Small Track</b> queue, whereas requests for physical evidence envelopes (such as Bulky Exhibit <code>LA 164-497-1B1</code>) require a manual Evidence Control Center search. Deceased-individual requests attach official proof of death or birth records over 100 years old so RIDS analysts can lift Exemption <code>(b)(6)</code> and <code>(b)(7)(C)</code> personal-privacy redactions.</p>
+  <p style="margin-bottom:0">Spot an unreleased serial citation in the Vault that should be requested next? <a href="../feedback/?w=foia">Send a suggestion →</a></p>
+</div>
+
+<script>
+(function(){
+  var activeSlug = 'all';
+  var allOpen = false;
+
+  function parseLocalDate(str) {
+    if (!str) return null;
+    var p = str.split('-');
+    return new Date(parseInt(p[0],10), parseInt(p[1],10)-1, parseInt(p[2],10));
+  }
+
+  function countBusinessDays(d1, d2) {
+    if (!d1 || !d2 || d2 < d1) return 0;
+    var cnt = 0, cur = new Date(d1.getTime());
+    cur.setDate(cur.getDate() + 1);
+    while (cur <= d2) {
+      var day = cur.getDay();
+      if (day !== 0 && day !== 6) cnt++;
+      cur.setDate(cur.getDate() + 1);
+    }
+    return cnt;
+  }
+
+  function fmtDateShort(str) {
+    var d = parseLocalDate(str);
+    if (!d) return str;
+    var m = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][d.getMonth()];
+    return m + ' ' + d.getDate() + ', ' + d.getFullYear();
+  }
+
+  function updateClocks() {
+    var now = new Date();
+    var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    var cards = document.querySelectorAll('.fcard');
+    var maxActiveDays = 0, sumActiveDays = 0, activeCount = 0;
+
+    cards.forEach(function(card) {
+      var filedStr = card.getAttribute('data-filed');
+      var closedStr = card.getAttribute('data-closed');
+      var filed = parseLocalDate(filedStr);
+      var end = closedStr ? parseLocalDate(closedStr) : today;
+      var diffDays = filed ? Math.max(0, Math.round((end - filed) / 86400000)) : 0;
+      var bizDays = countBusinessDays(filed, end);
+      card.setAttribute('data-days', diffDays);
+
+      var clock = card.querySelector('.fclock');
+      var numEl = card.querySelector('[data-days-num]');
+      var lblEl = card.querySelector('[data-days-lbl]');
+      var subEl = card.querySelector('[data-days-sub]');
+      var barEl = card.querySelector('[data-days-bar]');
+
+      if (closedStr) {
+        numEl.textContent = diffDays + (diffDays === 1 ? ' day' : ' days');
+        lblEl.textContent = 'Total Turnaround';
+        subEl.textContent = 'Closed ' + fmtDateShort(closedStr);
+        clock.className = 'fclock done';
+        if (barEl) barEl.style.width = '100%';
+      } else {
+        numEl.textContent = diffDays + (diffDays === 1 ? ' day' : ' days');
+        lblEl.textContent = 'Days Since Submission';
+        subEl.textContent = bizDays + ' business ' + (bizDays === 1 ? 'day' : 'days') + ' · Filed ' + fmtDateShort(filedStr);
+        var pct = Math.min(100, Math.round((bizDays / 20) * 100));
+        if (barEl) barEl.style.width = Math.max(6, pct) + '%';
+        clock.className = 'fclock' + (bizDays > 20 ? ' overdue' : (bizDays >= 15 ? ' warn' : ''));
+        if (diffDays > maxActiveDays) maxActiveDays = diffDays;
+        sumActiveDays += diffDays;
+        activeCount++;
+      }
+    });
+
+    var maxEl = document.getElementById('stat-max-days');
+    var avgEl = document.getElementById('stat-avg-days');
+    if (maxEl) maxEl.textContent = activeCount ? (maxActiveDays + (maxActiveDays === 1 ? ' day' : ' days')) : '0 days';
+    if (avgEl && activeCount) {
+      var avg = (sumActiveDays / activeCount).toFixed(1).replace(/\.0$/, '');
+      avgEl.textContent = 'Avg ' + avg + ' days across ' + activeCount + ' pending';
+    }
+  }
+
+  window.toggleFoiaCard = function(id) {
+    var card = document.getElementById(id);
+    if (!card) return;
+    var isOpen = card.classList.toggle('open');
+    var head = card.querySelector('.fhead');
+    var lbl = card.querySelector('.ftoggle-lbl');
+    if (head) head.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    if (lbl) lbl.textContent = isOpen ? 'Hide request details ↑' : 'Why we filed & exact records requested ↓';
+  };
+
+  window.toggleAllFoia = function() {
+    allOpen = !allOpen;
+    document.querySelectorAll('.fcard').forEach(function(card) {
+      card.classList.toggle('open', allOpen);
+      var head = card.querySelector('.fhead');
+      var lbl = card.querySelector('.ftoggle-lbl');
+      if (head) head.setAttribute('aria-expanded', allOpen ? 'true' : 'false');
+      if (lbl) lbl.textContent = allOpen ? 'Hide request details ↑' : 'Why we filed & exact records requested ↓';
+    });
+    var btn = document.getElementById('foia-exp-btn');
+    if (btn) btn.textContent = allOpen ? 'Collapse all' : 'Expand all';
+  };
+
+  window.setFoiaSlug = function(slug, btn) {
+    activeSlug = slug;
+    document.querySelectorAll('.fpill').forEach(function(p) { p.classList.remove('active'); });
+    if (btn) btn.classList.add('active');
+    filterFoia();
+  };
+
+  window.filterFoia = function() {
+    var q = (document.getElementById('foia-q').value || '').toLowerCase().trim();
+    var visible = 0;
+    document.querySelectorAll('.fcard').forEach(function(card) {
+      var slugMatch = (activeSlug === 'all') || (card.getAttribute('data-slug') === activeSlug);
+      var textMatch = !q || card.textContent.toLowerCase().indexOf(q) !== -1;
+      var show = slugMatch && textMatch;
+      card.style.display = show ? '' : 'none';
+      if (show) visible++;
+    });
+    var emp = document.getElementById('foia-empty');
+    if (emp) emp.style.display = visible === 0 ? 'block' : 'none';
+  };
+
+  window.sortFoia = function() {
+    var mode = document.getElementById('foia-sort').value;
+    var list = document.getElementById('foia-list');
+    var cards = Array.prototype.slice.call(list.querySelectorAll('.fcard'));
+    cards.sort(function(a, b) {
+      if (mode === 'wait-desc') {
+        return (parseInt(b.getAttribute('data-days')||'0',10) - parseInt(a.getAttribute('data-days')||'0',10));
+      } else if (mode === 'date-desc') {
+        return (b.getAttribute('data-filed') || '').localeCompare(a.getAttribute('data-filed') || '');
+      } else {
+        return (a.getAttribute('data-title') || '').localeCompare(b.getAttribute('data-title') || '');
+      }
+    });
+    cards.forEach(function(c) { list.appendChild(c); });
+  };
+
+  updateClocks();
+  sortFoia();
+  setInterval(updateClocks, 60000);
+})();
+</script></main>
+<footer><div class="wrap">Thoughts in the Vortex · Research on NORJAK / Northwest Orient Flight 305 from the <a href="https://vault.fbi.gov/D-B-Cooper%20">FBI Vault D.B. Cooper files</a>. Citations read Vault part / PDF page / Bates number.</div></footer>
+</body></html>

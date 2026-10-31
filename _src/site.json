@@ -161,5 +161,148 @@
     "title": "Flight 305 Timeline Wheel",
     "summary": "The hijacking minute by minute, from the ticket counter in Portland to the FBI's first look inside the empty cabin at Reno: 246 entries, each with the FBI page it comes from.",
     "href": "timeline/"
+  },
+  "foia": {
+    "intro": "Every Freedom of Information Act (FOIA) request filed for Thoughts in the Vortex, why we filed it, the exact serials or exhibits targeted, and where it stands in the agency queue. Days since submission update automatically every day until a final determination is issued.",
+    "requests": [
+      {
+        "id": "fbi-nwa-radio-tape",
+        "title": "Northwest Airlines Company-Radio Tape, Minneapolis \"NWA Monitors\" Reply & Seattle Sub I Index",
+        "agency": "FBI",
+        "target_file": "Bufile 164-2111 · Seattle 164-81 (Sub I & 1A-622) · Minneapolis 164-73 · Butte 164-26",
+        "case_no": "Pending RIDS Intake",
+        "track": "Case File / Audio & Paper",
+        "category": "Flight 305 Radio & Jump Time",
+        "related_slug": "oscillations",
+        "related_title": "We're Getting Some Oscillations in My Sanity",
+        "filed_date": "2026-10-22",
+        "updated_date": "2026-10-22",
+        "closed_date": "",
+        "status": "Submitted",
+        "status_tone": "gold",
+        "why": "Northwest Airlines' January 9, 1972 drop-zone memo (110 / 267 / 566) and Seattle's May 30, 1973 report (41 / 30–32 / 11398–11400) both cite an NWA communications-network tape recording and timed printout of Flight 305's radio traffic, including the 8:11 PM oscillation call. Neither the audio recording, the voice-recorder printout sought by Seattle in 1977 (40 / 218–219 / 15913–15914), nor Minneapolis's reply to the November 26, 1971 \"NWA monitors\" lead (111 / 23 / 1737) appears in Parts 1–122 of the FBI Vault release.",
+        "requested_items": [
+          "Minneapolis (164-73) and Seattle (164-81) serials from 11/26/1971–12/31/1971 responding to Director teletype 164-81-79 (111 / 23 / 1737: \"MINNEAPOLIS CONDUCT SIMILAR INQUIRY NORTHWEST ORIENT AIRLINES MONITORS\").",
+          "Any copy, dub, transcript, or timed printout of the \"NWA communications network tape recording\" (110 / 267 / 566; 41 / 30–32 / 11398–11400; 40 / 218–219 / 15913–15914), plus any FD-192, FD-597, or 1A/1B custody, transfer, or destruction records.",
+          "The complete index or serial list of Seattle 164-81 Sub I (\"Tapes and Films\", 50 / 388 / 21088) and any Sub I serial concerning Northwest Airlines recordings.",
+          "Exhibit 164-81-1A-622 forwarded with Butte letter dated 10/13/1977 (40 / 307 / 16109), containing investigative notes from the 9/27/1977 interview of a former NWA official."
+        ],
+        "outcome": "Submitted electronically via the FBI eFOIPA portal on October 22, 2026 ($100 fee limit authorized). Awaiting RIDS case number assignment and queue placement."
+      },
+      {
+        "id": "fbi-elsinore-omitted-serials",
+        "title": "Omitted Elsinore Return Serials: San Francisco \"Los Gatos\" Lead, SLC/Provo JPL Alibi & 2002 LA ECC Inventory",
+        "agency": "FBI",
+        "target_file": "Los Angeles 164-497 Sub A · Seattle 164A-81-G",
+        "case_no": "Pending RIDS Intake",
+        "track": "Small Track (<25 pp.)",
+        "category": "Elsinore Paricenter Sweep",
+        "related_slug": "elsinore-ghost",
+        "related_title": "Elsinore Ghost",
+        "filed_date": "2026-10-30",
+        "updated_date": "2026-10-30",
+        "closed_date": "",
+        "status": "Submitted",
+        "status_tone": "gold",
+        "why": "After pulling 12,000 Elsinore parachute registration cards and narrowing them to 15 suspect cards in December 1971, the FBI set out leads to interview all 15 men. Fourteen return serials appear in the Vault release (recording 13 eliminations), but the return serial for the 15th cardholder in Los Gatos, California and the Salt Lake City/Provo alibi check on the JPL Pasadena jumper were omitted—along with the 2002 Los Angeles Evidence Control Center search reply when LA shipped its Elsinore files to Seattle.",
+        "requested_items": [
+          "The San Francisco Division return serial (FD-302 / airtel) for the \"Los Gatos, California\" lead set out by Los Angeles airtel dated 12/22/1971 (64 / 405 / 26855; duplicate at 70 / 100 / 29852) to interview and eliminate the 15th Elsinore registration cardholder.",
+          "The Salt Lake City Division return serial (FD-302 / airtel) for the \"Provo / Salt Lake City, Utah\" alibi verification referenced in LA communication dated 1/17/1972 (56 / 21 / 23406) for the Elsinore jumper employed at Jet Propulsion Laboratory (JPL) in Pasadena.",
+          "The July 2002 or later Los Angeles Evidence Control Center (ECC) reply, inventory, or FD-192 generated in response to the 7/23/2002 LA-to-Seattle file transfer (52 / 34–36 / 21635–21637) instructing ECC to search for any 1B and 1C exhibits."
+        ],
+        "outcome": "Submitted electronically via the FBI eFOIPA portal on October 30, 2026. Narrowly scoped to three specific omitted paper serials (<25 pages total) to qualify for RIDS Small Track routing."
+      },
+      {
+        "id": "fbi-elsinore-bulky-exhibits",
+        "title": "Bulky Exhibit LA 164-497-1B1 (433 Card Photos & 55 Flight Logs) & Seattle Enclosure 1A(827) (McCary Photo & Logbook)",
+        "agency": "FBI",
+        "target_file": "Bulky Exhibit LA 164-497-1B1 · Seattle 164A-81-G Enclosure 1A(827)",
+        "case_no": "Pending RIDS Intake",
+        "track": "Physical Exhibit / Complex Track",
+        "category": "Elsinore Paricenter Sweep",
+        "related_slug": "elsinore-ghost",
+        "related_title": "Elsinore Ghost",
+        "filed_date": "2026-10-30",
+        "updated_date": "2026-10-30",
+        "closed_date": "",
+        "status": "Submitted",
+        "status_tone": "gold",
+        "why": "Form FD-192 (\"Register of Bulky Exhibits\") in Part 53 (p. 338, Bates 22174) shows that Los Angeles logged Bulky Exhibit 164-497-1B1 on February 4, 1972 containing 433 photographs of Elsinore registration cards and 55 photographs of August 1971 flight records, with signed semi-annual retention checks through January 28, 1983. Meanwhile, Part 89 (pp. 23–31) reproduces only a degraded photocopy of Seattle Enclosure 1A(827)—Don Allen McCary's 8½×10 Skylark Field photograph and 5-page jump logbook—obscuring the aircraft tail number (\"...810\") and redacted certifying signatures.",
+        "requested_items": [
+          "Digital copies (or complete FD-192 / FD-340 disposition and destruction logs if destroyed after 1/28/1983) of Bulky Exhibit LA 164-497-1B1: 433 photographs of Elsinore registration cards (1969–1971) and 55 photographs of August 1971 flight records (53 / 338 / 22174; transferred to Seattle 164A-81-G in July 2002 per 52 / 34–36 / 21635–21637).",
+          "High-resolution color or grayscale scan of the original 8½×10 photograph in Seattle Enclosure 1A(827) (106 / 148 / 48444; low-res copy at 89 / 24 / 39411) so the aircraft tail number (\"...810\") and jump pilot in the doorway can be read clearly.",
+          "Reprocessing of Exemption (b)(6)/(b)(7)(C) redactions in the \"Signature & License No.\" column on McCary's 5-page jump logbook (89 / 27–31 / 39414–39418) for any deceased certifying pilot or instructor (including Lyle Hazen Cameron, d. 6/19/1993, FOIPA #1358876-000)."
+        ],
+        "outcome": "Submitted electronically via the FBI eFOIPA portal on October 30, 2026 as a separate physical-exhibit request so the Evidence Control Center search does not hold up the fast-track paper unredactions."
+      },
+      {
+        "id": "fbi-elsinore-jack-douglas",
+        "title": "Deceased Elsinore Jumper: Jack D. Douglas (born John David Swacina, 1919–1994) — CRS Search & Part 56/64 Unredactions",
+        "agency": "FBI",
+        "target_file": "Los Angeles 164-497 Sub A · Seattle 164A-81-G (Deceased Subject)",
+        "case_no": "Pending RIDS Intake",
+        "track": "Small Track (100-Yr Rule + Proof of Death)",
+        "category": "Elsinore Unredacted 8 Profiles",
+        "related_slug": "elsinore-ghost",
+        "related_title": "Elsinore Ghost",
+        "filed_date": "2026-10-30",
+        "updated_date": "2026-10-30",
+        "closed_date": "",
+        "status": "Submitted",
+        "status_tone": "gold",
+        "why": "Jack D. Douglas (born John David Swacina, DOB 12/2/1919, DOD 6/24/1994; 13023 Cimmaron Ave., Gardena, CA) is one of eight men left unredacted on the December 10, 1971 Elsinore Paricenter jumper list (64 / 373 / 26823). Redaction-width measurements show that \"JACK D. DOUGLAS\" and his 19-character former street address (\"13023 Cimmaron Ave.\") are an exact character-width fit for the redacted Hawthorne/Big Bear jumper interviewed by SA Edward A. Romanoff on January 19, 1972 (64 / 386 / 26836). Because he was born 106 years ago and died in 1994, privacy exemptions (b)(6) and (b)(7)(C) are waived.",
+        "requested_items": [
+          "All Central Records System (CRS) main file and cross-reference serials indexed to Jack D. Douglas / John David Swacina (DOB 12/2/1919, DOD 6/24/1994).",
+          "Reprocessing and lifting of Exemption (b)(6) and (b)(7)(C) privacy redactions for Jack D. Douglas on 64 / 386 / 26836 (the 1/19/1972 Hawthorne / Big Bear jumper interview) and 56 / 21, 190–191 (23406, 23591–23592).",
+          "Unredaction of whichever of the 15 photographed Elsinore \"Adult Registration Form\" cards (64 / 396–403 / 26846–26853) belongs to Jack D. Douglas."
+        ],
+        "outcome": "Submitted electronically via the FBI eFOIPA portal on October 30, 2026 with official 1941 WWII draft card (establishing DOB 12/2/1919 under the 100-Year Rule) and California Death Index proof of death (6/24/1994) attached."
+      },
+      {
+        "id": "fbi-elsinore-john-nowell",
+        "title": "Deceased Elsinore Jumper: John Loftin Nowell Jr. (1921–1992) — CRS Search & Part 56/64 Unredactions",
+        "agency": "FBI",
+        "target_file": "Los Angeles 164-497 Sub A · Seattle 164A-81-G (Deceased Subject)",
+        "case_no": "Pending RIDS Intake",
+        "track": "Small Track (100-Yr Rule + Proof of Death)",
+        "category": "Elsinore Unredacted 8 Profiles",
+        "related_slug": "elsinore-ghost",
+        "related_title": "Elsinore Ghost",
+        "filed_date": "2026-10-30",
+        "updated_date": "2026-10-30",
+        "closed_date": "",
+        "status": "Submitted",
+        "status_tone": "gold",
+        "why": "John Loftin Nowell Jr. (DOB 2/13/1921, DOD 10/21/1992; 6432 Los Arcos St., Long Beach, CA) is the only jumper whose name appears unredacted twice on the December 10, 1971 Elsinore Paricenter list (64 / 377 / 26827). His name length fits multiple redacted boxes in the January–March 1972 Southern California jumper interviews (including the Long Beach / Epp Bros. Construction interview at 64 / 385 / 26835 and Orange County interviews at 56 / 190–191). Both the FBI 100-Year Rule (born 105 years ago) and his confirmed 1992 death extinguish privacy withholdings.",
+        "requested_items": [
+          "All Central Records System (CRS) main file and cross-reference serials indexed to John Loftin Nowell Jr. (JOHN L. NOWELL, DOB 2/13/1921, DOD 10/21/1992).",
+          "Reprocessing and lifting of Exemption (b)(6) and (b)(7)(C) redactions for John L. Nowell on 56 / 190–191 / 23591–23592 (Orange County / Laguna Beach / Anaheim jumper interviews), 64 / 385 / 26835 & 56 / 23 / 23408 (Long Beach / Epp Bros. Construction interview), and 56 / 21 / 23406 (JPL Pasadena interview).",
+          "Unredaction of any of the 15 photographed Elsinore registration cards (64 / 396–403 / 26846–26853) belonging to John L. Nowell."
+        ],
+        "outcome": "Submitted electronically via the FBI eFOIPA portal on October 30, 2026 with official 1942 WWII draft card (establishing DOB 2/13/1921 under the 100-Year Rule) and California Death Index proof of death (10/21/1992) attached."
+      },
+      {
+        "id": "fbi-elsinore-gerald-booth",
+        "title": "Deceased Elsinore Jumper: Gerald Edwin Booth (1918–2009) — CRS Search & Part 56/64 Unredactions",
+        "agency": "FBI",
+        "target_file": "Los Angeles 164-497 Sub A · Seattle 164A-81-G (Deceased Subject)",
+        "case_no": "Pending RIDS Intake",
+        "track": "Small Track (100-Yr Rule + Proof of Death)",
+        "category": "Elsinore Unredacted 8 Profiles",
+        "related_slug": "elsinore-ghost",
+        "related_title": "Elsinore Ghost",
+        "filed_date": "2026-10-30",
+        "updated_date": "2026-10-30",
+        "closed_date": "",
+        "status": "Submitted",
+        "status_tone": "gold",
+        "why": "Gerald Edwin Booth (DOB 7/2/1918, DOD 1/7/2009; 2275 W. Carson St., Torrance, CA)—a Morrison-Knudsen civilian contractor captured on Wake Island in December 1941 and held as a WWII POW in Japan for 44 months—appears unredacted on the December 10, 1971 Elsinore jumper list (64 / 372 / 26822). His character width matches several redacted boxes across the January–March 1972 Elsinore interview memos and registration cards, and both his 1918 birth (108 years ago) and 2009 death waive (b)(6)/(b)(7)(C) privacy redactions.",
+        "requested_items": [
+          "All Central Records System (CRS) main file and cross-reference serials indexed to Gerald Edwin Booth (GERALD E. BOOTH, DOB 7/2/1918, DOD 1/7/2009).",
+          "Reprocessing and lifting of Exemption (b)(6) and (b)(7)(C) privacy redactions for Gerald E. Booth across the January–March 1972 Elsinore interview memos (56 / 20–23, 190–191; 64 / 383–386) and the 15 photographed Elsinore registration cards (64 / 396–403)."
+        ],
+        "outcome": "Submitted electronically via the FBI eFOIPA portal on October 30, 2026 with official 1940 WWII draft card (establishing DOB 7/2/1918 under the 100-Year Rule) and Wake Island CPNAB POW roster / SSDI proof of death (1/7/2009) attached."
+      }
+    ]
   }
 }

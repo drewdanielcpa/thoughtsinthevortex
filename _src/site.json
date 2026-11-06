@@ -38,20 +38,20 @@
         ]
       ],
       "cover": "elsinore-ghost.jpg",
-      "series": "NORJAK · Flight 305 · The Elsinore lead",
+      "series": "NORJAK \u00b7 Flight 305 \u00b7 The Elsinore lead",
       "chips": [
         [
-          "The tip · Aug 1971",
+          "The tip \u00b7 Aug 1971",
           "A stranger asked how to jump from a jet and where the Seattle & Portland jump centers were",
           "blue"
         ],
         [
-          "The sweep · 12,000 → 15",
+          "The sweep \u00b7 12,000 \u2192 15",
           "433 cards photographed; 13 of 15 leads closed; Los Gatos & the JPL man left open",
           "gold"
         ],
         [
-          "The list · 8 named men",
+          "The list \u00b7 8 named men",
           "8 unredacted names from the FBI's ~125-jumper list, profiled",
           "red"
         ]
@@ -66,7 +66,7 @@
       "summary": "When Cooper left the plane, where the plane was, and every place the FBI decided he could have landed. The report also tests the \"later jump\" theory, shows how Cooper's own demands pinned the plane to Victor 23, and rebuilds the drop zone with the 1971 weather-balloon winds.",
       "points": [
         [
-          "Jump: 8:11 PM, ±1 minute",
+          "Jump: 8:11 PM, \u00b11 minute",
           "Heard live on the company radio and reproduced by the January 1972 sled test."
         ],
         [
@@ -95,20 +95,20 @@
         ]
       ],
       "cover": "oscillations-in-my-sanity.jpg",
-      "series": "NORJAK · Flight 305 · The jump and the drop zone",
+      "series": "NORJAK \u00b7 Flight 305 \u00b7 The jump and the drop zone",
       "chips": [
         [
-          "Jump · 8:11 PM ±1 min",
+          "Jump \u00b7 8:11 PM \u00b11 min",
           "Heard live on the company radio and reproduced by the January 1972 sled test",
           "blue"
         ],
         [
-          "Drop zone · 1972 zone holds",
+          "Drop zone \u00b7 1972 zone holds",
           "Every 8:11 zone rebuilt with real 1971 winds falls inside NWA's envelope",
           "gold"
         ],
         [
-          "Route · V-23 or bust",
+          "Route \u00b7 V-23 or bust",
           "Low, slow and gear-down left one workable way south",
           "red"
         ]
@@ -124,7 +124,7 @@
       "points": [
         [
           "Two cards, both from 5/21/71",
-          "One for a 26′ Pioneer canopy, one for a 24′ Steinthal canopy, both signed by Cossey."
+          "One for a 26\u2032 Pioneer canopy, one for a 24\u2032 Steinthal canopy, both signed by Cossey."
         ],
         [
           "Both were already there in Reno",
@@ -142,16 +142,16 @@
         ]
       ],
       "cover": "two-cards-one-chute.jpg",
-      "series": "NORJAK · Flight 305 · The parachute left behind",
+      "series": "NORJAK \u00b7 Flight 305 \u00b7 The parachute left behind",
       "chips": [
         [
-          "Card A · 26′",
-          "Pioneer Parachute Co. · 26′ ripstop conical · survives with the chute (photographed 2011)",
+          "Card A \u00b7 26\u2032",
+          "Pioneer Parachute Co. \u00b7 26\u2032 ripstop conical \u00b7 survives with the chute (photographed 2011)",
           "blue"
         ],
         [
-          "Card B · 24′",
-          "Steinthal Mfg. Co. · 24′ rip stop · 60-9707 · 7/60 · known only from FBI paperwork",
+          "Card B \u00b7 24\u2032",
+          "Steinthal Mfg. Co. \u00b7 24\u2032 rip stop \u00b7 60-9707 \u00b7 7/60 \u00b7 known only from FBI paperwork",
           "gold"
         ]
       ]
@@ -167,9 +167,10 @@
     "requests": [
       {
         "id": "fbi-nwa-radio-tape",
+        "ref": "NWA-1",
         "title": "Northwest Airlines Company-Radio Tape, Minneapolis \"NWA Monitors\" Reply & Seattle Sub I Index",
         "agency": "FBI",
-        "target_file": "Bufile 164-2111 · Seattle 164-81 (Sub I & 1A-622) · Minneapolis 164-73 · Butte 164-26",
+        "target_file": "Bufile 164-2111 \u00b7 Seattle 164-81 (Sub I & 1A-622) \u00b7 Minneapolis 164-73 \u00b7 Butte 164-26",
         "case_no": "Pending RIDS Intake",
         "track": "Case File / Audio & Paper",
         "category": "Flight 305 Radio & Jump Time",
@@ -178,45 +179,73 @@
         "filed_date": "2026-10-22",
         "updated_date": "2026-10-22",
         "closed_date": "",
-        "status": "Submitted",
+        "appeal_deadline": "",
+        "status": "Submitted \u00b7 Awaiting Intake",
         "status_tone": "gold",
-        "why": "Northwest Airlines' January 9, 1972 drop-zone memo (110 / 267 / 566) and Seattle's May 30, 1973 report (41 / 30–32 / 11398–11400) both cite an NWA communications-network tape recording and timed printout of Flight 305's radio traffic, including the 8:11 PM oscillation call. Neither the audio recording, the voice-recorder printout sought by Seattle in 1977 (40 / 218–219 / 15913–15914), nor Minneapolis's reply to the November 26, 1971 \"NWA monitors\" lead (111 / 23 / 1737) appears in Parts 1–122 of the FBI Vault release.",
+        "why": "Northwest Airlines' January 9, 1972 drop-zone memo (110 / 267 / 566) and Seattle's May 30, 1973 report (41 / 30\u201332 / 11398\u201311400) both cite an NWA communications-network tape recording and timed printout of Flight 305's radio traffic, including the 8:11 PM oscillation call. Neither the audio recording, the voice-recorder printout sought by Seattle in 1977 (40 / 218\u2013219 / 15913\u201315914), nor Minneapolis's reply to the November 26, 1971 \"NWA monitors\" lead (111 / 23 / 1737) appears in Parts 1\u2013122 of the FBI Vault release.",
         "requested_items": [
-          "Minneapolis (164-73) and Seattle (164-81) serials from 11/26/1971–12/31/1971 responding to Director teletype 164-81-79 (111 / 23 / 1737: \"MINNEAPOLIS CONDUCT SIMILAR INQUIRY NORTHWEST ORIENT AIRLINES MONITORS\").",
-          "Any copy, dub, transcript, or timed printout of the \"NWA communications network tape recording\" (110 / 267 / 566; 41 / 30–32 / 11398–11400; 40 / 218–219 / 15913–15914), plus any FD-192, FD-597, or 1A/1B custody, transfer, or destruction records.",
+          "Minneapolis (164-73) and Seattle (164-81) serials from 11/26/1971\u201312/31/1971 responding to Director teletype 164-81-79 (111 / 23 / 1737: \"MINNEAPOLIS CONDUCT SIMILAR INQUIRY NORTHWEST ORIENT AIRLINES MONITORS\").",
+          "Any copy, dub, transcript, or timed printout of the \"NWA communications network tape recording\" (110 / 267 / 566; 41 / 30\u201332 / 11398\u201311400; 40 / 218\u2013219 / 15913\u201315914), plus any FD-192, FD-597, or 1A/1B custody, transfer, or destruction records.",
           "The complete index or serial list of Seattle 164-81 Sub I (\"Tapes and Films\", 50 / 388 / 21088) and any Sub I serial concerning Northwest Airlines recordings.",
           "Exhibit 164-81-1A-622 forwarded with Butte letter dated 10/13/1977 (40 / 307 / 16109), containing investigative notes from the 9/27/1977 interview of a former NWA official."
         ],
-        "outcome": "Submitted electronically via the FBI eFOIPA portal on October 22, 2026 ($100 fee limit authorized). Awaiting RIDS case number assignment and queue placement."
+        "outcome": "Submitted electronically via the FBI eFOIPA portal on October 22, 2026 ($100 fee cap authorized). Awaiting RIDS FOIPA request number assignment."
       },
       {
         "id": "fbi-elsinore-omitted-serials",
+        "ref": "ELS-1",
         "title": "Omitted Elsinore Return Serials: San Francisco \"Los Gatos\" Lead, SLC/Provo JPL Alibi & 2002 LA ECC Inventory",
         "agency": "FBI",
-        "target_file": "Los Angeles 164-497 Sub A · Seattle 164A-81-G",
-        "case_no": "Pending RIDS Intake",
+        "target_file": "Los Angeles 164-497 Sub A \u00b7 Seattle 164A-81-G (Specific Serials)",
+        "case_no": "FOIPA #1763839-000",
         "track": "Small Track (<25 pp.)",
         "category": "Elsinore Paricenter Sweep",
         "related_slug": "elsinore-ghost",
         "related_title": "Elsinore Ghost",
         "filed_date": "2026-10-30",
-        "updated_date": "2026-10-30",
+        "updated_date": "2026-11-05",
         "closed_date": "",
-        "status": "Submitted",
-        "status_tone": "gold",
-        "why": "After pulling 12,000 Elsinore parachute registration cards and narrowing them to 15 suspect cards in December 1971, the FBI set out leads to interview all 15 men. Fourteen return serials appear in the Vault release (recording 13 eliminations), but the return serial for the 15th cardholder in Los Gatos, California and the Salt Lake City/Provo alibi check on the JPL Pasadena jumper were omitted—along with the 2002 Los Angeles Evidence Control Center search reply when LA shipped its Elsinore files to Seattle.",
+        "appeal_deadline": "",
+        "status": "In Processing (Acknowledged)",
+        "status_tone": "blue",
+        "why": "After pulling 12,000 Elsinore parachute registration cards and narrowing them to 15 suspect cards in December 1971, the FBI set out leads to interview all 15 men. Fourteen return serials appear in the Vault release (recording 13 eliminations), but the return serial for the 15th cardholder in Los Gatos, California and the Salt Lake City/Provo alibi check on the JPL Pasadena jumper were omitted\u2014along with the 2002 Los Angeles Evidence Control Center search reply when LA shipped its Elsinore files to Seattle.",
         "requested_items": [
           "The San Francisco Division return serial (FD-302 / airtel) for the \"Los Gatos, California\" lead set out by Los Angeles airtel dated 12/22/1971 (64 / 405 / 26855; duplicate at 70 / 100 / 29852) to interview and eliminate the 15th Elsinore registration cardholder.",
           "The Salt Lake City Division return serial (FD-302 / airtel) for the \"Provo / Salt Lake City, Utah\" alibi verification referenced in LA communication dated 1/17/1972 (56 / 21 / 23406) for the Elsinore jumper employed at Jet Propulsion Laboratory (JPL) in Pasadena.",
-          "The July 2002 or later Los Angeles Evidence Control Center (ECC) reply, inventory, or FD-192 generated in response to the 7/23/2002 LA-to-Seattle file transfer (52 / 34–36 / 21635–21637) instructing ECC to search for any 1B and 1C exhibits."
+          "The July 2002 or later Los Angeles Evidence Control Center (ECC) reply, inventory, or FD-192 generated in response to the 7/23/2002 LA-to-Seattle file transfer (52 / 34\u201336 / 21635\u201321637) instructing ECC to search for any 1B and 1C exhibits."
         ],
-        "outcome": "Submitted electronically via the FBI eFOIPA portal on October 30, 2026. Narrowly scoped to three specific omitted paper serials (<25 pages total) to qualify for RIDS Small Track routing."
+        "outcome": "Acknowledged by FBI RIDS on November 5, 2026 under FOIPA Request No. 1763839-000 (Subject: \"Specific Serials (D.B. COOPER)\") and accepted into active processing (General / All Others fee category under 5 U.S.C. \u00a7 552(a)(4)(A)(ii)(III); electronic delivery via eFOIPA)."
+      },
+      {
+        "id": "fbi-elsinore-lyle-cameron",
+        "ref": "ELS-6",
+        "title": "Deceased Skydiver Editor & Tipster: Lyle Hazen Cameron (1931\u20131993) \u2014 Unprocessed LA 44-895 & LA 164-497 Cross-References",
+        "agency": "FBI",
+        "target_file": "Los Angeles 44-895 (p. 39) \u00b7 Los Angeles 164-497 & Sub A (FOIPA #1358876-000 Follow-Up)",
+        "case_no": "FOIPA #1763783-000",
+        "track": "Small Track (Deceased Subject)",
+        "category": "Elsinore Paricenter Sweep",
+        "related_slug": "elsinore-ghost",
+        "related_title": "Elsinore Ghost",
+        "filed_date": "2026-10-30",
+        "updated_date": "2026-11-05",
+        "closed_date": "",
+        "appeal_deadline": "",
+        "status": "In Processing (Acknowledged)",
+        "status_tone": "blue",
+        "why": "Lyle Hazen Cameron (DOB 1/2/1931, DOD 6/19/1993), founder and editor of Skydiver Magazine at Lake Elsinore, was the August 1971 Skylark Field source who reported the fortyish stranger asking how to jump from a jet and where the Seattle and Portland drop zones were. Although the FBI confirmed Cameron's death under prior FOIPA #1358876-000 (released 8/30/2018), that release covered only his 1966 main file and omitted his Central Records System cross-reference serials\u2014including the Los Angeles NORJAK file (LA 164-497) where his identity remained redacted under (b)(6)/(b)(7)(C).",
+        "requested_items": [
+          "Unprocessed cross-reference serial from Los Angeles file 44-895 / 45-895 (FD-302 dated 9/1/1964, p. 39, titled \"Jack L. Ruby, aka; Lee Harvey Oswald (dec.), Victim \u2014 Civil Rights\") regarding telephone calls from BB 5-6315 to Cameron's number (521-3169).",
+          "All Central Records System cross-reference serials indexed to Lyle Hazen Cameron in Los Angeles file 164-497 and 164-497 Sub A (consolidated into Seattle 164A-81-G), including unredaction of his name and identifying details on 64 / 333\u2013335, 363\u2013364, 387, 389\u2013395, 404\u2013406 and 24 / 383."
+        ],
+        "outcome": "Acknowledged by FBI RIDS on November 5, 2026 under FOIPA Request No. 1763783-000 (Subject: \"CAMERON, LYLE HAZEN\") and placed into active processing at FBI Headquarters (General / All Others fee category under 5 U.S.C. \u00a7 552(a)(4)(A)(ii)(III); electronic delivery via eFOIPA)."
       },
       {
         "id": "fbi-elsinore-bulky-exhibits",
+        "ref": "ELS-2",
         "title": "Bulky Exhibit LA 164-497-1B1 (433 Card Photos & 55 Flight Logs) & Seattle Enclosure 1A(827) (McCary Photo & Logbook)",
         "agency": "FBI",
-        "target_file": "Bulky Exhibit LA 164-497-1B1 · Seattle 164A-81-G Enclosure 1A(827)",
+        "target_file": "Bulky Exhibit LA 164-497-1B1 \u00b7 Seattle 164A-81-G Enclosure 1A(827)",
         "case_no": "Pending RIDS Intake",
         "track": "Physical Exhibit / Complex Track",
         "category": "Elsinore Paricenter Sweep",
@@ -225,21 +254,23 @@
         "filed_date": "2026-10-30",
         "updated_date": "2026-10-30",
         "closed_date": "",
-        "status": "Submitted",
+        "appeal_deadline": "",
+        "status": "Submitted \u00b7 Awaiting Intake",
         "status_tone": "gold",
-        "why": "Form FD-192 (\"Register of Bulky Exhibits\") in Part 53 (p. 338, Bates 22174) shows that Los Angeles logged Bulky Exhibit 164-497-1B1 on February 4, 1972 containing 433 photographs of Elsinore registration cards and 55 photographs of August 1971 flight records, with signed semi-annual retention checks through January 28, 1983. Meanwhile, Part 89 (pp. 23–31) reproduces only a degraded photocopy of Seattle Enclosure 1A(827)—Don Allen McCary's 8½×10 Skylark Field photograph and 5-page jump logbook—obscuring the aircraft tail number (\"...810\") and redacted certifying signatures.",
+        "why": "Form FD-192 (\"Register of Bulky Exhibits\") in Part 53 (p. 338, Bates 22174) shows that Los Angeles logged Bulky Exhibit 164-497-1B1 on February 4, 1972 containing 433 photographs of Elsinore registration cards and 55 photographs of August 1971 flight records, with signed semi-annual retention checks through January 28, 1983. Meanwhile, Part 89 (pp. 23\u201331) reproduces only a degraded photocopy of Seattle Enclosure 1A(827)\u2014Don Allen McCary's 8\u00bd\u00d710 Skylark Field photograph and 5-page jump logbook\u2014obscuring the aircraft tail number (\"...810\") and redacted certifying signatures.",
         "requested_items": [
-          "Digital copies (or complete FD-192 / FD-340 disposition and destruction logs if destroyed after 1/28/1983) of Bulky Exhibit LA 164-497-1B1: 433 photographs of Elsinore registration cards (1969–1971) and 55 photographs of August 1971 flight records (53 / 338 / 22174; transferred to Seattle 164A-81-G in July 2002 per 52 / 34–36 / 21635–21637).",
-          "High-resolution color or grayscale scan of the original 8½×10 photograph in Seattle Enclosure 1A(827) (106 / 148 / 48444; low-res copy at 89 / 24 / 39411) so the aircraft tail number (\"...810\") and jump pilot in the doorway can be read clearly.",
-          "Reprocessing of Exemption (b)(6)/(b)(7)(C) redactions in the \"Signature & License No.\" column on McCary's 5-page jump logbook (89 / 27–31 / 39414–39418) for any deceased certifying pilot or instructor (including Lyle Hazen Cameron, d. 6/19/1993, FOIPA #1358876-000)."
+          "Digital copies (or complete FD-192 / FD-340 disposition and destruction logs if destroyed after 1/28/1983) of Bulky Exhibit LA 164-497-1B1: 433 photographs of Elsinore registration cards (1969\u20131971) and 55 photographs of August 1971 flight records (53 / 338 / 22174; transferred to Seattle 164A-81-G in July 2002 per 52 / 34\u201336 / 21635\u201321637).",
+          "High-resolution color or grayscale scan of the original 8\u00bd\u00d710 photograph in Seattle Enclosure 1A(827) (106 / 148 / 48444; low-res copy at 89 / 24 / 39411) so the aircraft tail number (\"...810\") and jump pilot in the doorway can be read clearly.",
+          "Reprocessing of Exemption (b)(6)/(b)(7)(C) redactions in the \"Signature & License No.\" column on McCary's 5-page jump logbook (89 / 27\u201331 / 39414\u201339418) for any deceased certifying pilot or instructor (including Lyle Hazen Cameron, d. 6/19/1993, FOIPA #1358876-000)."
         ],
-        "outcome": "Submitted electronically via the FBI eFOIPA portal on October 30, 2026 as a separate physical-exhibit request so the Evidence Control Center search does not hold up the fast-track paper unredactions."
+        "outcome": "Submitted electronically via the FBI eFOIPA portal on October 30, 2026 as a separate physical-exhibit request so the Evidence Control Center search does not hold up fast-track paper serials."
       },
       {
         "id": "fbi-elsinore-jack-douglas",
-        "title": "Deceased Elsinore Jumper: Jack D. Douglas (born John David Swacina, 1919–1994) — CRS Search & Part 56/64 Unredactions",
+        "ref": "ELS-3",
+        "title": "Deceased Elsinore Jumper: Jack D. Douglas (born John David Swacina, 1919\u20131994) \u2014 CRS Search & Part 56/64 Unredactions",
         "agency": "FBI",
-        "target_file": "Los Angeles 164-497 Sub A · Seattle 164A-81-G (Deceased Subject)",
+        "target_file": "Los Angeles 164-497 Sub A \u00b7 Seattle 164A-81-G (Deceased Subject)",
         "case_no": "Pending RIDS Intake",
         "track": "Small Track (100-Yr Rule + Proof of Death)",
         "category": "Elsinore Unredacted 8 Profiles",
@@ -248,21 +279,23 @@
         "filed_date": "2026-10-30",
         "updated_date": "2026-10-30",
         "closed_date": "",
-        "status": "Submitted",
+        "appeal_deadline": "",
+        "status": "Submitted \u00b7 Awaiting Intake",
         "status_tone": "gold",
         "why": "Jack D. Douglas (born John David Swacina, DOB 12/2/1919, DOD 6/24/1994; 13023 Cimmaron Ave., Gardena, CA) is one of eight men left unredacted on the December 10, 1971 Elsinore Paricenter jumper list (64 / 373 / 26823). Redaction-width measurements show that \"JACK D. DOUGLAS\" and his 19-character former street address (\"13023 Cimmaron Ave.\") are an exact character-width fit for the redacted Hawthorne/Big Bear jumper interviewed by SA Edward A. Romanoff on January 19, 1972 (64 / 386 / 26836). Because he was born 106 years ago and died in 1994, privacy exemptions (b)(6) and (b)(7)(C) are waived.",
         "requested_items": [
           "All Central Records System (CRS) main file and cross-reference serials indexed to Jack D. Douglas / John David Swacina (DOB 12/2/1919, DOD 6/24/1994).",
-          "Reprocessing and lifting of Exemption (b)(6) and (b)(7)(C) privacy redactions for Jack D. Douglas on 64 / 386 / 26836 (the 1/19/1972 Hawthorne / Big Bear jumper interview) and 56 / 21, 190–191 (23406, 23591–23592).",
-          "Unredaction of whichever of the 15 photographed Elsinore \"Adult Registration Form\" cards (64 / 396–403 / 26846–26853) belongs to Jack D. Douglas."
+          "Reprocessing and lifting of Exemption (b)(6) and (b)(7)(C) privacy redactions for Jack D. Douglas on 64 / 386 / 26836 (the 1/19/1972 Hawthorne / Big Bear jumper interview) and 56 / 21, 190\u2013191 (23406, 23591\u201323592).",
+          "Unredaction of whichever of the 15 photographed Elsinore \"Adult Registration Form\" cards (64 / 396\u2013403 / 26846\u201326853) belongs to Jack D. Douglas."
         ],
-        "outcome": "Submitted electronically via the FBI eFOIPA portal on October 30, 2026 with official 1941 WWII draft card (establishing DOB 12/2/1919 under the 100-Year Rule) and California Death Index proof of death (6/24/1994) attached."
+        "outcome": "Submitted electronically via the FBI eFOIPA portal on October 30, 2026 with official 1941 WWII draft card (establishing DOB 12/2/1919 under the 100-Year Rule) and California Death Index proof of death (6/24/1994) attached. Watching whether RIDS processes the CRS search or issues a Vault-reprocessing refusal similar to FOIPA #1763828-000."
       },
       {
         "id": "fbi-elsinore-john-nowell",
-        "title": "Deceased Elsinore Jumper: John Loftin Nowell Jr. (1921–1992) — CRS Search & Part 56/64 Unredactions",
+        "ref": "ELS-4",
+        "title": "Deceased Elsinore Jumper: John Loftin Nowell Jr. (1921\u20131992) \u2014 CRS Search & Part 56/64 Unredactions",
         "agency": "FBI",
-        "target_file": "Los Angeles 164-497 Sub A · Seattle 164A-81-G (Deceased Subject)",
+        "target_file": "Los Angeles 164-497 Sub A \u00b7 Seattle 164A-81-G (Deceased Subject)",
         "case_no": "Pending RIDS Intake",
         "track": "Small Track (100-Yr Rule + Proof of Death)",
         "category": "Elsinore Unredacted 8 Profiles",
@@ -271,37 +304,166 @@
         "filed_date": "2026-10-30",
         "updated_date": "2026-10-30",
         "closed_date": "",
-        "status": "Submitted",
+        "appeal_deadline": "",
+        "status": "Submitted \u00b7 Awaiting Intake",
         "status_tone": "gold",
-        "why": "John Loftin Nowell Jr. (DOB 2/13/1921, DOD 10/21/1992; 6432 Los Arcos St., Long Beach, CA) is the only jumper whose name appears unredacted twice on the December 10, 1971 Elsinore Paricenter list (64 / 377 / 26827). His name length fits multiple redacted boxes in the January–March 1972 Southern California jumper interviews (including the Long Beach / Epp Bros. Construction interview at 64 / 385 / 26835 and Orange County interviews at 56 / 190–191). Both the FBI 100-Year Rule (born 105 years ago) and his confirmed 1992 death extinguish privacy withholdings.",
+        "why": "John Loftin Nowell Jr. (DOB 2/13/1921, DOD 10/21/1992; 6432 Los Arcos St., Long Beach, CA) is the only jumper whose name appears unredacted twice on the December 10, 1971 Elsinore Paricenter list (64 / 377 / 26827). His name length fits multiple redacted boxes in the January\u2013March 1972 Southern California jumper interviews (including the Long Beach / Epp Bros. Construction interview at 64 / 385 / 26835 and Orange County interviews at 56 / 190\u2013191). Both the FBI 100-Year Rule (born 105 years ago) and his confirmed 1992 death extinguish privacy withholdings.",
         "requested_items": [
           "All Central Records System (CRS) main file and cross-reference serials indexed to John Loftin Nowell Jr. (JOHN L. NOWELL, DOB 2/13/1921, DOD 10/21/1992).",
-          "Reprocessing and lifting of Exemption (b)(6) and (b)(7)(C) redactions for John L. Nowell on 56 / 190–191 / 23591–23592 (Orange County / Laguna Beach / Anaheim jumper interviews), 64 / 385 / 26835 & 56 / 23 / 23408 (Long Beach / Epp Bros. Construction interview), and 56 / 21 / 23406 (JPL Pasadena interview).",
-          "Unredaction of any of the 15 photographed Elsinore registration cards (64 / 396–403 / 26846–26853) belonging to John L. Nowell."
+          "Reprocessing and lifting of Exemption (b)(6) and (b)(7)(C) redactions for John L. Nowell on 56 / 190\u2013191 / 23591\u201323592 (Orange County / Laguna Beach / Anaheim jumper interviews), 64 / 385 / 26835 & 56 / 23 / 23408 (Long Beach / Epp Bros. Construction interview), and 56 / 21 / 23406 (JPL Pasadena interview).",
+          "Unredaction of any of the 15 photographed Elsinore registration cards (64 / 396\u2013403 / 26846\u201326853) belonging to John L. Nowell."
         ],
-        "outcome": "Submitted electronically via the FBI eFOIPA portal on October 30, 2026 with official 1942 WWII draft card (establishing DOB 2/13/1921 under the 100-Year Rule) and California Death Index proof of death (10/21/1992) attached."
+        "outcome": "Submitted electronically via the FBI eFOIPA portal on October 30, 2026 with official 1942 WWII draft card (establishing DOB 2/13/1921 under the 100-Year Rule) and California Death Index proof of death (10/21/1992) attached. Watching whether RIDS processes the CRS search or issues a Vault-reprocessing refusal similar to FOIPA #1763828-000."
       },
       {
         "id": "fbi-elsinore-gerald-booth",
-        "title": "Deceased Elsinore Jumper: Gerald Edwin Booth (1918–2009) — CRS Search & Part 56/64 Unredactions",
+        "ref": "ELS-5",
+        "title": "Deceased Elsinore Jumper: Gerald Edwin Booth (1918\u20132009) \u2014 CRS Search & Part 56/64 Unredactions",
         "agency": "FBI",
-        "target_file": "Los Angeles 164-497 Sub A · Seattle 164A-81-G (Deceased Subject)",
-        "case_no": "Pending RIDS Intake",
+        "target_file": "Los Angeles 164-497 Sub A \u00b7 Seattle 164A-81-G (Deceased Subject)",
+        "case_no": "FOIPA #1763828-000",
         "track": "Small Track (100-Yr Rule + Proof of Death)",
         "category": "Elsinore Unredacted 8 Profiles",
         "related_slug": "elsinore-ghost",
         "related_title": "Elsinore Ghost",
         "filed_date": "2026-10-30",
-        "updated_date": "2026-10-30",
-        "closed_date": "",
-        "status": "Submitted",
-        "status_tone": "gold",
-        "why": "Gerald Edwin Booth (DOB 7/2/1918, DOD 1/7/2009; 2275 W. Carson St., Torrance, CA)—a Morrison-Knudsen civilian contractor captured on Wake Island in December 1941 and held as a WWII POW in Japan for 44 months—appears unredacted on the December 10, 1971 Elsinore jumper list (64 / 372 / 26822). His character width matches several redacted boxes across the January–March 1972 Elsinore interview memos and registration cards, and both his 1918 birth (108 years ago) and 2009 death waive (b)(6)/(b)(7)(C) privacy redactions.",
+        "updated_date": "2026-11-04",
+        "closed_date": "2026-11-04",
+        "appeal_deadline": "2027-02-02",
+        "status": "Denied \u00b7 Reprocessing Refused",
+        "status_tone": "red",
+        "why": "Gerald Edwin Booth (DOB 7/2/1918, DOD 1/7/2009; 2275 W. Carson St., Torrance, CA)\u2014a Morrison-Knudsen civilian contractor captured on Wake Island in December 1941 and held as a WWII POW in Japan for 44 months\u2014appears unredacted on the December 10, 1971 Elsinore jumper list (64 / 372 / 26822). His character width matches several redacted boxes across the January\u2013March 1972 Elsinore interview memos and registration cards, and both his 1918 birth (108 years ago) and 2009 death waive (b)(6)/(b)(7)(C) privacy redactions.",
         "requested_items": [
           "All Central Records System (CRS) main file and cross-reference serials indexed to Gerald Edwin Booth (GERALD E. BOOTH, DOB 7/2/1918, DOD 1/7/2009).",
-          "Reprocessing and lifting of Exemption (b)(6) and (b)(7)(C) privacy redactions for Gerald E. Booth across the January–March 1972 Elsinore interview memos (56 / 20–23, 190–191; 64 / 383–386) and the 15 photographed Elsinore registration cards (64 / 396–403)."
+          "Reprocessing and lifting of Exemption (b)(6) and (b)(7)(C) privacy redactions for Gerald E. Booth across the January\u2013March 1972 Elsinore interview memos (56 / 20\u201323, 190\u2013191; 64 / 383\u2013386) and the 15 photographed Elsinore registration cards (64 / 396\u2013403)."
         ],
-        "outcome": "Submitted electronically via the FBI eFOIPA portal on October 30, 2026 with official 1940 WWII draft card (establishing DOB 7/2/1918 under the 100-Year Rule) and Wake Island CPNAB POW roster / SSDI proof of death (1/7/2009) attached."
+        "outcome": "Denied / Administratively Closed on November 4, 2026 under FOIPA Request No. 1763828-000 (Subject: \"BOOTH, GERALD EDWIN (REPROCESS VAULT MATERIAL)\"): RIDS stated \"It was determined that the records you requested do not qualify for reprocessing\" without conducting the requested CRS main/cross-reference index search and despite attached proof of birth in 1918 (108 years old) and death in 2009. Eligible for administrative appeal to DOJ OIP within 90 days (deadline: February 2, 2027)."
+      },
+      {
+        "id": "fbi-dna-tie-bench-notes",
+        "ref": "DNA-1",
+        "title": "2001\u20132002 Tie & Ticket Lab Bench Notes, 9-Locus STR Allele Tables & Pre-Test Photos (1D 889, 1D 890 & 1A 887)",
+        "agency": "FBI",
+        "target_file": "Seattle 164A-81 Enclosures 1D 889, 1D 890 & 1A 887 (Lab #010904012 HL MD & #010823017 HL)",
+        "case_no": "Pending RIDS Intake",
+        "track": "Lab Case File / CD & Bench Notes (58 pp.)",
+        "category": "DNA & Trace Evidence",
+        "related_slug": "splitting-hairs-slides",
+        "related_title": "Splitting Hair(s) Slides: DNA Deep Dive",
+        "filed_date": "2026-11-02",
+        "updated_date": "2026-11-02",
+        "closed_date": "",
+        "appeal_deadline": "",
+        "status": "Submitted \u00b7 Awaiting Intake",
+        "status_tone": "gold",
+        "why": "Because the April 2, 2002 FBI Laboratory report on combined specimens Q40/Q41 (Tie/Clip, 52 / 23\u201324 / 21624\u201325) is a one-page narrative summary that prints no allele repeat numbers, the actual 9-locus AmpFlSTR Profiler Plus allele calls and capillary electrophoresis peak heights sit inside Seattle's withheld Laboratory bench-note enclosures (1D 889 and 1D 890, indexed at 89 / 219 / 39743)\u2014alongside the missing trace examination text from the September 12, 2001 report (52 / 7\u20138 / 21606\u201307) and pre-testing photographs of the tie and boarding ticket (1A 887).",
+        "requested_items": [
+          "Exhibit SE 164A-81-1D889 (89 / 219 / 39743, \"D7 889: LAB #010823017-8PGS / LAB #010904012-10PGS / 0-4 1PG\"): The 8 pages of FBI Lab notes for Lab No. 010823017 HL, the 10 pages of FBI Lab notes for Lab No. 010904012 HL (8/23/2001 resubmission of Q40 Tie [1B7], Q41 Tie clip [1B7], and ticket [1B21]), and the 1-page 0-4 form.",
+          "Exhibit SE 164A-81-1D890 (89 / 219 / 39743, \"D7 890: LAB-#010904012 HL MD \u2014 LABORATORY NOTES FOR [Examiner] (MD) 39 PAGES, 1 CD, 1 FILM\"): All 39 pages of DNA Analysis Unit I bench notes, the digital files on the 1 CD, and a scan of the 1 quantification film (\"probed DNA membrane\"), including extraction/quantification worksheets, electropherograms, and Profiler Plus / COfiler STR allele call tables for Q40/Q41.",
+          "Exhibit SE 164A-81-1A887 (89 / 219 / 39743, \"SE 887: FD-441A FOR 1B7 AND 1B21\"): The FD-441a card and pre-testing photographs of 1B7 (tie/clip) and 1B21 (ticket) taken per Seattle Lead 1 dated 8/23/2001 (52 / 3 / 21602)."
+        ],
+        "outcome": "Submitted electronically via the FBI eFOIPA portal on November 2, 2026 under Organization: Thoughts in the Vortex ($100 fee cap authorized). Awaiting RIDS FOIPA request number assignment."
+      },
+      {
+        "id": "fbi-dna-omitted-lab-reports",
+        "ref": "DNA-2",
+        "title": "Omitted 2004\u20132011 DNA Lab Reports (L.D. Cooper 19 Items, Christiansen, Peterson 1D 14, Franklin) & CODIS Status",
+        "agency": "FBI",
+        "target_file": "Seattle Subfile SE 164A-81-DNA (Part 77, pp. 109\u2013321 & Part 89, p. 196)",
+        "case_no": "Pending RIDS Intake",
+        "track": "Lab Reports & Subfile Index",
+        "category": "DNA & Trace Evidence",
+        "related_slug": "splitting-hairs-slides",
+        "related_title": "Splitting Hair(s) Slides: DNA Deep Dive",
+        "filed_date": "2026-11-02",
+        "updated_date": "2026-11-02",
+        "closed_date": "",
+        "appeal_deadline": "",
+        "status": "Submitted \u00b7 Awaiting Intake",
+        "status_tone": "gold",
+        "why": "Seattle's DNA subfile (SE 164A-81-DNA) logs secondary DNA tubes, bench-note packets, and evidence submissions for several now-deceased suspects whose final FBI Laboratory reports were omitted from the Vault release\u2014including Sheridan Peterson (Lab #040107005 PG MD & 52-page bench notes 1D 14), Kenneth Christiansen (Lab #070816002, 7 secondary DNA tubes logged 6/8/2011), and Lynn Doyle (\"L.D.\") Cooper (19 personal items Q64\u2013Q89 acknowledged 8/31/2011 under Lab #110822002 QB for minor-contributor comparison).",
+        "requested_items": [
+          "Final Nuclear DNA and Latent Print Reports of Examination for Lab No. 110822002 QB (19 items Q64\u2013Q89 of deceased suspect Lynn Doyle Cooper submitted 8/16/2011 and acknowledged 8/31/2011 at 77 / 312\u2013316 / 33674\u201333678).",
+          "Final Nuclear DNA and Latent Print Reports of Examination for the 9/30/2011 Exclusion Samples (1B11, 1B12, 1B13 acknowledged 10/14/2011 at 77 / 317\u2013321 / 33679\u201333683).",
+          "Omitted Laboratory reports and return serials for deceased suspects: (a) Kenneth Peter Christiansen (d. 1994, two envelopes submitted 8/8/2007 at 77 / 291\u2013292 / 33651\u201352; 7 tubes logged under Lab #070816002 at 77 / 304 / 33666); (b) Lyle Collins / Clark Franklin (d. 3/31/2007, Anchorage lead 4/30/2007 at 77 / 287\u2013290 / 33648\u201350); and (c) Sheridan Peterson (d. 1/8/2021, Lab Report #040107005 PG MD for 1B6 at 77 / 166 / 33499 and 52-page bench notes SE 164A-81-DNA-1D14 at 89 / 196 / 39641).",
+          "All 1A/1D index pages for SE 164A-81-DNA after item SE 16 (9/14/2006, 89 / 196 / 39641), plus any record stating whether Q40/Q41 was retained in or removed from CODIS after the 2006 \"exclusion only\" finding (52 / 284 / 21966) and 2010 \"three or more individuals\" finding (77 / 297 / 33659)."
+        ],
+        "outcome": "Submitted electronically via the FBI eFOIPA portal on November 2, 2026 under Organization: Thoughts in the Vortex ($100 fee cap authorized). Awaiting RIDS FOIPA request number assignment."
+      },
+      {
+        "id": "fbi-dna-hair-slide-custody",
+        "ref": "DNA-3",
+        "title": "Flight 305 Headrest Hair Slide (PC-H3225 MC / LA 164-497-1A56) & Las Vegas Cigarette Butt Custody/Destruction Logs",
+        "agency": "FBI",
+        "target_file": "Bufile 164-2111 \u00b7 Seattle 164A-81 & 164A-81-G \u00b7 Las Vegas 164-60 \u00b7 Los Angeles 164-497",
+        "case_no": "Pending RIDS Intake",
+        "track": "Small Track / Custody & Lab Notes",
+        "category": "DNA & Trace Evidence",
+        "related_slug": "splitting-hairs-slides",
+        "related_title": "Splitting Hair(s) Slides: DNA Deep Dive",
+        "filed_date": "2026-11-02",
+        "updated_date": "2026-11-02",
+        "closed_date": "",
+        "appeal_deadline": "",
+        "status": "Submitted \u00b7 Awaiting Intake",
+        "status_tone": "gold",
+        "why": "In February 2002, Las Vegas reported it had no record of receiving the 1971 Seat 18-E headrest hair slide (Q2, Lab No. PC-H3225 MC) after the 1974 and 1984 microscopic comparisons (52 / 16 / 21615). When Seattle asked Los Angeles to search its files, LA shipped \"Volume 6, 1A56\" containing \"a glass slide with a hair sample\" on July 23, 2002 (52 / 35 / 21636)\u2014after which the released files go completely silent on whether 1A56 was Cooper's Q2 slide or the 1974 LA suspect's K7 hair.",
+        "requested_items": [
+          "All Seattle (SE 164A-81, SE 164A-81-G, SE 164A-81-DNA), Los Angeles (LA 164-497), or FBI Lab records generated on or after 7/23/2002 documenting the receipt, logging (FD-192 / FD-340), examination, identification, or disposition of LA 164-497-1A56 (52 / 34\u201337 / 21635\u201321638).",
+          "FBI Lab bench notes, worksheets, and FD-441a return receipts for the Seat 18-E Towel Hair Slide (PC-H3225 MC, Q2, 12/9/1971 report at 16 / 66\u201367 / 4370\u20134371), the April 1972 Richard Floyd McCoy Jr. hair comparison ordered by Bureau airtel dated 4/21/1972 (25 / 33 / 8007; 110 / 482), the 4/19/1974 Los Angeles comparison (34 / 186\u2013187 / 12807\u201312808), and the 9/24/1984 Jackson/Toomsuba comparison (Lab Nos. 40907024 S/D WK LL and 40918030 S WK, 47 / 225\u2013229 / 19545\u201319549).",
+          "All Las Vegas (LV 164-60 / 164A-60) and Seattle (SE 164A-81) FD-192 bulky exhibit pages, FD-340 1A inventories, transfer receipts, or destruction logs for the eight Raleigh 85mm filter cigarette butts (Q1, reported destroyed in Las Vegas at 51 / 196 / 21311) and the PC-H3225 MC hair slide and fiber pillbox after 9/24/1984."
+        ],
+        "outcome": "Submitted electronically via the FBI eFOIPA portal on November 2, 2026 under Organization: Thoughts in the Vortex ($50 fee cap authorized). Awaiting RIDS FOIPA request number assignment."
+      },
+      {
+        "id": "fbi-dna-subject-x-photos",
+        "ref": "DNA-4",
+        "title": "Subject \"X\" Photographs (SE 164A-81-9412): Omitted Bates 21708 & 21712 (NPRC FOIA Military Photo), Masked Photos (Bates 21709) & Segregable Hairline Crop",
+        "agency": "FBI",
+        "target_file": "Seattle 164A-81 Serials 9411\u20139413 (Part 52, pp. 84\u2013106, Bates DB Cooper-21697 to 21721)",
+        "case_no": "Pending RIDS Intake",
+        "track": "Small Track / Omitted Pages & Photos",
+        "category": "DNA & Trace Evidence",
+        "related_slug": "splitting-hairs-slides",
+        "related_title": "Splitting Hair(s) Slides: DNA Deep Dive",
+        "filed_date": "2026-11-05",
+        "updated_date": "2026-11-05",
+        "closed_date": "",
+        "appeal_deadline": "",
+        "status": "Submitted \u00b7 Awaiting Intake",
+        "status_tone": "gold",
+        "why": "In April\u2013May 2003 (Serials SE 164A-81-9411 to 9413), an attorney submitted a suspect's (\"X\") military record, a c. 1971 skyjacking-era photo, a 2003 photo, his DOB/SSN, and an Orchid Cellmark STR report on his bloodstained handkerchief. Rather than comparing the 13-locus profile against Q40/Q41 (Tie/Clip), the Seattle case agent eliminated \"X\" on May 14, 2003 solely from his photos (\"Noticed that Cooper was not balding. 5/14/03 Elim\", 52 / 94 / 21707; \"balding across the top\", 52 / 100 / 21715). Visual inspection of Part 52 (pp. 94\u201399) revealed that two entire Bates pages\u2014DB Cooper-21708 and DB Cooper-21712 (immediately following a 5/21/1997 NPRC sheet checked \"Photo, F.O.I.A.\" and \"PHOTOGRAPH: Yes\")\u2014were omitted in full from the Vault PDF, while the two photo boxes on Bates 21709 were masked.",
+        "requested_items": [
+          "Omitted Bates page DB Cooper-21712 (between Part 52, pp. 97 and 98), containing the U.S. Air Force file photograph already officially released under FOIA by the National Personnel Records Center (NPRC) on 5/21/1997 per Bates 21710\u201321711 (\"Photo, F.O.I.A.\" / \"PHOTOGRAPH: Yes\"), with any name or service-number caption redacted.",
+          "Omitted Bates page DB Cooper-21708 (between Part 52, pp. 94 and 95), the two masked photographs on Bates DB Cooper-21709 (Part 52, p. 95, \"Picture of [ ] suspect\"), and any 1A/1B photo enclosure or post-SE 896 1A index entry for Serial SE 164A-81-9412\u2014including an internal death-index check using the unredacted name, DOB, and SSN on Bates 21707 and 21713 (as the subject completed 8 years of college and 2 years of USAF duty at Travis AFB by 8/14/1965, placing his birth c. 1935\u20131939).",
+          "If the subject is not confirmed deceased, the reasonably segregable upper-head / scalp / hairline portion of the c. 1971 photo (and military/2003 photos) under 5 U.S.C. \u00a7 552(b) with the eyes, lower face, and name masked, showing the visual basis for the 5/14/2003 \"Cooper was not balding\" elimination without revealing identifying facial features."
+        ],
+        "outcome": "Submitted electronically via the FBI eFOIPA portal on November 5, 2026 under Organization: Thoughts in the Vortex ($25 fee cap authorized). Awaiting RIDS FOIPA request number assignment."
+      },
+      {
+        "id": "fbi-dna-subject-x-identity-str",
+        "ref": "DNA-5",
+        "title": "Subject \"X\" Identity, Unreleased 2003 CRS/1A Index Entries, Deceased Status Check & Orchid Cellmark Handkerchief STR Profile (SE 164A-81-9411 to 9413)",
+        "agency": "FBI",
+        "target_file": "Seattle 164A-81 Serials 9411\u20139413 \u00b7 CRS & Post-2002 1A Index (Part 52, pp. 84\u2013106)",
+        "case_no": "Pending RIDS Intake",
+        "track": "Small Track / Index & Deceased Check",
+        "category": "DNA & Trace Evidence",
+        "related_slug": "splitting-hairs-slides",
+        "related_title": "Splitting Hair(s) Slides: DNA Deep Dive",
+        "filed_date": "2026-11-05",
+        "updated_date": "2026-11-05",
+        "closed_date": "",
+        "appeal_deadline": "",
+        "status": "Submitted \u00b7 Awaiting Intake",
+        "status_tone": "gold",
+        "why": "When FBI Seattle serialized the three submissions on Subject \"X\" in April\u2013May 2003 (SE 164A-81-9411, 9412, and 9413), each cover letter was stamped \"SEARCHED / INDEXED / SERIALIZED / FILED\"\u2014yet the released Seattle 1A exhibit index in Vault Part 89 (p. 219, Bates 39743) cuts off at item SE 896 (c. 2002) and omits all 2003 entries. Because \"X\"'s name is redacted on Bates 21707\u201321720, an outside researcher cannot independently run a death-index search, even though the unredacted NPRC military sheet on Bates 21711 (\"8.14.65\", \"College (8)\", \"3 DEP\", Elizabethton TN to Travis AFB) places his birth year c. 1935\u20131939 (~87\u201391 years old today) and the FBI holds his exact unredacted DOB and SSN on Bates 21707 and 21713.",
+        "requested_items": [
+          "All unreleased post-SE 896 1A/1B exhibit index entries for Serials SE 164A-81-9411 to 9413, all Central Records System (CRS) index records created when Serials 9411\u20139413 were stamped \"SEARCHED / INDEXED / SERIALIZED / FILED\", and any FBI Lab or Seattle record comparing the Orchid Cellmark profile (Serial 9413) against Q40/Q41.",
+          "Verification of Subject \"X\"'s deceased status by checking the unredacted Date of Birth and Social Security Number on Bates DB Cooper-21707 (Part 52, p. 94) and DB Cooper-21713 (Part 52, p. 98) against standard death indices.",
+          "Upon confirming that Subject \"X\" is deceased (or born >=100 years ago), release of his name, birth year, military service dates/rank (Bates 21707\u201321713), and the \"HANDKERCHIEF\" row of the Orchid Cellmark Profiler Plus and COfiler STR tables on Bates DB Cooper-21719 to 21720 (Part 52, pp. 104\u2013105), while keeping his SSN, street address, and living third parties (attorney, wife, Swab B donor) redacted."
+        ],
+        "outcome": "Submitted electronically via the FBI eFOIPA portal on November 5, 2026 under Organization: Thoughts in the Vortex ($25 fee cap authorized). Awaiting RIDS FOIPA request number assignment."
       }
     ]
   }

@@ -96,9 +96,9 @@ a.tcard:hover{border-color:var(--gold)}
 /* FOIA Tracker styles */
 .foia-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:18px 0 22px}
 .fstat{background:var(--paper);border:1px solid var(--line);border-top:3.5px solid var(--teal);border-radius:6px;padding:14px 16px}
-.fstat.gold{border-top-color:var(--gold)}.fstat.blue{border-top-color:var(--blue)}.fstat.green{border-top-color:var(--green)}
+.fstat.gold{border-top-color:var(--gold)}.fstat.blue{border-top-color:var(--blue)}.fstat.green{border-top-color:var(--green)}.fstat.red{border-top-color:var(--red)}
 .fstat .num{font-family:"Poppins",sans-serif;font-size:28px;font-weight:600;color:var(--teal);line-height:1.1}
-.fstat.gold .num{color:var(--gold)}.fstat.blue .num{color:var(--blue)}.fstat.green .num{color:var(--green)}
+.fstat.gold .num{color:var(--gold)}.fstat.blue .num{color:var(--blue)}.fstat.green .num{color:var(--green)}.fstat.red .num{color:var(--red)}
 .fstat .lbl{font-family:"Poppins",sans-serif;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.8px;color:var(--muted);margin-top:4px}
 .fstat .subl{font-size:13px;color:var(--muted);margin-top:2px}
 .foia-bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:12px 14px;margin:12px 0 16px;font-family:"Poppins",sans-serif;font-size:13px}
@@ -134,14 +134,14 @@ a.tcard:hover{border-color:var(--gold)}
 .fclock .days-num{font-family:"Poppins",sans-serif;font-size:28px;font-weight:600;color:var(--teal);line-height:1.05}
 .fclock.warn .days-num{color:var(--gold)}
 .fclock.overdue .days-num{color:var(--red)}
-.fclock.done .days-num{color:var(--green)}
+.fclock.done .days-num{color:var(--green)}.fclock.denied .days-num{color:var(--red)}
 .fclock .days-lbl{font-family:"Poppins",sans-serif;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.7px;color:var(--muted)}
 .fclock .days-sub{font-family:"Poppins",sans-serif;font-size:11.5px;color:var(--muted);margin-top:3px}
 .fclock .bar-wrap{height:5px;background:#e2dac7;border-radius:3px;overflow:hidden;margin-top:6px}
 .fclock .bar-fill{height:100%;background:var(--teal);border-radius:3px;transition:width .3s}
 .fclock.warn .bar-fill{background:var(--gold)}
 .fclock.overdue .bar-fill{background:var(--red)}
-.fclock.done .bar-fill{background:var(--green)}
+.fclock.done .bar-fill{background:var(--green)}.fclock.denied .bar-fill{background:var(--red)}
 .fbody{display:none;border-top:1px solid var(--line);background:#fdfbf5;padding:18px 20px 20px}
 .fcard.open .fbody{display:block}
 .fbody-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-bottom:14px}
@@ -149,7 +149,7 @@ a.tcard:hover{border-color:var(--gold)}
 .fbody p{margin:0 0 10px;font-size:15px;line-height:1.55}
 .fbody ol,.fbody ul{margin:0;padding-left:20px;font-size:14.5px;line-height:1.55}
 .fbody li{margin-bottom:6px}
-.foutcome{background:var(--paper);border:1px solid var(--line);border-left:3.5px solid var(--gold);border-radius:5px;padding:11px 14px;margin-top:12px;font-size:14.5px}
+.foutcome{background:var(--paper);border:1px solid var(--line);border-left:3.5px solid var(--gold);border-radius:5px;padding:11px 14px;margin-top:12px;font-size:14.5px}.foutcome.blue{border-left-color:var(--blue)}.foutcome.red{border-left-color:var(--red)}.foutcome.green{border-left-color:var(--green)}
 .foutcome b{font-family:"Poppins",sans-serif;font-size:12.5px;color:var(--teal);text-transform:uppercase;letter-spacing:.5px;display:block;margin-bottom:2px}
 .fmeta-foot{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;justify-content:space-between;margin-top:14px;padding-top:12px;border-top:1px dashed var(--line);font-family:"Poppins",sans-serif;font-size:12.5px;color:var(--muted)}
 .foia-empty{text-align:center;padding:36px 20px;background:var(--paper);border:1px dashed var(--line);border-radius:6px;color:var(--muted);font-family:"Poppins",sans-serif;display:none}
@@ -210,7 +210,7 @@ body = f'''<section class="home"><div class="hero"><div class="fr"><div><img src
 <a class="tile" href="writeups/"><span class="tk">Write-ups</span><span class="td">Long form summaries on key Cooper topics</span><span class="tg">Read →</span></a>
 <a class="tile hot" href="{S["timeline"]["href"]}"><span class="tk">Timeline</span><span class="td">Flight 305 minute by minute: 246 entries from Portland to Reno, each beside the FBI page it comes from</span><span class="tg">Open the wheel →</span></a>
 <a class="tile" href="downloads/"><span class="tk">FBI Files</span><span class="td">All 44,238 pages of the FBI's Cooper file as searchable OCR text, with links to every scan</span><span class="tg">Download →</span></a>
-<a class="tile" href="foia/"><span class="tk">FOIA Tracker</span><span class="td">{nfoia} active FOIA requests hunting missing serials, radio tapes, and unredacted files, with live daily wait counters</span><span class="tg">Track requests →</span></a>
+<a class="tile" href="foia/"><span class="tk">FOIA Tracker</span><span class="td">{nfoia} FOIA requests hunting missing serials, DNA bench notes, radio tapes, and unredacted files, with live daily wait counters</span><span class="tg">Track requests →</span></a>
 </nav>
 <p class="fbnote">Thoughts on a write-up, or a topic you'd like covered next? <a href="feedback/">Leave feedback or a suggestion →</a></p></section>'''
 
@@ -238,21 +238,36 @@ for it in items:
 if 'foia' in S:
   foia_cfg = S['foia']
   reqs = foia_cfg.get('requests', [])
+  live_slugs = {i['slug'] for i in items}
   cards_html = []
   for r in reqs:
     req_items_html = ''.join(f'<li>{E(x)}</li>' for x in r.get('requested_items', []))
-    rel_link = f'<a class="fbadge teal" href="../r/{E(r["related_slug"])}/" onclick="event.stopPropagation()">Report: {E(r["related_title"])} ↗</a>' if r.get('related_slug') else ''
+    rslug = r.get('related_slug', '')
+    rtitle = r.get('related_title', '')
+    if rslug and rslug in live_slugs:
+      rel_link = f'<a class="fbadge teal" href="../r/{E(rslug)}/" onclick="event.stopPropagation()">Report: {E(rtitle)} ↗</a>'
+      foot_rel = f'<a href="../r/{E(rslug)}/">Read {E(rtitle)} →</a> · '
+    elif rtitle:
+      rel_link = f'<span class="fbadge teal">Series: {E(rtitle)} (Forthcoming)</span>'
+      foot_rel = f'<span>Series: {E(rtitle)} (Forthcoming)</span> · '
+    else:
+      rel_link = ''
+      foot_rel = ''
     tone = r.get('status_tone', 'gold')
-    cards_html.append(f'''<article class="fcard" id="{E(r["id"])}" data-filed="{E(r["filed_date"])}" data-closed="{E(r.get("closed_date",""))}" data-slug="{E(r.get("related_slug",""))}" data-track="{E(r.get("track",""))}" data-status="{E(r.get("status",""))}" data-title="{E(r["title"])}">
+    ref_tag = f'<span class="fbadge teal" style="font-weight:600">{E(r["ref"])}</span>' if r.get('ref') else ''
+    appeal_str = r.get('appeal_deadline', '')
+    appeal_meta = f' · <b>OIP Appeal Deadline:</b> {E(appeal_str)}' if appeal_str else ''
+    cards_html.append(f'''<article class="fcard" id="{E(r["id"])}" data-filed="{E(r["filed_date"])}" data-closed="{E(r.get("closed_date",""))}" data-appeal="{E(appeal_str)}" data-tone="{E(tone)}" data-slug="{E(rslug)}" data-track="{E(r.get("track",""))}" data-status="{E(r.get("status",""))}" data-title="{E(r["title"])}">
   <div class="fhead" role="button" tabindex="0" aria-expanded="false" onclick="toggleFoiaCard('{E(r["id"])}')" onkeydown="if(event.key==='Enter'||event.key===' '){{event.preventDefault();toggleFoiaCard('{E(r["id"])}');}}">
     <div>
       <div class="fbadges">
+        {ref_tag}
         <span class="fbadge {E(tone)}">{E(r["status"])}</span>
         <span class="fbadge blue">{E(r["agency"])} · {E(r.get("track",""))}</span>
         {rel_link}
       </div>
       <h3>{E(r["title"])}</h3>
-      <div class="ftarget"><b>Target File:</b> <code>{E(r["target_file"])}</code> · <b>Case #:</b> {E(r.get("case_no","Pending"))}</div>
+      <div class="ftarget"><b>Target File:</b> <code>{E(r["target_file"])}</code> · <b>Case #:</b> <b>{E(r.get("case_no","Pending"))}</b></div>
       <p class="fwhy-preview">{E(r["why"])}</p>
       <div class="ftoggle"><span class="ftoggle-lbl">Why we filed &amp; exact records requested ↓</span></div>
     </div>
@@ -272,8 +287,8 @@ if 'foia' in S:
       <div>
         <h4>Why This Request Was Filed</h4>
         <p>{E(r["why"])}</p>
-        <div class="foutcome">
-          <b>Current Status &amp; Outcome</b>
+        <div class="foutcome {E(tone)}">
+          <b>Current Status &amp; Latest FBI Response ({E(r.get("updated_date", r["filed_date"]))})</b>
           {E(r["outcome"])}
         </div>
       </div>
@@ -283,51 +298,60 @@ if 'foia' in S:
       </div>
     </div>
     <div class="fmeta-foot">
-      <span><b>Date Submitted:</b> {E(r["filed_date"])} · <b>Last Updated:</b> {E(r.get("updated_date", r["filed_date"]))} · <b>Queue:</b> {E(r.get("track",""))}</span>
-      <span><a href="../r/{E(r["related_slug"])}/">Read {E(r["related_title"])} →</a> · <a href="../feedback/?w=foia">Have a tip on these records? →</a></span>
+      <span><b>Date Submitted:</b> {E(r["filed_date"])} · <b>Last Updated:</b> {E(r.get("updated_date", r["filed_date"]))}{appeal_meta} · <b>Queue:</b> {E(r.get("track",""))}</span>
+      <span>{foot_rel}<a href="../feedback/?w=foia">Have a tip on these records? →</a></span>
     </div>
   </div>
 </article>''')
 
+  n_total = len(reqs)
+  n_active = sum(1 for r in reqs if not r.get("closed_date"))
+  n_ack = sum(1 for r in reqs if r.get("status_tone") == "blue" and not r.get("closed_date"))
+  n_intake = sum(1 for r in reqs if r.get("status_tone") == "gold" and not r.get("closed_date"))
+  n_denied = sum(1 for r in reqs if r.get("status_tone") == "red")
+  n_released = sum(1 for r in reqs if r.get("closed_date") and r.get("status_tone") != "red")
+
   foia_body = f'''<div class="crumb"><a href="../">Home</a> › FOIA Tracker</div>
 <h1>FOIA Tracker</h1>
-<p class="sub">Primary-source requests for unreleased NORJAK serials, physical exhibits, and unredacted files</p>
+<p class="sub">Primary-source requests for unreleased NORJAK serials, lab bench notes, physical exhibits, and unredacted files</p>
 <p class="lede">{E(foia_cfg.get("intro",""))}</p>
 
 <div class="foia-stats">
   <div class="fstat">
-    <div class="num" id="stat-total">{len(reqs)}</div>
+    <div class="num" id="stat-total">{n_total}</div>
     <div class="lbl">Requests Filed</div>
-    <div class="subl">Active primary-source filings</div>
+    <div class="subl">{n_ack} acknowledged · {n_intake} awaiting intake · {n_denied} denied</div>
   </div>
   <div class="fstat gold">
-    <div class="num" id="stat-pending">{sum(1 for r in reqs if not r.get("closed_date"))}</div>
-    <div class="lbl">Awaiting Agency Action</div>
-    <div class="subl">In FBI RIDS intake or queue</div>
+    <div class="num" id="stat-pending">{n_active}</div>
+    <div class="lbl">Active in FBI Queue</div>
+    <div class="subl">{n_ack} in RIDS processing · {n_intake} awaiting FOIPA #</div>
   </div>
   <div class="fstat blue">
     <div class="num" id="stat-max-days">—</div>
     <div class="lbl">Longest Active Wait</div>
     <div class="subl" id="stat-avg-days">Calculated live each day</div>
   </div>
-  <div class="fstat green">
-    <div class="num" id="stat-resolved">{sum(1 for r in reqs if r.get("closed_date"))}</div>
-    <div class="lbl">Resolved / Released</div>
-    <div class="subl">Processed or final determination</div>
+  <div class="fstat {"red" if n_denied and not n_released else "green"}">
+    <div class="num" id="stat-resolved">{n_denied + n_released}</div>
+    <div class="lbl">{"Denied / Appeal Pending" if n_denied and not n_released else "Closed / Resolved"}</div>
+    <div class="subl">{"#1763828-000 · OIP appeal due Feb 2, 2027" if n_denied else "Processed or final determination"}</div>
   </div>
 </div>
 
 <div class="foia-bar">
   <div class="foia-pills" role="group" aria-label="Filter by investigation">
-    <button type="button" class="fpill active" data-filter-slug="all" onclick="setFoiaSlug('all', this)">All Requests ({len(reqs)})</button>
+    <button type="button" class="fpill active" data-filter-slug="all" onclick="setFoiaSlug('all', this)">All Requests ({n_total})</button>
     <button type="button" class="fpill" data-filter-slug="elsinore-ghost" onclick="setFoiaSlug('elsinore-ghost', this)">Elsinore Ghost ({sum(1 for r in reqs if r.get('related_slug')=='elsinore-ghost')})</button>
+    <button type="button" class="fpill" data-filter-slug="splitting-hairs-slides" onclick="setFoiaSlug('splitting-hairs-slides', this)">Splitting Hair(s) Slides / DNA ({sum(1 for r in reqs if r.get('related_slug')=='splitting-hairs-slides')})</button>
     <button type="button" class="fpill" data-filter-slug="oscillations" onclick="setFoiaSlug('oscillations', this)">Oscillations / Flight 305 Tape ({sum(1 for r in reqs if r.get('related_slug')=='oscillations')})</button>
   </div>
   <div class="foia-ctrls">
-    <input type="search" id="foia-q" placeholder="Search file #, Bates, name…" aria-label="Search FOIA requests" oninput="filterFoia()">
+    <input type="search" id="foia-q" placeholder="Search FOIPA #, Bates, name…" aria-label="Search FOIA requests" oninput="filterFoia()">
     <select id="foia-sort" aria-label="Sort requests" onchange="sortFoia()">
       <option value="wait-desc">Sort: Longest wait first</option>
       <option value="date-desc">Sort: Newest filed first</option>
+      <option value="status-asc">Sort: Acknowledged / Status first</option>
       <option value="title-asc">Sort: Title (A–Z)</option>
     </select>
     <button type="button" id="foia-exp-btn" onclick="toggleAllFoia()">Expand all</button>
@@ -342,7 +366,7 @@ if 'foia' in S:
 <div class="kicker" id="about-foia">How the FOIA clock &amp; privacy waivers work</div>
 <div class="about">
   <p style="margin-top:0"><b>Live "Days Since Submission" Counter:</b> Under the Freedom of Information Act (<code>5 U.S.C. § 552(a)(6)(A)(i)</code>), federal agencies have <b>20 business days</b> (roughly 28 calendar days, excluding weekends and federal holidays) to make an initial determination on a request. Each card above calculates the exact elapsed calendar days and estimated business days in your browser every day until a final determination is logged.</p>
-  <p><b>Why Requests Are Split by Track:</b> The FBI's Record/Information Dissemination Section (RIDS) routes requests by page volume and subject type. Narrow paper requests under 50 pages qualify for the <b>Small Track</b> queue, whereas requests for physical evidence envelopes (such as Bulky Exhibit <code>LA 164-497-1B1</code>) require a manual Evidence Control Center search. Deceased-individual requests attach official proof of death or birth records over 100 years old so RIDS analysts can lift Exemption <code>(b)(6)</code> and <code>(b)(7)(C)</code> personal-privacy redactions.</p>
+  <p><b>Why Requests Are Split by Track:</b> The FBI's Record/Information Dissemination Section (RIDS) routes requests by page volume and subject type. Narrow paper requests under 50 pages qualify for the <b>Small Track</b> queue, whereas requests for physical evidence envelopes (such as Bulky Exhibit <code>LA 164-497-1B1</code>) or Laboratory bench-note packets (<code>SE 164A-81-1D890</code>) require a manual Evidence Control Center or case-file pull. Deceased-individual requests attach official proof of death or birth records over 100 years old so RIDS analysts can lift Exemption <code>(b)(6)</code> and <code>(b)(7)(C)</code> personal-privacy redactions.</p>
   <p style="margin-bottom:0">Spot an unreleased serial citation in the Vault that should be requested next? <a href="../feedback/?w=foia">Send a suggestion →</a></p>
 </div>
 
@@ -385,6 +409,8 @@ if 'foia' in S:
     cards.forEach(function(card) {{
       var filedStr = card.getAttribute('data-filed');
       var closedStr = card.getAttribute('data-closed');
+      var appealStr = card.getAttribute('data-appeal');
+      var tone = card.getAttribute('data-tone');
       var filed = parseLocalDate(filedStr);
       var end = closedStr ? parseLocalDate(closedStr) : today;
       var diffDays = filed ? Math.max(0, Math.round((end - filed) / 86400000)) : 0;
@@ -399,9 +425,15 @@ if 'foia' in S:
 
       if (closedStr) {{
         numEl.textContent = diffDays + (diffDays === 1 ? ' day' : ' days');
-        lblEl.textContent = 'Total Turnaround';
-        subEl.textContent = 'Closed ' + fmtDateShort(closedStr);
-        clock.className = 'fclock done';
+        if (tone === 'red') {{
+          lblEl.textContent = 'Closed (Denied)';
+          subEl.textContent = appealStr ? ('Appeal due ' + fmtDateShort(appealStr)) : ('Closed ' + fmtDateShort(closedStr));
+          clock.className = 'fclock denied';
+        }} else {{
+          lblEl.textContent = 'Total Turnaround';
+          subEl.textContent = 'Closed ' + fmtDateShort(closedStr);
+          clock.className = 'fclock done';
+        }}
         if (barEl) barEl.style.width = '100%';
       }} else {{
         numEl.textContent = diffDays + (diffDays === 1 ? ' day' : ' days');
@@ -421,7 +453,7 @@ if 'foia' in S:
     if (maxEl) maxEl.textContent = activeCount ? (maxActiveDays + (maxActiveDays === 1 ? ' day' : ' days')) : '0 days';
     if (avgEl && activeCount) {{
       var avg = (sumActiveDays / activeCount).toFixed(1).replace(/\\.0$/, '');
-      avgEl.textContent = 'Avg ' + avg + ' days across ' + activeCount + ' pending';
+      avgEl.textContent = 'Avg ' + avg + ' days across ' + activeCount + ' active';
     }}
   }}
 
@@ -473,11 +505,20 @@ if 'foia' in S:
     var mode = document.getElementById('foia-sort').value;
     var list = document.getElementById('foia-list');
     var cards = Array.prototype.slice.call(list.querySelectorAll('.fcard'));
+    var toneRank = {{'blue': 1, 'red': 2, 'gold': 3, 'green': 4}};
     cards.sort(function(a, b) {{
       if (mode === 'wait-desc') {{
-        return (parseInt(b.getAttribute('data-days')||'0',10) - parseInt(a.getAttribute('data-days')||'0',10));
+        var ca = a.getAttribute('data-closed') ? -1 : parseInt(a.getAttribute('data-days')||'0',10);
+        var cb = b.getAttribute('data-closed') ? -1 : parseInt(b.getAttribute('data-days')||'0',10);
+        if (cb !== ca) return cb - ca;
+        return (b.getAttribute('data-filed') || '').localeCompare(a.getAttribute('data-filed') || '');
       }} else if (mode === 'date-desc') {{
         return (b.getAttribute('data-filed') || '').localeCompare(a.getAttribute('data-filed') || '');
+      }} else if (mode === 'status-asc') {{
+        var ta = toneRank[a.getAttribute('data-tone')] || 9;
+        var tb = toneRank[b.getAttribute('data-tone')] || 9;
+        if (ta !== tb) return ta - tb;
+        return (a.getAttribute('data-title') || '').localeCompare(b.getAttribute('data-title') || '');
       }} else {{
         return (a.getAttribute('data-title') || '').localeCompare(b.getAttribute('data-title') || '');
       }}

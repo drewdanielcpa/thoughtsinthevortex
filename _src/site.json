@@ -6,9 +6,56 @@
   "feedback_api": "https://tv-feedback.drewdanielcpa-281.workers.dev",
   "items": [
     {
-      "slug": "elsinore-ghost",
+      "slug": "splitting-hairs-slides",
       "kind": "report",
       "featured": true,
+      "title": "Splitting Hair(s) Slides",
+      "subtitle": "DNA Deep Dive, Part 1 of 2",
+      "date": "November 2026",
+      "summary": "Every biological item the FBI took off Flight 305 and what became of it: the eight Raleigh cigarette butts destroyed in Las Vegas, the Seat 18-E headrest hair slide last returned to Las Vegas in 1984, and the clip-on tie that gave up a 9-locus DNA mixture in 2002. The report follows how the Lab's reading of that mixture changed through 2011, every suspect compared against it, and what sits in the 58 pages of unreleased bench notes. Part 2 covers the 2004 subfile audit that picked the first suspects.",
+      "points": [
+        [
+          "The 1971 items: butts destroyed, hair slide lost",
+          "The Raleigh butts were destroyed in Las Vegas; Cooper's hair slide was last sent back there in 1984, and the slide Los Angeles shipped to Seattle in 2002 may not be his."
+        ],
+        [
+          "The tie: a 3+ person mixture, exclusion-only",
+          "Typed with Profiler Plus in 2002 and searched in CODIS with no hits, downgraded to exclusion-only in 2006, and read as one major and two minor contributors by 2010\u20132011."
+        ],
+        [
+          "13 suspects: 3 excluded outright",
+          "Langseth, the South Lake Tahoe suspect and Gossett were excluded from the full mixture, L.D. Cooper as the major contributor; most of the rest were never tested or their reports are unreleased."
+        ]
+      ],
+      "files": [
+        [
+          "Read the report (PDF, 20 pages)",
+          "splitting-hairs-slides.pdf"
+        ]
+      ],
+      "cover": "splitting-hairs-slides.jpg",
+      "series": "NORJAK \u00b7 Flight 305 \u00b7 The DNA file, Part 1 of 2",
+      "chips": [
+        [
+          "The tie \u00b7 9 STR loci",
+          "Profiler Plus mixture from 2002, read as 3+ contributors (1 major, 2 minor) by 2010\u20132011",
+          "blue"
+        ],
+        [
+          "13 suspects \u00b7 exclusions",
+          "3 excluded from the full mixture, L.D. Cooper as major donor, Weber's 4 items; 8 untested or unreleased",
+          "gold"
+        ],
+        [
+          "Open targets \u00b7 1D 889 & 890",
+          "58 pages of unreleased lab bench notes, missing 2001 trace results and a possible frozen extract",
+          "red"
+        ]
+      ]
+    },
+    {
+      "slug": "elsinore-ghost",
+      "kind": "report",
       "title": "Elsinore Ghost",
       "subtitle": "D.B. Cooper Premonition or Total Booo-sheet?",
       "date": "October 2026",

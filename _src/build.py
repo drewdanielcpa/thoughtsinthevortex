@@ -63,11 +63,24 @@ footer{border-top:1px solid var(--line);padding:18px 0 34px;color:var(--muted);f
 a.tcard:hover{border-color:var(--gold)}
 .hero{padding:26px 0 6px}.hero .fr{max-width:720px;background:var(--bg);border:2.5px solid var(--teal2);border-radius:4px;padding:6px}.hero .fr div{border:1px solid #9fb6b2;padding:12px;border-radius:2px}.hero img{border:0;border-radius:2px;max-width:100%}
 .card .tcard{pointer-events:none;flex:1}.card{padding:12px}
-.rbar{position:sticky;top:0;z-index:5;display:flex;align-items:center;gap:14px;flex-wrap:wrap;background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:8px 12px;margin:16px 0 14px;font-family:"Poppins",sans-serif;font-size:13.5px}
-.rbar .rt{font-weight:600;color:var(--teal);flex:1;min-width:180px}.rbar .rp2{color:var(--muted);white-space:nowrap}.rbar a.rb{text-decoration:none;white-space:nowrap}
-.rbar button{font:600 15px "Poppins",sans-serif;width:30px;height:28px;border:1px solid var(--teal);background:transparent;color:var(--teal);border-radius:4px;cursor:pointer;margin-left:4px}
-#pages{display:flex;flex-direction:column;align-items:center;gap:14px;padding-bottom:40px;overflow-x:auto}
-.pg{position:relative;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.18);flex:none}.pg canvas{display:block}.pg a.lk{position:absolute;display:block}.pg a.lk:hover{background:rgba(196,127,14,.15)}
+.rbar{position:sticky;top:0;z-index:8;display:flex;align-items:center;gap:10px 12px;flex-wrap:wrap;background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:8px 12px;margin:14px 0 12px;font-family:"Poppins",sans-serif;font-size:13px;box-shadow:0 2px 8px rgba(33,29,28,.06)}
+.rbar .rt{font-weight:600;color:var(--teal);flex:1;min-width:150px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rbar .rp2{color:var(--muted);white-space:nowrap;font-size:12.5px}
+.rbar a.rb{text-decoration:none;white-space:nowrap;font-weight:500}
+.rbar a.art-pill{background:var(--gold);color:#fff;padding:4px 10px;border-radius:14px;font-size:12px;font-weight:600;align-items:center;gap:4px}
+.rbar a.art-pill:hover{background:var(--teal);color:#fff}
+.rctrl-group{display:inline-flex;align-items:center;gap:4px}
+.rbar button{font:600 14px "Poppins",sans-serif;min-width:30px;height:28px;padding:0 7px;border:1px solid var(--teal);background:transparent;color:var(--teal);border-radius:4px;cursor:pointer}
+.rbar button:hover{border-color:var(--gold);color:var(--gold)}
+.rbar button.rtrim{font-size:12px;font-weight:500;padding:0 9px}
+.rbar button.rtrim.on{background:var(--teal);color:#fff;border-color:var(--teal)}
+#rpgIn{width:46px;font:500 12.5px "Poppins",sans-serif;padding:2px 4px;border:1px solid var(--line);border-radius:4px;text-align:center;background:#fff;color:var(--ink)}
+.rstatus{text-align:center;padding:26px 16px;font-family:"Poppins",sans-serif;font-size:14px;color:var(--muted)}
+#pages{display:flex;flex-direction:column;align-items:center;gap:12px;padding-bottom:40px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.pg{position:relative;background:#fff;box-shadow:0 1px 5px rgba(0,0,0,.18);flex:none;overflow:hidden;border-radius:2px}
+.pg-inner{position:relative}
+.pg-loading{display:flex;align-items:center;justify-content:center;height:100%;font-family:"Poppins",sans-serif;font-size:13px;color:var(--muted);background:#f6f2e7}
+.pg canvas{display:block}.pg a.lk{position:absolute;display:block;border-radius:2px}.pg a.lk:hover{background:rgba(196,127,14,.18)}
 .home{padding:10px 0 30px}.home .hero{display:flex;justify-content:center;padding-top:34px}.home .hero .fr{max-width:820px;width:100%}
 .tagl{text-align:center;font-family:"Poppins",sans-serif;font-size:13px;letter-spacing:2.6px;text-transform:uppercase;color:var(--teal2);font-weight:600;margin:20px 0 22px}
 .tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:1040px;margin:0 auto}
@@ -155,6 +168,119 @@ a.tcard:hover{border-color:var(--gold)}
 .foia-empty{text-align:center;padding:36px 20px;background:var(--paper);border:1px dashed var(--line);border-radius:6px;color:var(--muted);font-family:"Poppins",sans-serif;display:none}
 @media (max-width:860px){.tiles{grid-template-columns:repeat(2,1fr)}.foia-stats{grid-template-columns:repeat(2,1fr)}.fhead{grid-template-columns:1fr}.fclock{flex-direction:row;align-items:baseline;justify-content:space-between;text-align:left;padding:10px 14px;gap:10px}.fclock .bar-wrap{display:none}.fbody-grid{grid-template-columns:1fr}}
 @media (max-width:760px){.fbgrid{grid-template-columns:1fr}}
+/* Mobile Full-Bleed Reader & Responsive Web-Article Styles */
+.abar{position:sticky;top:0;z-index:8;display:flex;align-items:center;gap:8px 12px;flex-wrap:wrap;background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:8px 12px;margin:12px auto 14px;max-width:920px;font-family:"Poppins",sans-serif;font-size:13px;box-shadow:0 2px 8px rgba(33,29,28,.06)}
+.abar select{font:500 13px "Poppins",sans-serif;color:var(--ink);background:#fff;border:1.5px solid var(--line);border-radius:5px;padding:5px 9px;flex:1;min-width:170px;max-width:360px}
+.abar .asz{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:5px;overflow:hidden;background:#fff}
+.abar .asz button{font:600 12.5px "Poppins",sans-serif;border:0;background:transparent;color:var(--teal);padding:5px 9px;cursor:pointer}
+.abar .asz button+button{border-left:1px solid var(--line)}
+.abar .asz button.on{background:var(--teal);color:#fff}
+.abar .alinks{display:inline-flex;flex-wrap:wrap;gap:8px;margin-left:auto;align-items:center}
+.abar a.apdf{font-size:12.5px;font-weight:500;text-decoration:none;padding:4px 9px;border:1px solid var(--teal);border-radius:4px;color:var(--teal);white-space:nowrap}
+.abar a.apdf:hover{border-color:var(--gold);color:var(--gold)}
+
+.wart{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:30px 36px 38px;margin:0 auto 30px;max-width:920px;font-size:17.5px;line-height:1.68;color:var(--ink);overflow-wrap:break-word}
+body.art-sm .wart{font-size:15.8px;line-height:1.62}
+body.art-lg .wart{font-size:19.8px;line-height:1.72}
+.wart-hero{border-bottom:2px solid var(--teal);padding-bottom:22px;margin-bottom:24px}
+.wart-banner{margin:0 0 16px;background:var(--bg);border:2px solid var(--teal2);border-radius:5px;padding:5px}
+.wart-banner img{width:100%;height:auto;display:block;border-radius:3px;cursor:zoom-in}
+.wart-kicker{font-family:"Poppins",sans-serif;font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin:0 0 6px}
+.wart-title{font-size:clamp(26px,4vw,36px);line-height:1.12;margin:0 0 6px;color:var(--teal)}
+.wart-sub{font-style:italic;color:var(--teal2);font-size:clamp(17px,2.3vw,21px);line-height:1.35;margin:0 0 14px}
+.wart-lede p{margin:0 0 12px;font-size:1.02em;color:#2c2826}
+.wart-series-note{background:#f3ede0;border-left:3.5px solid var(--teal2);border-radius:4px;padding:10px 14px;margin:12px 0;font-size:.92em;line-height:1.55}
+.wart-chips{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:16px 0 14px}
+.wart-chips.cols-2{grid-template-columns:repeat(2,1fr)}
+.wart-chip{border-radius:6px;padding:10px 13px;color:#fff;font-family:"Poppins",sans-serif;font-size:13px;line-height:1.42}
+.wart-chip b{display:block;font-size:14px;font-weight:600;margin-bottom:3px}
+.wart-chip.blue{background:var(--blue)}.wart-chip.gold{background:var(--gold)}.wart-chip.red{background:var(--red)}
+.wart-cover-meta{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px 18px;border-top:1px solid var(--line);padding-top:10px;margin-top:10px;font-family:"Poppins",sans-serif;font-size:12px;color:var(--muted)}
+
+.wart-body h2{font-size:clamp(21px,3vw,26px);line-height:1.22;color:var(--teal);border-bottom:1.5px solid var(--line);padding-bottom:6px;margin:34px 0 12px;scroll-margin-top:68px}
+.wart-body h3{font-size:clamp(17.5px,2.2vw,20px);line-height:1.3;color:var(--teal2);margin:24px 0 8px}
+.wart-body h4{font-family:"Poppins",sans-serif;font-size:13.5px;text-transform:uppercase;letter-spacing:.7px;margin:0 0 6px}
+.wart-body p{margin:0 0 13px}
+.wart-body ul,.wart-body ol{margin:0 0 15px;padding-left:22px}
+.wart-body li{margin-bottom:7px}
+.wart-body .wart-li{margin:0 0 11px;padding-left:14px;border-left:2.5px solid #e0d8c3}
+.wart-body .kicker,.wart-body .sec-kicker{font-family:"Poppins",sans-serif;font-size:12px;font-weight:600;letter-spacing:1.8px;text-transform:uppercase;color:var(--gold);margin:32px 0 4px}
+.wart-body .kicker:after{display:none}
+.wart-body .lede,.wart-body .sec-intro{font-size:.98em;color:var(--muted);margin-bottom:14px}
+.wart-body a{color:var(--blue);word-break:break-word}
+.wart-body code,.wart-body .mono{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.86em;background:#efe8d3;padding:1px 5px;border-radius:3px;color:#263839}
+.wart-body .cite,.wart-body .cite-sm,.wart-body a.cite-lk{font-family:"Poppins",sans-serif;font-size:.84em}
+
+/* Callouts, Verdict Boxes & Findings */
+.wart-body .findings,.wart-body .summary-rail{border-left:3.5px solid var(--gold);padding:4px 0 4px 16px;margin:16px 0 20px;background:#faf5e8;border-radius:0 6px 6px 0;padding-right:14px}
+.wart-body .callout{background:#f3f5f8;border:1px solid #d5dde8;border-left:4px solid var(--teal2);border-radius:6px;padding:13px 16px;margin:16px 0;font-size:.95em}
+.wart-body .callout.warn{background:#fdf3df;border-color:#e6c88a;border-left-color:var(--gold)}
+.wart-body .callout.verdictbox,.wart-body .callout.verdict{background:#e8f4ec;border-color:#b7dcc4;border-left:5px solid var(--green)}
+.wart-body .callout.callout-red,.wart-body .callout.con-box{background:#fbeaea;border-color:#e4b9b9;border-left-color:var(--red)}
+.wart-body .callout.bonusbox{background:#f5f0fa;border-color:#d3c2e6;border-left-color:#6b46c1}
+.wart-body .callout .t,.wart-body .callout .callout-title{font-family:"Poppins",sans-serif;font-weight:600;font-size:.96em;color:var(--teal);display:block;margin-bottom:5px}
+.wart-body .callout p:last-child{margin-bottom:0}
+
+/* Figures, Snippets & Lightbox Zoom */
+.wart-body figure,.wart-body .docfig,.wart-body .snippet-card{background:#fff;border:1.5px solid var(--line);border-radius:6px;padding:11px 13px 9px;margin:18px 0}
+.wart-body .docfig .hd,.wart-body .snippet-hdr{display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px 12px;font-family:"Poppins",sans-serif;font-size:13px;border-bottom:1px solid #e6e0d0;padding-bottom:6px;margin-bottom:9px}
+.wart-body .docfig .hd b,.wart-body .snippet-title{color:var(--teal);font-weight:600}
+.wart-body .docfig .hd span,.wart-body .snippet-meta{color:var(--muted);font-size:12px}
+.wart-body figure img,.wart-body .docfig img,.wart-body .snippet-card img{max-width:100%;height:auto;display:block;margin:0 auto;border-radius:3px;cursor:zoom-in}
+.wart-body figcaption,.wart-body .wart-cap,.wart-body .fine{font-family:"Poppins",sans-serif;font-size:13px;line-height:1.48;color:var(--muted);margin-top:7px}
+
+/* Scrollable Responsive Tables */
+.wart-body .tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:16px 0 20px;border:1px solid var(--line);border-radius:6px;background:#fff}
+.wart-body table{width:100%;border-collapse:collapse;font-size:14.5px;line-height:1.45;min-width:500px}
+.wart-body table.kv,.wart-body table.kv-tbl{min-width:0}
+.wart-body th{font-family:"Poppins",sans-serif;font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.5px;color:var(--teal);background:#f5f0e2;text-align:left;border-bottom:2px solid var(--teal);padding:9px 11px}
+.wart-body td{border-bottom:1px solid #e7e1d1;padding:8px 11px;vertical-align:top}
+.wart-body tr:last-child td{border-bottom:0}
+.wart-body .tag,.wart-body span.verdict,.wart-body .tag-inf{display:inline-block;font-family:"Poppins",sans-serif;font-size:11.5px;font-weight:600;padding:2px 8px;border-radius:10px;white-space:nowrap}
+.wart-body .tag.b{background:#e6eef8;color:var(--blue)}.wart-body .tag.a,.wart-body .tag-inf{background:#fbf0db;color:var(--gold)}.wart-body .tag.g,.wart-body span.verdict.g{background:#e5f2ea;color:var(--green)}.wart-body .verdict.r{background:#f8e6e6;color:var(--red)}.wart-body .verdict.a{background:#fbf0db;color:var(--gold)}.wart-body .verdict.gr,.wart-body .tag.gr{background:#ececf1;color:#555}
+.wart-body .sw{display:inline-block;width:12px;height:12px;border-radius:2px;vertical-align:-2px;margin-right:5px;border:1.5px solid var(--teal)}
+.wart-body .legend,.wart-body .maplegend{display:flex;flex-wrap:wrap;gap:10px 16px;font-family:"Poppins",sans-serif;font-size:12.5px;color:var(--muted);margin:8px 0 12px}
+
+/* Multi-Column Cards, Suspect Profiles & Two-Cards Explanations */
+.wart-body .two,.wart-body .pc,.wart-body .wart-two-col{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px;margin:14px 0}
+.wart-body .two>*,.wart-body .pc>*,.wart-body .wart-two-col>*,.wart-chips>*{min-width:0}
+.wart-body .pc .pro{background:#eaf5ee;border:1px solid #b7dcc4;border-radius:6px;padding:12px 14px}
+.wart-body .pc .con{background:#fbeaea;border:1px solid #e4b9b9;border-radius:6px;padding:12px 14px}
+.wart-body .pc .pro h4{color:var(--green)}.wart-body .pc .con h4{color:var(--red)}
+.wart-body .exp{border:1px solid var(--line);border-radius:6px;padding:14px 16px;margin:14px 0;background:#fff}
+.wart-body .exp .top{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;border-bottom:1px solid #eae4d3;padding-bottom:6px;margin-bottom:8px;font-family:"Poppins",sans-serif}
+.wart-body .exp .rank{font-weight:600;color:var(--gold);font-size:13px}
+.wart-body .exp .ttl{font-weight:600;color:var(--teal);font-size:16px;flex:1}
+.wart-body .wart-prof-row,.wart-body .prof .hdr{display:grid;grid-template-columns:220px 1fr;gap:18px;align-items:start;margin:18px 0;padding:14px;background:#fff;border:1px solid var(--line);border-radius:6px}
+.wart-body .wart-prof-media img,.wart-body .prof .photos img{width:100%;height:auto;display:block;border-radius:4px;border:1px solid var(--line);margin-bottom:6px;cursor:zoom-in}
+.wart-body .pyr-wrap{margin:16px 0;font-family:"Poppins",sans-serif}
+.wart-body .pyr-tier{margin:0 auto 5px;color:#fff;text-align:center;padding:8px 14px;border-radius:4px;background:var(--teal);font-size:13.5px}
+.wart-body .pyr-tier span{display:block;font-size:12px;opacity:.92}
+.art-foot-nav{max-width:920px;margin:0 auto 34px;background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:16px 20px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;font-family:"Poppins",sans-serif;font-size:13.5px}
+
+/* Tap-to-Zoom Lightbox */
+#tv-lightbox{position:fixed;inset:0;z-index:999;background:rgba(18,22,23,.92);display:none;flex-direction:column;align-items:center;justify-content:center;padding:16px}
+#tv-lightbox.open{display:flex}
+#tv-lightbox .lb-top{width:100%;max-width:1100px;display:flex;justify-content:space-between;align-items:center;color:#f2ead3;font-family:"Poppins",sans-serif;font-size:13px;margin-bottom:10px;gap:12px}
+#tv-lightbox .lb-close{font:600 14px "Poppins",sans-serif;background:var(--gold);color:#fff;border:0;border-radius:5px;padding:6px 13px;cursor:pointer}
+#tv-lightbox .lb-stage{max-width:96vw;max-height:84vh;overflow:auto;-webkit-overflow-scrolling:touch;border-radius:4px;background:#fff}
+#tv-lightbox .lb-stage img{display:block;max-width:100%;height:auto}
+#tv-lightbox .lb-stage.zoomed img{max-width:none;width:175%}
+
+@media (max-width:760px){
+  body.reader-page main.wrap{padding:0 4px;max-width:100%}
+  body.reader-page .rbar{margin:8px 2px 8px;padding:7px 9px;gap:7px 9px;font-size:12px}
+  body.reader-page .rbar .rt{min-width:115px;font-size:12.5px}
+  .wart{padding:20px 16px 28px;font-size:17px;line-height:1.64;border-radius:6px}
+  .wart-chips,.wart-chips.cols-2,.wart-body .two,.wart-body .pc,.wart-body .wart-two-col,.wart-body .wart-prof-row,.wart-body .prof .hdr{grid-template-columns:1fr}
+  .wart-body .wart-prof-media{max-width:240px}
+  .wart-body figure[style*="width"]{width:auto!important}
+  .wart-body p[style*="font-size"]{font-size:inherit!important}
+  .wart-body table[style*="font-size"]{font-size:14px!important}
+  .abar{padding:7px 10px;gap:7px}
+  .abar{flex-wrap:nowrap}.abar select{min-width:0;max-width:none;flex:1}
+  .abar .alinks{margin-left:0}
+}
 @media (max-width:600px){.tiles{grid-template-columns:1fr}.foia-stats{grid-template-columns:1fr}.home .hero{padding-top:18px}header.top .wrap{flex-wrap:wrap;gap:4px 16px}.brand{white-space:nowrap;font-size:15px}nav a:first-child{margin-left:0}.feature,.rp{grid-template-columns:1fr}.feature .tcard,.rp .tcard{max-width:340px}.chips{grid-template-columns:1fr}nav a{margin-left:12px;font-size:13px}.tl{flex-direction:column;align-items:flex-start}.tl .go{margin-left:0}}
 '''
 FONTS = '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Poppins:wght@500;600&display=swap">'
@@ -174,6 +300,12 @@ def page(title, desc, body, depth=0, og_img=None):
 def rd(f, title, up=''):
   return f'{up}read/?f={quote(f)}&t={quote(title)}'
 
+def has_art(slug):
+  return os.path.exists(os.path.join(ROOT, '_src', 'articles', f'{slug}.html'))
+
+def art_href(slug, up=''):
+  return f'{up}r/{quote(slug)}/read/'
+
 def tcard(it, href=None, cls='tcard'):
   ch = ''.join(f'<div class="ch {c}"><b>{E(a)}</b>{E(b)}</div>' for a, b, c in it.get('chips', []))
   tag = 'a' if href else 'div'
@@ -187,7 +319,7 @@ items = S['items']
 feat = next(i for i in items if i.get('featured'))
 chips = ''.join(f'<div class="chip"><b>{E(a)}</b>{E(b)}</div>' for a, b in feat.get('points', []))
 U = '../'
-fbtn = ''.join(f'<a class="btn{" alt" if k else ""}" href="{rd(f, feat["title"] if k==0 else feat["title"]+" · Companion", U)}">{E(lbl)}</a>' for k, (lbl, f) in enumerate(feat['files']))
+fbtn = (f'<a class="btn" href="{art_href(feat["slug"], U)}">Read article (mobile-friendly)</a>' if has_art(feat['slug']) else '') + ''.join(f'<a class="btn{" alt" if (k or has_art(feat["slug"])) else ""}" href="{rd(f, feat["title"] if k==0 else feat["title"]+" · Companion", U)}">{E(lbl.replace("Read the report", "Print edition") if has_art(feat["slug"]) and k==0 else lbl)}</a>' for k, (lbl, f) in enumerate(feat['files']))
 def card2(it): return card(it).replace('href="r/', 'href="../r/')
 packets = (f'<div class="kicker" id="packets">Source packets: the FBI pages, highlighted</div><div class="grid">' + ''.join(card2(i) for i in items if i['kind'] == 'packet') + '</div>') if any(i['kind'] == 'packet' for i in items) else ''
 wbody = f'''<div class="crumb"><a href="../">Home</a> › Write-ups</div>
@@ -219,20 +351,99 @@ open(os.path.join(ROOT, 'assets', 'site.css'), 'w', encoding='utf-8').write(CSS)
 open(os.path.join(ROOT, 'index.html'), 'w', encoding='utf-8').write(page(S['site_title'] + ' · D.B. Cooper research', S['tagline'], body, 0, 'assets/vortex_logo.jpg'))
 open(os.path.join(ROOT, 'writeups', 'index.html'), 'w', encoding='utf-8').write(page('Write-ups · Thoughts in the Vortex', S['intro'], wbody, 1, 'assets/vortex_logo.jpg'))
 
+ART_WIDGET_JS = '''<div id="tv-lightbox" role="dialog" aria-modal="true" aria-label="Document image viewer">
+  <div class="lb-top"><span id="lb-cap">Tap image to toggle 175% zoom · Pinch or scroll to inspect</span><div><button type="button" class="lb-close" id="lb-zoom" style="background:var(--teal2);margin-right:6px">Toggle Zoom</button><button type="button" class="lb-close" id="lb-close">Close ×</button></div></div>
+  <div class="lb-stage" id="lb-stage"><img id="lb-img" src="" alt="Enlarged figure"></div>
+</div>
+<script>
+(function(){
+  var sel = document.getElementById('art-sec-jump');
+  if (sel) {
+    sel.addEventListener('change', function(){
+      var id = sel.value;
+      if (!id) return;
+      var el = document.getElementById(id);
+      if (el) el.scrollIntoView({behavior:'smooth', block:'start'});
+      sel.selectedIndex = 0;
+    });
+  }
+  var btns = document.querySelectorAll('[data-art-sz]');
+  function applySz(sz){
+    document.body.classList.remove('art-sm','art-lg');
+    if (sz === 'sm') document.body.classList.add('art-sm');
+    if (sz === 'lg') document.body.classList.add('art-lg');
+    btns.forEach(function(b){ b.classList.toggle('on', b.getAttribute('data-art-sz') === sz); });
+    try { localStorage.setItem('tv_art_sz', sz); } catch(e){}
+  }
+  var initSz = 'md';
+  try { initSz = localStorage.getItem('tv_art_sz') || 'md'; } catch(e){}
+  applySz(initSz);
+  btns.forEach(function(b){
+    b.addEventListener('click', function(){ applySz(b.getAttribute('data-art-sz')); });
+  });
+  var lb = document.getElementById('tv-lightbox');
+  var lbImg = document.getElementById('lb-img');
+  var lbStage = document.getElementById('lb-stage');
+  var lbClose = document.getElementById('lb-close');
+  var lbZoom = document.getElementById('lb-zoom');
+  document.querySelectorAll('.wart img[data-zoomable]').forEach(function(im){
+    im.addEventListener('click', function(){
+      lbImg.src = im.src;
+      lbStage.classList.remove('zoomed');
+      lb.classList.add('open');
+    });
+  });
+  function closeLb(){ lb.classList.remove('open'); lbImg.src = ''; }
+  lbClose.addEventListener('click', closeLb);
+  lbZoom.addEventListener('click', function(){ lbStage.classList.toggle('zoomed'); });
+  lbImg.addEventListener('click', function(){ lbStage.classList.toggle('zoomed'); });
+  lb.addEventListener('click', function(e){ if (e.target === lb) closeLb(); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && lb.classList.contains('open')) closeLb(); });
+})();
+</script>'''
+
 for it in items:
+  has_w = has_art(it['slug'])
   pts = ''.join(f'<li><b>{E(a)}.</b> {E(b)}</li>' for a, b in it.get('points', []))
-  btn = ''.join(f'<a class="btn{" alt" if k else ""}" href="{rd(f, it["title"] if k==0 else it["title"]+" · "+lbl.split(" (")[0], "../../")}">{E(lbl)}</a>' for k, (lbl, f) in enumerate(it['files']))
+  btn = (f'<a class="btn" href="read/">Read article (mobile-friendly)</a>' if has_w else '') + ''.join(f'<a class="btn{" alt" if (k or has_w) else ""}" href="{rd(f, it["title"] if k==0 else it["title"]+" · "+lbl.split(" (")[0], "../../")}">{E(lbl.replace("Read the report", "Print edition") if has_w and k==0 else lbl)}</a>' for k, (lbl, f) in enumerate(it['files']))
   dls = ' · '.join(f'<a href="../../files/{f}" download>{E(lbl.split(" (")[0].replace("Read the report","the report"))}</a>' for lbl, f in it['files'])
   lnk = ''.join(f'<a class="btn alt" href="{E(u)}">{E(l)}</a>' for l, u in it.get('links', []))
   lnk += f'<a class="btn alt" href="../../feedback/?w={quote(it["slug"])}">Leave feedback on this report</a>'
+  card_target = 'read/' if has_w else rd(it["files"][0][1], it["title"], "../../")
   b = f'''<div class="crumb"><a href="../../">Home</a> › <a href="../../writeups/">Write-ups</a></div>
-<div class="rp">{tcard(it, rd(it["files"][0][1], it["title"], "../../"))}<div>
+<div class="rp">{tcard(it, card_target)}<div>
 <div class="meta">{"Report" if it["kind"]=="report" else "Source packet"} · {E(it["date"])}</div><h1>{E(it["title"])}</h1><p class="sub">{E(it["subtitle"])}</p>
 <p>{E(it["summary"])}</p>{f"<h3>Key findings</h3><ul>{pts}</ul>" if pts else ""}<div class="btns">{btn}{lnk}</div>
 <p class="meta" style="margin-top:18px">Download the PDF: {dls}.<br>Citations read Vault part / PDF page / Bates number; every FBI page is in the <a href="https://vault.fbi.gov/D-B-Cooper%20">FBI Vault</a>.</p></div></div>'''
   d = os.path.join(ROOT, 'r', it['slug'])
   os.makedirs(d, exist_ok=True)
   open(os.path.join(d, 'index.html'), 'w', encoding='utf-8').write(page(f'{it["title"]} · Thoughts in the Vortex', it['summary'][:200], b, 2, 'assets/covers/' + it['cover']))
+
+  if has_w:
+    art_raw = open(os.path.join(ROOT, '_src', 'articles', f'{it["slug"]}.html'), encoding='utf-8').read()
+    sec_matches = _re.findall(r'<h2[^>]*id="([^"]+)"[^>]*>(.*?)</h2>', art_raw, flags=_re.S)
+    sec_opts = '<option value="">Jump to section…</option><option value="top-cover">Cover &amp; Summary</option>' + ''.join(
+        f'<option value="{E(sid)}">{E(_re.sub(r"<[^>]+>", "", stxt).strip()[:68])}</option>'
+        for sid, stxt in sec_matches
+    )
+    pdf_links = ''.join(
+        f'<a class="apdf" href="{rd(f, it["title"] if k==0 else it["title"]+" · Companion", "../../../")}">{"Print PDF" if k==0 else "Companion PDF"}</a>'
+        for k, (_, f) in enumerate(it['files'])
+    )
+    abar = f'''<div class="crumb" style="max-width:920px;margin:16px auto 6px;display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center;justify-content:space-between"><span><a href="../../../">Home</a> › <a href="../../../writeups/">Write-ups</a> › <a href="../">{E(it["title"])}</a></span><span style="display:inline-flex;gap:8px;flex-wrap:wrap">{pdf_links}</span></div>
+<div class="abar">
+  <select id="art-sec-jump" aria-label="Jump to report section">{sec_opts}</select>
+  <div class="asz" role="group" aria-label="Text size"><button type="button" data-art-sz="sm" title="Compact text">A−</button><button type="button" data-art-sz="md" class="on" title="Standard mobile text">A</button><button type="button" data-art-sz="lg" title="Large text">A+</button></div>
+</div>'''
+    foot_nav = f'''<div class="art-foot-nav">
+  <div><a href="../"><b>← Back to {E(it["title"])} overview</b></a></div>
+  <div style="display:flex;flex-wrap:wrap;gap:12px">{pdf_links}<a class="apdf" href="../../../feedback/?w={quote(it["slug"])}">Leave feedback →</a></div>
+</div>'''
+    rd_dir = os.path.join(d, 'read')
+    os.makedirs(rd_dir, exist_ok=True)
+    open(os.path.join(rd_dir, 'index.html'), 'w', encoding='utf-8').write(
+        page(f'{it["title"]} (Web Article) · Thoughts in the Vortex', it['summary'][:200], abar + art_raw + foot_nav + ART_WIDGET_JS, 3, 'assets/covers/' + it['cover'])
+    )
 
 # Build /foia/index.html if foia section exists in site.json
 if 'foia' in S:
@@ -309,7 +520,10 @@ if 'foia' in S:
   n_ack = sum(1 for r in reqs if r.get("status_tone") == "blue" and not r.get("closed_date"))
   n_intake = sum(1 for r in reqs if r.get("status_tone") == "gold" and not r.get("closed_date"))
   n_denied = sum(1 for r in reqs if r.get("status_tone") == "red")
+  n_norec = sum(1 for r in reqs if r.get("status_tone") == "red" and "No CRS" in r.get("status", ""))
+  n_refused = n_denied - n_norec
   n_released = sum(1 for r in reqs if r.get("closed_date") and r.get("status_tone") != "red")
+  closed_sub = f"{n_norec} no CRS records · {n_refused} reprocessing refused" if (n_norec and n_refused) else ("#1763828-000 · OIP appeal due Feb 2, 2027" if n_denied else "Processed or final determination")
 
   foia_body = f'''<div class="crumb"><a href="../">Home</a> › FOIA Tracker</div>
 <h1>FOIA Tracker</h1>
@@ -320,7 +534,7 @@ if 'foia' in S:
   <div class="fstat">
     <div class="num" id="stat-total">{n_total}</div>
     <div class="lbl">Requests Filed</div>
-    <div class="subl">{n_ack} acknowledged · {n_intake} awaiting intake · {n_denied} denied</div>
+    <div class="subl">{n_ack} acknowledged · {n_intake} awaiting intake · {n_denied + n_released} closed</div>
   </div>
   <div class="fstat gold">
     <div class="num" id="stat-pending">{n_active}</div>
@@ -334,8 +548,8 @@ if 'foia' in S:
   </div>
   <div class="fstat {"red" if n_denied and not n_released else "green"}">
     <div class="num" id="stat-resolved">{n_denied + n_released}</div>
-    <div class="lbl">{"Denied / Appeal Pending" if n_denied and not n_released else "Closed / Resolved"}</div>
-    <div class="subl">{"#1763828-000 · OIP appeal due Feb 2, 2027" if n_denied else "Processed or final determination"}</div>
+    <div class="lbl">{"Closed / Appealable" if n_denied and not n_released else "Closed / Resolved"}</div>
+    <div class="subl">{closed_sub}</div>
   </div>
 </div>
 
@@ -426,7 +640,8 @@ if 'foia' in S:
       if (closedStr) {{
         numEl.textContent = diffDays + (diffDays === 1 ? ' day' : ' days');
         if (tone === 'red') {{
-          lblEl.textContent = 'Closed (Denied)';
+          var stTxt = card.getAttribute('data-status') || '';
+          lblEl.textContent = stTxt.indexOf('No CRS') !== -1 ? 'Closed (No Records)' : 'Closed (Denied)';
           subEl.textContent = appealStr ? ('Appeal due ' + fmtDateShort(appealStr)) : ('Closed ' + fmtDateShort(closedStr));
           clock.className = 'fclock denied';
         }} else {{

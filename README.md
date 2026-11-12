@@ -18,7 +18,16 @@ Drew Daniel's D.B. Cooper (NORJAK) research site, published with GitHub Pages fr
 ## Adding or updating a write-up
 1. Copy the PDF into `files/` and render its cover into `assets/covers/`.
 2. Add or edit the entry in `_src/site.json`. `kind` is `report` (or `packet` for a source packet, which adds a Source packets section); `featured: true` marks the one shown as "Latest report" (only one).
-3. Run `python3 _src/build.py`, check the pages, then commit and push to `main`. Pages redeploys in a minute or two.
+3. Add the mobile-friendly web article (see below).
+4. Run `python3 _src/build.py`, check the pages, then commit and push to `main`. Pages redeploys in a minute or two.
+
+## Web articles (mobile-friendly reading)
+Each write-up can also be read as a responsive web page at `r/<slug>/read/`, which is now the primary "Read article" button; the PDF stays as "Print PDF".
+- Source: `_src/articles/<slug>.html`, one `<article class="wart">` fragment (hero with banner, kicker, title, subtitle, lede, chips; then `<h2 id="...">` sections). build.py wraps it with the section-jump menu, A−/A/A+ text size, tap-to-zoom lightbox and footer links. If the file exists, the article page and button appear automatically.
+- Images: `assets/articles/<slug>/`, referenced as `../../../assets/articles/<slug>/<file>`; add `data-zoomable="1"` and `loading="lazy"`.
+- Wrap wide tables in `<div class="tbl-wrap">`. Avoid inline pt font sizes and fixed widths carried over from the print layout.
+- Before publishing, check at 390 px width that nothing scrolls sideways, and keep personal identifiers out (e.g. old FAA/rigger certificate numbers, which were often SSNs).
+- The PDF reader (`read/`) loads pdf.js from `assets/pdfjs/`; keep it self-hosted rather than on a CDN.
 
 The source of truth for every PDF is Drew's research folder, `DBC FBI\Projects\<Project>\`. The site holds published copies only.
 

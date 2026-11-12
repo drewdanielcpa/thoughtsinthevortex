@@ -12,7 +12,7 @@
   <div class="fstat">
     <div class="num" id="stat-total">12</div>
     <div class="lbl">Requests Filed</div>
-    <div class="subl">2 acknowledged · 9 awaiting intake · 1 denied</div>
+    <div class="subl">2 acknowledged · 9 awaiting intake · 1 closed</div>
   </div>
   <div class="fstat gold">
     <div class="num" id="stat-pending">11</div>
@@ -26,7 +26,7 @@
   </div>
   <div class="fstat red">
     <div class="num" id="stat-resolved">1</div>
-    <div class="lbl">Denied / Appeal Pending</div>
+    <div class="lbl">Closed / Appealable</div>
     <div class="subl">#1763828-000 · OIP appeal due Feb 2, 2027</div>
   </div>
 </div>
@@ -658,7 +658,8 @@
       if (closedStr) {
         numEl.textContent = diffDays + (diffDays === 1 ? ' day' : ' days');
         if (tone === 'red') {
-          lblEl.textContent = 'Closed (Denied)';
+          var stTxt = card.getAttribute('data-status') || '';
+          lblEl.textContent = stTxt.indexOf('No CRS') !== -1 ? 'Closed (No Records)' : 'Closed (Denied)';
           subEl.textContent = appealStr ? ('Appeal due ' + fmtDateShort(appealStr)) : ('Closed ' + fmtDateShort(closedStr));
           clock.className = 'fclock denied';
         } else {

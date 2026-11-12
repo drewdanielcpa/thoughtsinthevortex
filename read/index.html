@@ -3,53 +3,336 @@
 <meta property="og:title" content="Reader · Thoughts in the Vortex"><meta property="og:description" content="Read Thoughts in the Vortex reports in your browser."><meta property="og:type" content="website">
 <link rel="icon" href="../assets/vortex_logo.jpg"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Poppins:wght@500;600&display=swap"><link rel="stylesheet" href="../assets/site.css"></head><body>
 <header class="top"><div class="wrap"><a class="brand" href="../">THOUGHTS IN THE VORTEX</a><nav><a href="../writeups/">Write-ups</a><a href="../timeline/">Timeline</a><a href="../downloads/">FBI Files</a><a href="../foia/">FOIA</a><a href="../feedback/">Feedback</a></nav></div></header>
-<main class="wrap"><div class="rbar"><a class="rb" id="back" href="../">← Back</a><span class="rt" id="ttl">Loading…</span><span class="rp2" id="pg"></span><span class="rz"><button id="zo" aria-label="Zoom out">−</button><button id="zi" aria-label="Zoom in">+</button></span><a class="rb" id="dl" href="#" download>Download PDF</a></div>
-<div id="pages"><p id="msg" style="text-align:center;margin:60px 0">Loading the report…</p></div>
+<main class="wrap"><div class="rbar" id="rbar">
+  <a class="rb" id="rback" href="../writeups/">← Write-ups</a>
+  <span class="rt" id="rtitle">Loading document…</span>
+  <a class="rb art-pill" id="rart" href="#" style="display:none" title="Switch to reflowable mobile-friendly web article">📱 Mobile Article</a>
+  <span class="rctrl-group">
+    <button type="button" class="rtrim" id="rtrim" title="Crop outer white margins so text fills narrow screens">Trim Margins</button>
+    <button type="button" id="rzout" aria-label="Zoom out" title="Zoom out">−</button>
+    <span class="rp2" id="rzlbl">100%</span>
+    <button type="button" id="rzin" aria-label="Zoom in" title="Zoom in">+</button>
+  </span>
+  <span class="rp2" id="rpgWrap">Page <input type="number" id="rpgIn" min="1" value="1" aria-label="Jump to page"> / <span id="rpgTot">–</span></span>
+  <a class="rb" id="rdl" href="#" download>Download PDF ↓</a>
+</div>
+<div id="rstatus" class="rstatus">Loading PDF viewer…</div>
+<div id="pages" aria-live="polite"></div>
+
 <script src="../assets/pdfjs/pdf.min.js"></script>
 <script>
-(function(){
-  const q=new URLSearchParams(location.search), f=q.get('f')||'', t=q.get('t')||'Report';
-  const msg=document.getElementById('msg');
-  if(!/^[a-z0-9-]+\.pdf$/.test(f)){msg.textContent='No report selected.';return;}
-  const url='../files/'+f;
-  document.title=t+' · Thoughts in the Vortex';
-  document.getElementById('ttl').textContent=t;
-  document.getElementById('dl').href=url;
-  if(document.referrer && document.referrer.indexOf(location.host)>-1) document.getElementById('back').href=document.referrer;
-  if(!window.pdfjsLib){msg.innerHTML='The reader could not load. <a href="'+url+'">Open the PDF directly</a>.';return;}
-  pdfjsLib.GlobalWorkerOptions.workerSrc='../assets/pdfjs/pdf.worker.min.js';
-  const box=document.getElementById('pages'); let doc, zoom=1, base, pages=[], io, vis;
-  const width=()=>Math.min(box.clientWidth-8, 920)*zoom;
-  function layout(){
-    pages.forEach(p=>{const w=width(); p.el.style.width=w+'px'; p.el.style.height=(w*p.ratio)+'px'; p.el.innerHTML=''; p.done=false;});
-    pages.forEach(p=>{io.unobserve(p.el); io.observe(p.el);});
+(function() {
+  document.body.classList.add('reader-page');
+
+  var ARTICLE_MAP = {
+    'splitting-hairs-slides.pdf': '../r/splitting-hairs-slides/read/',
+    'elsinore-ghost.pdf': '../r/elsinore-ghost/read/',
+    'oscillations-in-my-sanity.pdf': '../r/oscillations/read/',
+    'two-cards-one-chute.pdf': '../r/two-cards-one-chute/read/',
+    '500-down-556-to-go.pdf': '../r/500-down-556-to-go/read/'
+  };
+
+  var SLUG_BACK_MAP = {
+    'splitting-hairs-slides': '../r/splitting-hairs-slides/',
+    'elsinore-ghost': '../r/elsinore-ghost/',
+    'oscillations-in-my-sanity': '../r/oscillations/',
+    'two-cards-one-chute': '../r/two-cards-one-chute/',
+    '500-down-556-to-go': '../r/500-down-556-to-go/'
+  };
+
+  var params = new URLSearchParams(window.location.search);
+  var rawF = (params.get('f') || '').replace(/[^a-zA-Z0-9._ -]/g, '');
+  var title = params.get('t') || rawF || 'Document Reader';
+  var startPage = parseInt(params.get('p') || (window.location.hash.match(/page=(\d+)/) || [])[1] || '1', 10) || 1;
+
+  var rtitle = document.getElementById('rtitle');
+  var rdl = document.getElementById('rdl');
+  var rback = document.getElementById('rback');
+  var rart = document.getElementById('rart');
+  var rtrim = document.getElementById('rtrim');
+  var rzin = document.getElementById('rzin');
+  var rzout = document.getElementById('rzout');
+  var rzlbl = document.getElementById('rzlbl');
+  var rpgIn = document.getElementById('rpgIn');
+  var rpgTot = document.getElementById('rpgTot');
+  var rstatus = document.getElementById('rstatus');
+  var pagesEl = document.getElementById('pages');
+
+  rtitle.textContent = title;
+  document.title = title + ' · Reader · Thoughts in the Vortex';
+
+  if (!rawF) {
+    rstatus.textContent = 'No PDF file specified. Return to Write-ups to choose a report.';
+    return;
   }
-  async function render(p){
-    if(p.done) return; p.done=true;
-    const page=await doc.getPage(p.n), v1=page.getViewport({scale:1}), w=width(), sc=w/v1.width, dpr=Math.min(window.devicePixelRatio||1,2.5);
-    const vp=page.getViewport({scale:sc}), c=document.createElement('canvas');
-    c.width=Math.floor(vp.width*dpr); c.height=Math.floor(vp.height*dpr); c.style.width=vp.width+'px'; c.style.height=vp.height+'px';
-    p.el.style.height=vp.height+'px'; p.el.innerHTML=''; p.el.appendChild(c);
-    await page.render({canvasContext:c.getContext('2d'), viewport:vp, transform:dpr!==1?[dpr,0,0,dpr,0,0]:null}).promise;
-    const anns=await page.getAnnotations();
-    for(const a of anns){ if(a.subtype!=='Link') continue;
-      const r=vp.convertToViewportRectangle(a.rect), x=Math.min(r[0],r[2]), y=Math.min(r[1],r[3]);
-      const l=document.createElement('a'); l.className='lk'; Object.assign(l.style,{left:x+'px',top:y+'px',width:Math.abs(r[2]-r[0])+'px',height:Math.abs(r[3]-r[1])+'px'});
-      if(a.url){l.href=a.url; l.target='_blank'; l.rel='noopener';}
-      else if(a.dest){l.href='#'; l.onclick=async e=>{e.preventDefault(); let d=typeof a.dest==='string'?await doc.getDestination(a.dest):a.dest; const i=await doc.getPageIndex(d[0]); pages[i].el.scrollIntoView({behavior:'smooth'});};}
-      else continue;
-      p.el.appendChild(l);}
+
+  var pdfUrl = '../files/' + encodeURIComponent(rawF).replace(/%20/g, ' ');
+  rdl.href = pdfUrl;
+
+  if (ARTICLE_MAP[rawF]) {
+    rart.href = ARTICLE_MAP[rawF];
+    rart.style.display = 'inline-flex';
   }
-  pdfjsLib.getDocument(url).promise.then(async d=>{
-    doc=d; const p1=await doc.getPage(1), v=p1.getViewport({scale:1}); base=v.height/v.width; box.innerHTML='';
-    io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting) render(pages[+e.target.dataset.i]);}),{rootMargin:'1200px 0px'});
-    vis=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting) document.getElementById('pg').textContent='Page '+(+e.target.dataset.i+1)+' / '+doc.numPages;}),{threshold:0.5});
-    for(let i=0;i<doc.numPages;i++){const el=document.createElement('div'); el.className='pg'; el.dataset.i=i; box.appendChild(el); pages.push({n:i+1,el,ratio:base,done:false}); vis.observe(el);}
-    layout();
-  }).catch(()=>{msg.innerHTML='The report could not load. <a href="'+url+'">Open the PDF directly</a>.'; box.appendChild(msg);});
-  document.getElementById('zi').onclick=()=>{zoom=Math.min(zoom*1.2,3); layout();};
-  document.getElementById('zo').onclick=()=>{zoom=Math.max(zoom/1.2,0.5); layout();};
-  let rt; window.addEventListener('resize',()=>{clearTimeout(rt); rt=setTimeout(layout,250);});
+  Object.keys(SLUG_BACK_MAP).forEach(function(prefix) {
+    if (rawF.indexOf(prefix) === 0) {
+      rback.href = SLUG_BACK_MAP[prefix];
+      rback.textContent = '← Overview';
+    }
+  });
+
+  var isMobileDefault = window.innerWidth <= 680;
+  var trimMargins = isMobileDefault;
+  try {
+    var savedTrim = localStorage.getItem('tv_reader_trim');
+    if (savedTrim === '1' || savedTrim === '0') {
+      trimMargins = savedTrim === '1';
+    }
+  } catch (e) {}
+
+  var zoom = 1.0;
+  var pdfDoc = null;
+  var pageHolders = [];
+  var observer = null;
+  var resizeTimer = null;
+
+  function syncTrimUI() {
+    rtrim.classList.toggle('on', trimMargins);
+    rtrim.setAttribute('aria-pressed', trimMargins ? 'true' : 'false');
+    rtrim.textContent = trimMargins ? '✂ Margins Trimmed' : 'Trim Margins';
+    rzlbl.textContent = Math.round(zoom * 100) + '%';
+  }
+  syncTrimUI();
+
+  if (window.pdfjsLib) {
+    window.pdfjsLib.GlobalWorkerOptions.workerSrc = '../assets/pdfjs/pdf.worker.min.js';
+  }
+
+  function getCropFraction(pageNum) {
+    if (!trimMargins) return 0;
+    var isCompanion = rawF.toLowerCase().indexOf('companion') !== -1;
+    if (pageNum === 1) return 0.028; // Preserve cover border frame!
+    return isCompanion ? 0.048 : 0.066; // Trim ~6.6% left & right white paper margins on Letter report pages
+  }
+
+  function computeLayout(unscaledW, unscaledH, pageNum) {
+    var availW = Math.max(260, pagesEl.clientWidth - (window.innerWidth <= 680 ? 4 : 16));
+    var baseTargetW = Math.min(availW, 920) * zoom;
+    var cropX = getCropFraction(pageNum);
+    var cropY = (trimMargins && pageNum > 1) ? 0.028 : 0;
+    var visibleFracW = 1 - 2 * cropX;
+    var fullRenderW = baseTargetW / visibleFracW;
+    var cssScale = fullRenderW / unscaledW;
+    var fullRenderH = unscaledH * cssScale;
+    var visW = Math.round(baseTargetW);
+    var visH = Math.round(fullRenderH * (1 - 2 * cropY));
+    var offsetX = Math.round(cropX * fullRenderW);
+    var offsetY = Math.round(cropY * fullRenderH);
+    return {
+      visW: visW,
+      visH: visH,
+      fullW: Math.round(fullRenderW),
+      fullH: Math.round(fullRenderH),
+      offsetX: offsetX,
+      offsetY: offsetY,
+      cssScale: cssScale
+    };
+  }
+
+  function resolveDestAndJump(dest) {
+    if (!pdfDoc || !dest) return;
+    var p = (typeof dest === 'string') ? pdfDoc.getDestination(dest) : Promise.resolve(dest);
+    p.then(function(explicit) {
+      if (!explicit || !explicit[0]) return;
+      return pdfDoc.getPageIndex(explicit[0]);
+    }).then(function(idx) {
+      if (typeof idx === 'number' && pageHolders[idx]) {
+        pageHolders[idx].el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }).catch(function() {});
+  }
+
+  function renderPage(holder) {
+    if (holder.rendering || holder.renderedKey === holder.targetKey) return;
+    holder.rendering = true;
+    var pno = holder.pageNum;
+    pdfDoc.getPage(pno).then(function(page) {
+      var vp1 = page.getViewport({ scale: 1 });
+      var lay = computeLayout(vp1.width, vp1.height, pno);
+      holder.el.style.width = lay.visW + 'px';
+      holder.el.style.height = lay.visH + 'px';
+
+      var inner = document.createElement('div');
+      inner.className = 'pg-inner';
+      inner.style.width = lay.fullW + 'px';
+      inner.style.height = lay.fullH + 'px';
+      inner.style.marginLeft = (-lay.offsetX) + 'px';
+      inner.style.marginTop = (-lay.offsetY) + 'px';
+
+      var dpr = Math.min(window.devicePixelRatio || 1, 2.5);
+      var renderVp = page.getViewport({ scale: lay.cssScale * dpr });
+      var cssVp = page.getViewport({ scale: lay.cssScale });
+
+      var canvas = document.createElement('canvas');
+      canvas.width = Math.floor(renderVp.width);
+      canvas.height = Math.floor(renderVp.height);
+      canvas.style.width = lay.fullW + 'px';
+      canvas.style.height = lay.fullH + 'px';
+      inner.appendChild(canvas);
+
+      var ctx = canvas.getContext('2d', { alpha: false });
+      return page.render({ canvasContext: ctx, viewport: renderVp }).promise.then(function() {
+        return page.getAnnotations();
+      }).then(function(annots) {
+        annots.forEach(function(a) {
+          if (a.subtype !== 'Link' || !a.rect) return;
+          var r = cssVp.convertToViewportRectangle(a.rect);
+          var x0 = Math.min(r[0], r[2]);
+          var y0 = Math.min(r[1], r[3]);
+          var w = Math.abs(r[2] - r[0]);
+          var h = Math.abs(r[3] - r[1]);
+          var lk = document.createElement('a');
+          lk.className = 'lk';
+          lk.style.left = x0 + 'px';
+          lk.style.top = y0 + 'px';
+          lk.style.width = w + 'px';
+          lk.style.height = h + 'px';
+          if (a.url) {
+            lk.href = a.url;
+            lk.target = '_blank';
+            lk.rel = 'noopener';
+            lk.title = a.url;
+          } else if (a.dest) {
+            lk.href = '#';
+            lk.addEventListener('click', function(ev) {
+              ev.preventDefault();
+              resolveDestAndJump(a.dest);
+            });
+          } else {
+            return;
+          }
+          inner.appendChild(lk);
+        });
+        holder.el.innerHTML = '';
+        holder.el.appendChild(inner);
+        holder.renderedKey = holder.targetKey;
+        holder.rendering = false;
+      });
+    }).catch(function() {
+      holder.rendering = false;
+    });
+  }
+
+  function refreshAllLayouts() {
+    if (!pdfDoc || !pageHolders.length) return;
+    var key = [pagesEl.clientWidth, trimMargins ? 1 : 0, zoom.toFixed(2)].join(':');
+    pageHolders.forEach(function(h) {
+      var lay = computeLayout(h.uW, h.uH, h.pageNum);
+      h.el.style.width = lay.visW + 'px';
+      h.el.style.height = lay.visH + 'px';
+      h.targetKey = key;
+    });
+    // Immediately re-render pages currently near viewport
+    var vh = window.innerHeight || 800;
+    pageHolders.forEach(function(h) {
+      var rect = h.el.getBoundingClientRect();
+      if (rect.bottom >= -900 && rect.top <= vh + 900) {
+        renderPage(h);
+      }
+    });
+  }
+
+  rtrim.addEventListener('click', function() {
+    trimMargins = !trimMargins;
+    try { localStorage.setItem('tv_reader_trim', trimMargins ? '1' : '0'); } catch (e) {}
+    syncTrimUI();
+    refreshAllLayouts();
+  });
+
+  rzin.addEventListener('click', function() {
+    zoom = Math.min(2.5, Math.round((zoom + 0.2) * 100) / 100);
+    syncTrimUI();
+    refreshAllLayouts();
+  });
+
+  rzout.addEventListener('click', function() {
+    zoom = Math.max(0.7, Math.round((zoom - 0.2) * 100) / 100);
+    syncTrimUI();
+    refreshAllLayouts();
+  });
+
+  rpgIn.addEventListener('change', function() {
+    var p = parseInt(rpgIn.value, 10);
+    if (pdfDoc && p >= 1 && p <= pdfDoc.numPages && pageHolders[p - 1]) {
+      pageHolders[p - 1].el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+
+  window.addEventListener('resize', function() {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(refreshAllLayouts, 160);
+  });
+
+  window.addEventListener('scroll', function() {
+    if (!pageHolders.length) return;
+    var mid = (window.innerHeight || 700) * 0.35;
+    for (var i = 0; i < pageHolders.length; i++) {
+      var r = pageHolders[i].el.getBoundingClientRect();
+      if (r.bottom >= mid) {
+        if (document.activeElement !== rpgIn) {
+          rpgIn.value = pageHolders[i].pageNum;
+        }
+        break;
+      }
+    }
+  }, { passive: true });
+
+  if (!window.pdfjsLib) { rstatus.innerHTML = 'The reader could not load. <a href="' + pdfUrl + '">Open the PDF directly</a>.'; return; }
+  window.pdfjsLib.getDocument(pdfUrl).promise.then(function(doc) {
+    pdfDoc = doc;
+    rpgTot.textContent = doc.numPages;
+    rpgIn.max = doc.numPages;
+    rstatus.style.display = 'none';
+
+    return doc.getPage(1).then(function(p1) {
+      var vp1 = p1.getViewport({ scale: 1 });
+      var defaultW = vp1.width;
+      var defaultH = vp1.height;
+      var key = [pagesEl.clientWidth, trimMargins ? 1 : 0, zoom.toFixed(2)].join(':');
+
+      observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(ent) {
+          if (ent.isIntersecting) {
+            var idx = parseInt(ent.target.getAttribute('data-pidx'), 10);
+            if (pageHolders[idx]) renderPage(pageHolders[idx]);
+          }
+        });
+      }, { rootMargin: '900px 0px' });
+
+      for (var i = 1; i <= doc.numPages; i++) {
+        var el = document.createElement('div');
+        el.className = 'pg';
+        el.setAttribute('data-pidx', i - 1);
+        var lay = computeLayout(defaultW, defaultH, i);
+        el.style.width = lay.visW + 'px';
+        el.style.height = lay.visH + 'px';
+        el.innerHTML = '<div class="pg-loading">Page ' + i + '</div>';
+        pagesEl.appendChild(el);
+        var holder = { pageNum: i, el: el, uW: defaultW, uH: defaultH, targetKey: key, renderedKey: '', rendering: false };
+        pageHolders.push(holder);
+        observer.observe(el);
+      }
+
+      if (startPage > 1 && startPage <= doc.numPages && pageHolders[startPage - 1]) {
+        setTimeout(function() {
+          pageHolders[startPage - 1].el.scrollIntoView({ behavior: 'auto', block: 'start' });
+          rpgIn.value = startPage;
+        }, 80);
+      }
+    });
+  }).catch(function(err) {
+    rstatus.style.display = 'block';
+    rstatus.innerHTML = 'Could not load PDF in viewer. <a href="' + pdfUrl + '" download>Download the PDF directly →</a>';
+  });
 })();
 </script>
 </main>

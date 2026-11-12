@@ -6,13 +6,60 @@
   "feedback_api": "https://tv-feedback.drewdanielcpa-281.workers.dev",
   "items": [
     {
-      "slug": "splitting-hairs-slides",
+      "slug": "500-down-556-to-go",
       "kind": "report",
       "featured": true,
+      "title": "500 Down, 556 to Go",
+      "subtitle": "DNA Deep Dive, Part 2 of 2",
+      "date": "November 2026",
+      "summary": "After the tie DNA came back with no CODIS hits, Seattle set out to review all 1,057 suspect subfiles opened since 1971 and pick the best men for direct DNA testing. In early 2004 one agent graded folders 1\u2013500 by hand on a 22-page \"Work Copy,\" circled nine entries, and sent five men to DNA. Then he drew a line under #500 and handed the project off with orders to review the remaining 556 folders \"as soon as possible.\" As far as the released files show, that second half was never done. Part 1 covers the biological evidence and the lab testing.",
+      "points": [
+        [
+          "Two copies, 212 names restored",
+          "Pairing the heavily censored 2004 Work Copy (Part 90) with a cleaner 1999 copy of the same list (Part 106) restores 212 of the first 514 folder titles."
+        ],
+        [
+          "501 graded \u2192 9 circles \u2192 5 DNA picks",
+          "Peterson, Langseth and Catalano were circled with no elimination mark; McCoy and Weber were added to reach five. Celk was circled but dropped, and \"Pull Letters for DNA\" was never acted on."
+        ],
+        [
+          "The dropped handoff",
+          "Reassigned on August 4, 2004 with orders to review the other 556 folders, including Rackstraw, List, the LaCenter pay phone and the ransom-serial $20 bill, plus 355 still-censored folders."
+        ]
+      ],
+      "files": [
+        [
+          "Read the report (PDF, 25 pages)",
+          "500-down-556-to-go.pdf"
+        ]
+      ],
+      "cover": "500-down-556-to-go.jpg",
+      "series": "NORJAK \u00b7 Flight 305 \u00b7 The DNA file, Part 2 of 2",
+      "chips": [
+        [
+          "Two copies \u00b7 212 names",
+          "Part 90 Work Copy matched to the Part 106 1999 list restores 212 of 514 folder titles",
+          "blue"
+        ],
+        [
+          "501 graded \u00b7 5 picks",
+          "9 circled entries; Peterson, Langseth, Catalano, McCoy and Weber sent for DNA",
+          "gold"
+        ],
+        [
+          "556 skipped",
+          "Handed off 8/4/2004 \"as soon as possible\" and, per the released files, never reviewed",
+          "red"
+        ]
+      ]
+    },
+    {
+      "slug": "splitting-hairs-slides",
+      "kind": "report",
       "title": "Splitting Hair(s) Slides",
       "subtitle": "DNA Deep Dive, Part 1 of 2",
       "date": "November 2026",
-      "summary": "Every biological item the FBI took off Flight 305 and what became of it: the eight Raleigh cigarette butts destroyed in Las Vegas, the Seat 18-E headrest hair slide last returned to Las Vegas in 1984, and the clip-on tie that gave up a 9-locus DNA mixture in 2002. The report follows how the Lab's reading of that mixture changed through 2011, every suspect compared against it, and what sits in the 58 pages of unreleased bench notes. Part 2 covers the 2004 subfile audit that picked the first suspects.",
+      "summary": "Every biological item the FBI took off Flight 305 and what became of it: the eight Raleigh cigarette butts destroyed in Las Vegas, the Seat 18-E headrest hair slide last returned to Las Vegas in 1984, and the clip-on tie that gave up a 9-locus DNA mixture in 2002. The report follows how the Lab's reading of that mixture changed through 2011, every suspect compared against it, and what sits in the 58 pages of unreleased bench notes. Part 2, 500 Down, 556 to Go, covers the 2004 subfile audit that picked the first suspects.",
       "points": [
         [
           "The 1971 items: butts destroyed, hair slide lost",

@@ -1,0 +1,49 @@
+{
+ "_note": "Hand-placed SSN bars (normalized x0,y0,x1,y1 of the rendered page) for pages whose OCR is too noisy for automatic detection. Found by an independent Tesseract re-OCR of the finished pages, 2026-11-16.",
+ "p100_0003": [
+  [
+   0.3706,
+   0.631,
+   0.8892,
+   0.6677
+  ],
+  [
+   0.0127,
+   0.6707,
+   0.1858,
+   0.7006
+  ]
+ ],
+ "p110_0601": [
+  [
+   0.5108,
+   0.386,
+   0.6578,
+   0.4079
+  ]
+ ],
+ "p115_0175": [
+  [
+   0.5441,
+   0.3806,
+   0.6985,
+   0.4069
+  ]
+ ],
+ "p117_0419": [
+  [
+   0.3363,
+   0.3643,
+   0.502,
+   0.3955
+  ]
+ ],
+ "p060_0355": [
+  [
+   0.19,
+   0.4095,
+   0.385,
+   0.4315
+  ]
+ ]
+}

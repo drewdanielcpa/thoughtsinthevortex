@@ -55,10 +55,11 @@ SAFE_INDEX_PAGES = (
 )
 
 # Tolerates OCR noise inside SSNs (e.g. 423~-50-2846, §33-10-3322, 531+16<2565); FBI serials 164-81-NNNN excluded
-SSN_TOKEN_RE = re.compile(r"(?<![\d/])(?![14]64[-.~\s]*81)[0-9§$]\d{2}\s?[-.~–—=+_\s]{0,3}\s?\d{2}\s?[-.~–—=+_<\s]{0,3}\s?\d{4}(?![\d/])")
+SSN_TOKEN_RE = re.compile(r"(?<![\dA-Za-z/])(?![14]64[-.~\s]*81)[\ufffd0-9§$]\d{2}\s?[-.~–—=+_\s]{0,3}\s?\d{2}\s?[-.~–—=+_<\s]{0,3}\s?\d{4}(?![\dA-Za-z/])")
 PHONE_LINE_RE = re.compile(r"(?:\(\d{3}\)\s*|\b\d{3}[-.])\d{3}[-.\s]\d{4}\b")
 LOCAL_PHONE_AFTER_KW_RE = re.compile(r"\b(?:TEL|TELEPHONE|PHONE|PH|CALL)\b.*?\b\d{3}[-.\s]\d{4}\b", re.I)
-SSN_KW_RE = re.compile(r"\b(?:SSAN|SSAU|SSN|S\.S\.N|SSA\s*NO|SOC\.?\s*SEC|SOCIAL\s+S[EÉ]CURITY|SECURITY\s+(?:ACCOUNT\s+)?(?:NO|NUMBER))\b", re.I)
+SSN_KW_RE = re.compile(r"\b(?:SSAN|SSAU|SSN|S\.S\.N|SSA\s*NO|SOC\.?\s*SEC|SOCIAL\s+S[EÉ]CURITY|SECURITY\s+(?:ACCOUNT\s+)?(?:NO|NUMBER)|SECURITY\s+ACCOUNT|S\w{1,2}IAL\s+SECURITY)\b", re.I)
+NUM_WORDS = {"ZERO", "OH", "ONE", "TWO", "TW", "THREE", "FOUR", "FIVE", "SIX", "SEVEN", "EIGHT", "NINE"}
 DOB_KW_RE = re.compile(r"\b(?:DOB|D\.O\.B|BIRTH|BORN|BIRTHDATE)\b", re.I)
 ADDR_KW_RE = re.compile(r"\b(?:RESIDENCE|HOME\s+ADDRESS|STREET\s+ADDRESS|MAILING\s+ADDRESS|P\.?\s*O\.?\s*BOX)\b", re.I)
 PO_BOX_RE = re.compile(r"\b(?:P\.?\s*O\.?\s*BOX|BOX\s+\d+|RT\.?\s*\d+\s+BOX)\b", re.I)
@@ -127,7 +128,7 @@ def parse_tsv_words(tsv_text):
     return tsv_w, tsv_h, words
 
 
-def detect_privacy_boxes(part, page, tsv_w, tsv_h, words):
+def detect_privacy_boxes(part, page, tsv_w, tsv_h, words, ssn_only=False):
     """Returns list of normalized (x0, y0, x1, y1, reason) boxes to black out under Ground Rule #6."""
     if not words or not tsv_w or not tsv_h:
         return []
@@ -137,6 +138,10 @@ def detect_privacy_boxes(part, page, tsv_w, tsv_h, words):
 
     full_text = " ".join(w["text"] for w in words)
     is_dmv = bool(DMV_PAGE_RE.search(full_text))
+    # Ransom-bill serial lists (e.g. Part 10 p.460): bare 8-9 digit runs with no SSN label anywhere are serials, not SSNs
+    bare_hits = [m.group(0) for m in SSN_TOKEN_RE.finditer(full_text) if not re.search(r"[^0-9]", m.group(0))]
+    serial_page = (bool(re.search(r"SERIAL", full_text, re.I)) and not SSN_KW_RE.search(full_text)
+                   and len(bare_hits) >= 3)
 
     lines_map = defaultdict(list)
     for w in words:
@@ -158,9 +163,11 @@ def detect_privacy_boxes(part, page, tsv_w, tsv_h, words):
     def add_words_box(w_subset, reason):
         if not w_subset:
             return
-        bx0 = max(0.0, (min(w["left"] for w in w_subset) - 6) / tsv_w)
+        # SSN bars get extra width: OCR word boxes often miss a leading/trailing digit
+        padx = int(0.022 * tsv_w) if reason.startswith("SSN") else 6
+        bx0 = max(0.0, (min(w["left"] for w in w_subset) - padx) / tsv_w)
         by0 = max(0.0, (min(w["top"] for w in w_subset) - 4) / tsv_h)
-        bx1 = min(1.0, (max(w["left"] + w["width"] for w in w_subset) + 6) / tsv_w)
+        bx1 = min(1.0, (max(w["left"] + w["width"] for w in w_subset) + padx) / tsv_w)
         by1 = min(1.0, (max(w["top"] + w["height"] for w in w_subset) + 4) / tsv_h)
         red_boxes.append((bx0, by0, bx1, by1, reason))
 
@@ -169,7 +176,10 @@ def detect_privacy_boxes(part, page, tsv_w, tsv_h, words):
         wlist = ln["words"]
 
         # 1. Explicit SSN pattern or SSN label
-        if SSN_TOKEN_RE.search(txt) or SSN_KW_RE.search(txt):
+        tok_hits = [m.group(0) for m in SSN_TOKEN_RE.finditer(txt)]
+        if serial_page:
+            tok_hits = [t for t in tok_hits if re.search(r"[^0-9]", t)]
+        if tok_hits or SSN_KW_RE.search(txt):
             num_words = [w for w in wlist if DATE_OR_NUM_TOKEN_RE.search(w["text"]) and "164" not in w["text"]]
             if num_words:
                 add_words_box(num_words, "SSN")
@@ -183,7 +193,47 @@ def detect_privacy_boxes(part, page, tsv_w, tsv_h, words):
                         if n_nums:
                             add_words_box(n_nums, "SSN-Below")
 
-        if safe_index:
+        if SSN_KW_RE.search(txt):
+            lx0, ly0, lx1, ly1 = ln["box"]
+            kw_x = next((w["left"] for w in wlist if re.search(r"SSAN|SSN|SOC|SECUR", w["text"], re.I)), lx0)
+            # 1b. Form value beside or just below the label that OCR put on its own line
+            for other in sorted_lines:
+                if other is ln:
+                    continue
+                ox0, oy0, ox1, oy1 = other["box"]
+                if -0.016 * tsv_h <= (oy0 - ly0) <= 0.035 * tsv_h and ox1 > kw_x:
+                    vals = [w for w in other["words"] if len(re.findall(r"\d", w["text"])) >= 5
+                            or re.search(r"\d{2,3}\s*[-.~]\s*\d{2}", w["text"])]
+                    vals = [w for w in vals if not re.search(r"164[-.~]?81|COOPER", w["text"], re.I)]
+                    if vals:
+                        add_words_box(vals, "SSN-Near")
+            # 1c. SSN typed out in words (teletypes): "SOCIAL SECURITY NUMBER FIVE TWO EIGHT DASH ..."
+            kw_i = max((idx for idx, w in enumerate(wlist) if re.search(r"SSAN|SSN|SOC|SECUR|NUMBER|ACCOUNT", w["text"], re.I)), default=-1)
+            seq = [(0, w) for w in wlist[kw_i + 1:]]
+            for k, nxt in enumerate(sorted_lines[i + 1:i + 3], 1):
+                if 0 <= (nxt["box"][1] - ly1) < int(0.045 * tsv_h):
+                    seq += [(k, w) for w in nxt["words"]]
+            run, digits, started = [], 0, False
+            for li, w in seq:
+                t = re.sub(r"[^A-Z0-9]", "", w["text"].upper())
+                if not started and t in ("NUMBER", "NO", "ACCOUNT", "IS", "OF", "SECURITY", "SSAN", ""):
+                    continue
+                if t in NUM_WORDS or t == "DASH" or t.isdigit() or (not t and started):
+                    started = True
+                    run.append((li, w))
+                    if t in NUM_WORDS:
+                        digits += 1
+                    elif t.isdigit():
+                        digits += len(t)
+                    if digits >= 9:
+                        break
+                else:
+                    break
+            if digits >= 3:
+                for li in sorted({li for li, _ in run}):
+                    add_words_box([w for l2, w in run if l2 == li], "SSN-Words")
+
+        if safe_index or ssn_only:
             continue
 
         # 2. Phone numbers
@@ -263,6 +313,9 @@ def main():
     parser.add_argument("--width", type=int, default=1020, help="Rendered image width in pixels (default: 1020)")
     parser.add_argument("--quality", type=int, default=60, help="WebP quality 1-100 (default: 60)")
     parser.add_argument("--force", action="store_true", help="Re-render pages even if .webp already exists")
+    parser.add_argument("--only", default=None, help="Comma-separated page keys (e.g. p115_0194,p084_0298) to re-render; implies --force for them")
+    parser.add_argument("--rules", choices=["ssn", "all"], default="ssn",
+                        help="Blackout rules: 'ssn' = Social Security numbers only (site policy since 2026-11-16); 'all' = also phones, DOBs, addresses, DMV ids, STR genotypes")
     args = parser.parse_args()
 
     # Locate pages_manifest.json
@@ -314,6 +367,10 @@ def main():
     with open(manifest_path, encoding="utf-8") as f:
         manifest = json.load(f)
     pages = manifest["pages"]
+    if args.only:
+        wanted = {k.strip() for k in args.only.split(",") if k.strip()}
+        pages = [r for r in pages if r["key"] in wanted]
+        args.force = True
 
     by_part = defaultdict(list)
     for rec in pages:
@@ -323,6 +380,13 @@ def main():
     print(f"PDF search dirs: {[str(d) for d in pdf_dirs]}")
     print(f"Word-box dir   : {words_dir}")
     print(f"Output folder  : {out_dir}")
+    print(f"Blackout rules : {args.rules}")
+
+    # Hand-placed SSN bars for pages whose OCR is too noisy to detect them (normalized x0,y0,x1,y1)
+    manual_path = script_dir / "ssn_manual_boxes.json"
+    manual_boxes = json.load(open(manual_path, encoding="utf-8")) if manual_path.is_file() else {}
+    manual_boxes = {k: v for k, v in manual_boxes.items() if not k.startswith("_")}
+    print(f"Manual SSN boxes: {sum(len(v) for v in manual_boxes.values())} on {len(manual_boxes)} pages")
 
     rendered_count = 0
     skipped_existing = 0
@@ -358,14 +422,20 @@ def main():
             # Load word boxes from partNNN.tar if available
             tsv_w, tsv_h, words = None, None, []
             if tf is not None:
-                member_name = f"{part:03d}/p{pg:04d}.tsv.gz"
-                try:
-                    raw_tsv = gzip.decompress(tf.extractfile(member_name).read()).decode("utf-8", errors="replace")
-                    tsv_w, tsv_h, words = parse_tsv_words(raw_tsv)
-                except Exception:
-                    pass
+                for member_name in (f"{part:03d}/p{pg:04d}.tsv.gz", f"./p{pg:04d}.tsv.gz", f"p{pg:04d}.tsv.gz"):
+                    try:
+                        raw_tsv = gzip.decompress(tf.extractfile(member_name).read()).decode("utf-8", errors="replace")
+                        tsv_w, tsv_h, words = parse_tsv_words(raw_tsv)
+                        break
+                    except Exception:
+                        continue
+                if not words:
+                    print(f"NOWORDS {rec['key']}")
 
-            boxes = detect_privacy_boxes(part, pg, tsv_w, tsv_h, words)
+            boxes = detect_privacy_boxes(part, pg, tsv_w, tsv_h, words, ssn_only=(args.rules == "ssn"))
+            boxes += [tuple(b) + ("SSN-Manual",) for b in manual_boxes.get(rec["key"], [])]
+            if boxes:
+                print(f"BARS {rec['key']} {len(boxes)} " + ",".join(sorted({b[4] for b in boxes})))
             if boxes:
                 draw = ImageDraw.Draw(im)
                 W, H = im.size

@@ -54,10 +54,11 @@ SAFE_INDEX_PAGES = (
     | {(106, p) for p in range(107, 110)}
 )
 
-SSN_TOKEN_RE = re.compile(r"\b(?!164[-.]81)\d{3}[-.\s]?\d{2}[-.\s]?\d{4}\b")
+# Tolerates OCR noise inside SSNs (e.g. 423~-50-2846, §33-10-3322, 531+16<2565); FBI serials 164-81-NNNN excluded
+SSN_TOKEN_RE = re.compile(r"(?<![\d/])(?![14]64[-.~\s]*81)[0-9§$]\d{2}\s?[-.~–—=+_\s]{0,3}\s?\d{2}\s?[-.~–—=+_<\s]{0,3}\s?\d{4}(?![\d/])")
 PHONE_LINE_RE = re.compile(r"(?:\(\d{3}\)\s*|\b\d{3}[-.])\d{3}[-.\s]\d{4}\b")
 LOCAL_PHONE_AFTER_KW_RE = re.compile(r"\b(?:TEL|TELEPHONE|PHONE|PH|CALL)\b.*?\b\d{3}[-.\s]\d{4}\b", re.I)
-SSN_KW_RE = re.compile(r"\b(?:SSN|S\.S\.N|SSA\s*NO|SOC\.?\s*SEC|SOCIAL\s+SECURITY)\b", re.I)
+SSN_KW_RE = re.compile(r"\b(?:SSAN|SSAU|SSN|S\.S\.N|SSA\s*NO|SOC\.?\s*SEC|SOCIAL\s+S[EÉ]CURITY|SECURITY\s+(?:ACCOUNT\s+)?(?:NO|NUMBER))\b", re.I)
 DOB_KW_RE = re.compile(r"\b(?:DOB|D\.O\.B|BIRTH|BORN|BIRTHDATE)\b", re.I)
 ADDR_KW_RE = re.compile(r"\b(?:RESIDENCE|HOME\s+ADDRESS|STREET\s+ADDRESS|MAILING\s+ADDRESS|P\.?\s*O\.?\s*BOX)\b", re.I)
 PO_BOX_RE = re.compile(r"\b(?:P\.?\s*O\.?\s*BOX|BOX\s+\d+|RT\.?\s*\d+\s+BOX)\b", re.I)
@@ -128,8 +129,11 @@ def parse_tsv_words(tsv_text):
 
 def detect_privacy_boxes(part, page, tsv_w, tsv_h, words):
     """Returns list of normalized (x0, y0, x1, y1, reason) boxes to black out under Ground Rule #6."""
-    if (part, page) in SAFE_INDEX_PAGES or not words or not tsv_w or not tsv_h:
+    if not words or not tsv_w or not tsv_h:
         return []
+    # Index pages skip the address/DOB/phone rules but still get the SSN rule
+    # (Part 90 p.23 lists an SSN beside a name).
+    safe_index = (part, page) in SAFE_INDEX_PAGES
 
     full_text = " ".join(w["text"] for w in words)
     is_dmv = bool(DMV_PAGE_RE.search(full_text))
@@ -178,6 +182,9 @@ def detect_privacy_boxes(part, page, tsv_w, tsv_h, words):
                         n_nums = [w for w in nxt["words"] if DATE_OR_NUM_TOKEN_RE.search(w["text"])]
                         if n_nums:
                             add_words_box(n_nums, "SSN-Below")
+
+        if safe_index:
+            continue
 
         # 2. Phone numbers
         if PHONE_LINE_RE.search(txt) or LOCAL_PHONE_AFTER_KW_RE.search(txt):

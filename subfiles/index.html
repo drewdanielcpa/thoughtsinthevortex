@@ -539,13 +539,12 @@ table.sub-table td {
   justify-content: flex-end;
 }
 .drawer-backdrop.open { display: flex; }
+body.drawer-open { overflow: hidden; }
+.drawer-backdrop { height: 100dvh; }
 .drawer {
   width: min(880px, 100vw);
   transition: width .18s ease;
   height: 100%;
-}
-.drawer.wide-reader {
-  width: min(1220px, 100vw);
   background: var(--bg);
   border-left: 2px solid var(--teal);
   box-shadow: -8px 0 28px rgba(0,0,0,0.22);
@@ -553,6 +552,7 @@ table.sub-table td {
   flex-direction: column;
   overflow: hidden;
 }
+.drawer.wide-reader { width: min(1220px, 100vw); }
 .drawer-head {
   background: var(--teal);
   color: #f2ead3;
@@ -581,6 +581,9 @@ table.sub-table td {
 .drawer-body {
   padding: 18px;
   overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  min-height: 0;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -1919,6 +1922,12 @@ footer {
       vState.docIdx = parseInt(tb.getAttribute("data-vdoc"), 10) || 0;
       vState.pgIdx = 0;
       renderDocViewer();
+      const bar = document.querySelector("#drawer-doc-viewer .viewer-bar");
+      const body = document.getElementById("drawer-body");
+      if (bar && body) {
+        const top = bar.getBoundingClientRect().top - body.getBoundingClientRect().top;
+        if (top > body.clientHeight * 0.5 || top < 0) body.scrollTo({ top: body.scrollTop + top - 8, behavior: "smooth" });
+      }
     };
     document.getElementById("v-pg-prev").onclick = function() {
       if (vState.pgIdx > 0) { vState.pgIdx--; renderDocViewer(); }
@@ -1945,10 +1954,12 @@ footer {
     };
 
     document.getElementById("drawer-backdrop").classList.add("open");
+    document.body.classList.add("drawer-open");
   }
 
   function closeDrawer() {
     document.getElementById("drawer-backdrop").classList.remove("open");
+    document.body.classList.remove("drawer-open");
   }
 
   // ==================== REDACTION FINDER LOGIC ====================

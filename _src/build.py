@@ -83,7 +83,7 @@ a.tcard:hover{border-color:var(--gold)}
 .pg canvas{display:block}.pg a.lk{position:absolute;display:block;border-radius:2px}.pg a.lk:hover{background:rgba(196,127,14,.18)}
 .home{padding:10px 0 30px}.home .hero{display:flex;justify-content:center;padding-top:34px}.home .hero .fr{max-width:820px;width:100%}
 .tagl{text-align:center;font-family:"Poppins",sans-serif;font-size:13px;letter-spacing:2.6px;text-transform:uppercase;color:var(--teal2);font-weight:600;margin:20px 0 22px}
-.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:1040px;margin:0 auto}
+.tiles{display:grid;grid-template-columns:repeat(6,1fr);gap:16px;max-width:1040px;margin:0 auto}.tiles .tile{grid-column:span 2}.tiles .tile:nth-child(n+4){grid-column:span 3}
 .tile{display:flex;flex-direction:column;gap:8px;background:var(--teal);color:#f2ead3;text-decoration:none;border-radius:6px;padding:20px 18px 16px;border:2px solid var(--teal);transition:transform .12s,border-color .12s}
 .tile:hover{transform:translateY(-2px);border-color:var(--gold);color:#fff}
 .tile .tk{font-family:"Poppins",sans-serif;font-weight:600;font-size:22px;color:#fff;letter-spacing:-.3px}
@@ -166,7 +166,7 @@ a.tcard:hover{border-color:var(--gold)}
 .foutcome b{font-family:"Poppins",sans-serif;font-size:12.5px;color:var(--teal);text-transform:uppercase;letter-spacing:.5px;display:block;margin-bottom:2px}
 .fmeta-foot{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;justify-content:space-between;margin-top:14px;padding-top:12px;border-top:1px dashed var(--line);font-family:"Poppins",sans-serif;font-size:12.5px;color:var(--muted)}
 .foia-empty{text-align:center;padding:36px 20px;background:var(--paper);border:1px dashed var(--line);border-radius:6px;color:var(--muted);font-family:"Poppins",sans-serif;display:none}
-@media (max-width:860px){.tiles{grid-template-columns:repeat(2,1fr)}.foia-stats{grid-template-columns:repeat(2,1fr)}.fhead{grid-template-columns:1fr}.fclock{flex-direction:row;align-items:baseline;justify-content:space-between;text-align:left;padding:10px 14px;gap:10px}.fclock .bar-wrap{display:none}.fbody-grid{grid-template-columns:1fr}}
+@media (max-width:860px){.tiles{grid-template-columns:repeat(2,1fr)}.tiles .tile,.tiles .tile:nth-child(n+4){grid-column:auto}.tiles .tile:last-child{grid-column:1/-1}.foia-stats{grid-template-columns:repeat(2,1fr)}.fhead{grid-template-columns:1fr}.fclock{flex-direction:row;align-items:baseline;justify-content:space-between;text-align:left;padding:10px 14px;gap:10px}.fclock .bar-wrap{display:none}.fbody-grid{grid-template-columns:1fr}}
 @media (max-width:760px){.fbgrid{grid-template-columns:1fr}}
 /* Mobile Full-Bleed Reader & Responsive Web-Article Styles */
 .abar{position:sticky;top:0;z-index:8;display:flex;align-items:center;gap:8px 12px;flex-wrap:wrap;background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:8px 12px;margin:12px auto 14px;max-width:920px;font-family:"Poppins",sans-serif;font-size:13px;box-shadow:0 2px 8px rgba(33,29,28,.06)}
@@ -292,7 +292,7 @@ def page(title, desc, body, depth=0, og_img=None):
 <title>{E(title)}</title><meta name="description" content="{E(desc)}">
 <meta property="og:title" content="{E(title)}"><meta property="og:description" content="{E(desc)}"><meta property="og:type" content="website">{og}
 <link rel="icon" href="{up}assets/vortex_logo.jpg">{FONTS}<link rel="stylesheet" href="{up}assets/site.css"></head><body>
-<header class="top"><div class="wrap"><a class="brand" href="{up or './'}">THOUGHTS IN THE VORTEX</a><nav><a href="{up}writeups/">Write-ups</a><a href="{up}timeline/">Timeline</a><a href="{up}downloads/">FBI Files</a><a href="{up}foia/">FOIA</a><a href="{up}feedback/">Feedback</a></nav></div></header>
+<header class="top"><div class="wrap"><a class="brand" href="{up or './'}">THOUGHTS IN THE VORTEX</a><nav><a href="{up}writeups/">Write-ups</a><a href="{up}timeline/">Timeline</a><a href="{up}subfiles/">Subfiles</a><a href="{up}downloads/">FBI Files</a><a href="{up}foia/">FOIA</a><a href="{up}feedback/">Feedback</a></nav></div></header>
 <main class="wrap">{body}</main>
 <footer><div class="wrap">Thoughts in the Vortex · Research on NORJAK / Northwest Orient Flight 305 from the <a href="https://vault.fbi.gov/D-B-Cooper%20">FBI Vault D.B. Cooper files</a>. Citations read Vault part / PDF page / Bates number.</div></footer>
 </body></html>'''
@@ -341,6 +341,7 @@ body = f'''<section class="home"><div class="hero"><div class="fr"><div><img src
 <nav class="tiles">
 <a class="tile" href="writeups/"><span class="tk">Write-ups</span><span class="td">Long form summaries on key Cooper topics</span><span class="tg">Read →</span></a>
 <a class="tile hot" href="{S["timeline"]["href"]}"><span class="tk">Timeline</span><span class="td">Flight 305 minute by minute: 246 entries from Portland to Reno, each beside the FBI page it comes from</span><span class="tg">Open the wheel →</span></a>
+<a class="tile" href="subfiles/"><span class="tk">Subfiles (1–1,062)</span><span class="td">Every NORJAK suspect and investigative subfile, named and searchable, with 40 suspect portraits and 2,086 linked FBI pages in an in-site viewer</span><span class="tg">Explore →</span></a>
 <a class="tile" href="downloads/"><span class="tk">FBI Files</span><span class="td">All 44,238 pages of the FBI's Cooper file as searchable OCR text, with links to every scan</span><span class="tg">Download →</span></a>
 <a class="tile" href="foia/"><span class="tk">FOIA Tracker</span><span class="td">{nfoia} FOIA requests hunting missing serials, DNA bench notes, radio tapes, and unredacted files, with live daily wait counters</span><span class="tg">Track requests →</span></a>
 </nav>
@@ -762,7 +763,7 @@ tlp = os.path.join(ROOT, 'timeline', 'index.html')
 if os.path.exists(tlp):
   t = open(tlp, encoding='utf-8').read()
   t = _re.sub(r'<!--tv-bar-->.*?<!--/tv-bar-->', '', t, flags=_re.S)
-  bar = '<!--tv-bar--><div style="background:#2f4a4c;padding:9px 16px;font:600 13.5px Poppins,Arial,sans-serif;letter-spacing:.4px;display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center"><a href="../" style="color:#f2ead3;text-decoration:none">THOUGHTS IN THE VORTEX</a><span style="flex:1"></span><a href="../writeups/" style="color:#dfe8e5;text-decoration:none;font-weight:500">Write-ups</a><a href="../timeline/" style="color:#fff;text-decoration:none;font-weight:500">Timeline</a><a href="../downloads/" style="color:#dfe8e5;text-decoration:none;font-weight:500">FBI Files</a><a href="../foia/" style="color:#dfe8e5;text-decoration:none;font-weight:500">FOIA</a><a href="../feedback/" style="color:#dfe8e5;text-decoration:none;font-weight:500">Feedback</a></div><!--/tv-bar-->'
+  bar = '<!--tv-bar--><div style="background:#2f4a4c;padding:9px 16px;font:600 13.5px Poppins,Arial,sans-serif;letter-spacing:.4px;display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center"><a href="../" style="color:#f2ead3;text-decoration:none">THOUGHTS IN THE VORTEX</a><span style="flex:1"></span><a href="../writeups/" style="color:#dfe8e5;text-decoration:none;font-weight:500">Write-ups</a><a href="../timeline/" style="color:#fff;text-decoration:none;font-weight:500">Timeline</a><a href="../subfiles/" style="color:#dfe8e5;text-decoration:none;font-weight:500">Subfiles</a><a href="../downloads/" style="color:#dfe8e5;text-decoration:none;font-weight:500">FBI Files</a><a href="../foia/" style="color:#dfe8e5;text-decoration:none;font-weight:500">FOIA</a><a href="../feedback/" style="color:#dfe8e5;text-decoration:none;font-weight:500">Feedback</a></div><!--/tv-bar-->'
   t = _re.sub(r'(<body[^>]*>)', lambda m: m.group(1) + bar, t, count=1)
   open(tlp, 'w', encoding='utf-8').write(t)
 
@@ -806,5 +807,5 @@ if os.path.exists(fa_path):
   os.makedirs(os.path.join(ROOT, 'feedback', 'admin'), exist_ok=True)
   open(os.path.join(ROOT, 'feedback', 'admin', 'index.html'), 'w', encoding='utf-8').write(page('Feedback inbox · Thoughts in the Vortex', 'Private', fa, 2).replace('<meta charset="utf-8">', '<meta charset="utf-8"><meta name="robots" content="noindex,nofollow">'))
 
-open(os.path.join(ROOT, '404.html'), 'w', encoding='utf-8').write(page('Not found · Thoughts in the Vortex', 'Page not found', '<h1 style="margin-top:40px">Lost in the vortex</h1><p>That page isn\'t here. <a href="/">Back to the home page</a>.</p>', 0).replace('href="assets/', 'href="/assets/').replace('href="#', 'href="/#').replace('href="timeline/', 'href="/timeline/').replace('href="writeups/', 'href="/writeups/').replace('href="downloads/', 'href="/downloads/').replace('href="foia/', 'href="/foia/').replace('href="feedback/', 'href="/feedback/').replace('href="./"', 'href="/"'))
+open(os.path.join(ROOT, '404.html'), 'w', encoding='utf-8').write(page('Not found · Thoughts in the Vortex', 'Page not found', '<h1 style="margin-top:40px">Lost in the vortex</h1><p>That page isn\'t here. <a href="/">Back to the home page</a>.</p>', 0).replace('href="assets/', 'href="/assets/').replace('href="#', 'href="/#').replace('href="timeline/', 'href="/timeline/').replace('href="subfiles/', 'href="/subfiles/').replace('href="writeups/', 'href="/writeups/').replace('href="downloads/', 'href="/downloads/').replace('href="foia/', 'href="/foia/').replace('href="feedback/', 'href="/feedback/').replace('href="./"', 'href="/"'))
 print('built', len(items), 'item pages and foia tracker')

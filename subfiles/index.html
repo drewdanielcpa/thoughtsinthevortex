@@ -721,6 +721,18 @@ body.drawer-open { overflow: hidden; }
 }
 .viewer-stage.zoom-135 img.page-scan-img { max-width: none; width: 135%; }
 .viewer-stage.zoom-175 img.page-scan-img { max-width: none; width: 175%; }
+.scan-wrap { position: relative; width: 1020px; max-width: 100%; flex-shrink: 0; }
+.scan-wrap img.page-scan-img { width: 100%; max-width: none; }
+.viewer-stage.zoom-135 .scan-wrap { max-width: none; width: 135%; }
+.viewer-stage.zoom-175 .scan-wrap { max-width: none; width: 175%; }
+.viewer-stage.zoom-135 .scan-wrap img.page-scan-img, .viewer-stage.zoom-175 .scan-wrap img.page-scan-img { width: 100%; }
+.hl-box { position: absolute; mix-blend-mode: multiply; border-radius: 2px; pointer-events: none; }
+.hl-y { background: rgba(255, 221, 0, 0.55); }
+.hl-g { background: rgba(70, 200, 90, 0.45); }
+.hl-b { background: rgba(70, 140, 255, 0.42); }
+.hl-legend { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; font: 12px/1.4 var(--sans); color: var(--muted); padding: 6px 2px 8px; }
+.hl-legend .sw { display: inline-block; width: 14px; height: 10px; border-radius: 2px; margin-right: 5px; vertical-align: -1px; }
+.hl-legend.off .sw { opacity: .3; }
 .ocr-paper {
   width: 100%;
   max-width: 780px;
@@ -1250,6 +1262,13 @@ footer {
   const INLINE_SCANS = RAW.inlineScans || {};
   const INLINE_OCR = RAW.inlineOcr || {};
   const OCR_PART_CACHE = {};
+  const HL_PART_CACHE = {};
+  function loadHighlights(part, pg, subNo, cb) {
+    const pStr = padNum(part, 3);
+    const done = function() { const d = HL_PART_CACHE[pStr] || {}; cb(((d[String(pg)] || {})[String(subNo)]) || []); };
+    if (HL_PART_CACHE[pStr]) { done(); return; }
+    fetch("hl/part" + pStr + ".json").then(function(r) { return r.ok ? r.json() : {}; }).then(function(d) { HL_PART_CACHE[pStr] = d || {}; done(); }).catch(function() { HL_PART_CACHE[pStr] = {}; done(); });
+  }
   const MATRIX = RAW.matrix;
 
   function padNum(n, width) {
@@ -1799,7 +1818,14 @@ footer {
             '<button type="button" class="v-btn" id="v-zoom-135">135%</button>' +
             '<button type="button" class="v-btn" id="v-zoom-175">175%</button>' +
             '<a class="v-btn" id="v-vault-ext" href="https://vault.fbi.gov/D-B-Cooper%20" target="_blank" rel="noopener" style="text-decoration:none">Vault PDF ↗</a>' +
+            '<button type="button" class="v-btn" id="v-hl" title="Show or hide highlights">Highlights</button>' +
           '</div>' +
+        '</div>' +
+        '<div class="hl-legend" id="v-hl-legend">' +
+          '<span><i class="sw hl-y"></i>First + last name</span>' +
+          '<span><i class="sw hl-g"></i>Last name only</span>' +
+          '<span><i class="sw hl-b"></i>Subfile number (Sub ' + s.no + ')</span>' +
+          '<span style="opacity:.8">Highlights come from OCR, so a misread or blacked-out word may not be marked.</span>' +
         '</div>' +
         '<div class="viewer-stage" id="v-stage"></div>' +
       '</div>' +
@@ -1811,7 +1837,8 @@ footer {
       docIdx: initDocIdx,
       pgIdx: 0,
       mode: "scan",
-      zoom: "fit"
+      zoom: "fit",
+      hl: (function() { try { return localStorage.getItem("tv-subfile-hl") !== "off"; } catch (e) { return true; } })()
     };
 
     function loadOcrForPage(part, pg, cb) { const k = pageKey(part, pg); if (INLINE_OCR[k]) { cb(INLINE_OCR[k]); return; } const pStr = padNum(part, 3); if (OCR_PART_CACHE[pStr]) { cb(OCR_PART_CACHE[pStr][String(pg)] || ""); return; } fetch("ocr/part" + pStr + ".json").then(function(r) { return r.ok ? r.json() : {}; }).then(function(data) { OCR_PART_CACHE[pStr] = data || {}; cb(OCR_PART_CACHE[pStr][String(pg)] || ""); }).catch(function() { cb(""); }); }
@@ -1852,6 +1879,8 @@ footer {
       document.getElementById("v-zoom-fit").classList.toggle("active", vState.zoom === "fit");
       document.getElementById("v-zoom-135").classList.toggle("active", vState.zoom === "135");
       document.getElementById("v-zoom-175").classList.toggle("active", vState.zoom === "175");
+      document.getElementById("v-hl").classList.toggle("active", vState.hl);
+      document.getElementById("v-hl-legend").classList.toggle("off", !vState.hl);
 
       const stage = document.getElementById("v-stage");
       stage.className = "viewer-stage" + (vState.zoom === "135" ? " zoom-135" : (vState.zoom === "175" ? " zoom-175" : ""));
@@ -1913,7 +1942,23 @@ footer {
         if (fbBtn) fbBtn.onclick = function() { vState.mode = "ocr"; renderDocViewer(); };
       };
       img.src = scanUrl;
-      stage.appendChild(img);
+      const wrap = document.createElement("div");
+      wrap.className = "scan-wrap";
+      wrap.appendChild(img);
+      stage.appendChild(wrap);
+      if (vState.hl) {
+        const want = pageKey(curDoc.part, curPg);
+        loadHighlights(curDoc.part, curPg, s.no, function(boxes) {
+          if (!wrap.isConnected || pageKey(curDoc.part, curPg) !== want) return;
+          boxes.forEach(function(b) {
+            const el = document.createElement("div");
+            el.className = "hl-box hl-" + b[0];
+            el.style.left = (b[1] * 100) + "%"; el.style.top = (b[2] * 100) + "%";
+            el.style.width = ((b[3] - b[1]) * 100) + "%"; el.style.height = ((b[4] - b[2]) * 100) + "%";
+            wrap.appendChild(el);
+          });
+        });
+      }
     }
 
     document.getElementById("v-doc-tabs").onclick = function(e) {
@@ -1945,6 +1990,11 @@ footer {
     document.getElementById("v-zoom-fit").onclick = function() { vState.zoom = "fit"; renderDocViewer(); };
     document.getElementById("v-zoom-135").onclick = function() { vState.zoom = "135"; renderDocViewer(); };
     document.getElementById("v-zoom-175").onclick = function() { vState.zoom = "175"; renderDocViewer(); };
+    document.getElementById("v-hl").onclick = function() {
+      vState.hl = !vState.hl;
+      try { localStorage.setItem("tv-subfile-hl", vState.hl ? "on" : "off"); } catch (e) {}
+      renderDocViewer();
+    };
 
     renderDocViewer();
 

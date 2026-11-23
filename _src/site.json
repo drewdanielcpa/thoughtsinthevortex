@@ -6,9 +6,56 @@
   "feedback_api": "https://tv-feedback.drewdanielcpa-281.workers.dev",
   "items": [
     {
-      "slug": "500-down-556-to-go",
+      "slug": "tena-bar-seven-gates-to-pass",
       "kind": "report",
       "featured": true,
+      "title": "Tena Bar - Seven Gates to Pass",
+      "subtitle": "Auditing the Only Physical Evidence Ever Found Outside Flight 305",
+      "date": "November 2026",
+      "summary": "On February 10, 1980, eight-year-old Brian Ingram scraped a campfire pit at Tena Bar (Columbia River Mile 96.9) and uncovered three rotted stacks of Cooper's ransom twenties. Any explanation of how that money got there has to pass seven gates: river routing and tides, the flight clock, three-bundle cohesion, spring diatoms, stationary rot, buoyancy and burial, and finally human motive. The report runs every theory through all seven and asks which way Occam's Razor really cuts.",
+      "points": [
+        [
+          "The river runs the wrong way",
+          "Every Clark County creek under the 8:11 PM flight path empties 9.4 to 9.9 miles downstream of Tena Bar, and tidal reversal dies 7.3 miles short."
+        ],
+        [
+          "Three packets, one reel nobody read",
+          "Sea-First's $250,000 reserve, Grinnell's five-pack bricks, Cooper's offer to Tina Mucklow, and the 16mm microfilm reel 1B(3) that could still show which packets reached the beach."
+        ],
+        [
+          "Physics vs. practicality",
+          "Spring diatoms, clean paper, rounded corners and buried bands all point to a human burial on the bar, even though no human reason for it makes sense."
+        ]
+      ],
+      "files": [
+        [
+          "Read the report (PDF, 22 pages)",
+          "tena-bar-seven-gates-to-pass.pdf"
+        ]
+      ],
+      "cover": "tena-bar-seven-gates-to-pass.jpg",
+      "series": "NORJAK \u00b7 Flight 305 \u00b7 The Tena Bar money find",
+      "chips": [
+        [
+          "9.4\u20139.9 mi downstream",
+          "Clark County creeks and Pacific tidal reversals miss Tena Bar; only an 8:17 PM dry bench + flood survives naturally",
+          "blue"
+        ],
+        [
+          "$250k reserve & reel 1B(3)",
+          "What Cooper offered Tina Mucklow, how Sea-First split $250k vs. $230k, and the unread 16mm photo strip",
+          "gold"
+        ],
+        [
+          "Physics vs. practicality",
+          "Sinking bills, Jan. 1979 river ice, Brink's & shipwreck rot, Palmer's clay layer, and Occam's Razor",
+          "red"
+        ]
+      ]
+    },
+    {
+      "slug": "500-down-556-to-go",
+      "kind": "report",
       "title": "500 Down, 556 to Go",
       "subtitle": "DNA Deep Dive, Part 2 of 2",
       "date": "November 2026",

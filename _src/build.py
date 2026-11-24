@@ -526,6 +526,29 @@ if 'foia' in S:
   n_released = sum(1 for r in reqs if r.get("closed_date") and r.get("status_tone") != "red")
   closed_sub = f"{n_norec} no CRS records · {n_refused} reprocessing refused" if (n_norec and n_refused) else ("#1763828-000 · OIP appeal due Feb 2, 2027" if n_denied else "Processed or final determination")
 
+  # Filter pills: one per linked write-up, built from the requests themselves so a
+  # new write-up gets its own pill automatically. Optional short labels below;
+  # otherwise the write-up's title from site.json (or related_title) is used.
+  pill_labels = {
+    'elsinore-ghost': 'Elsinore Ghost',
+    'splitting-hairs-slides': 'Splitting Hair(s) Slides / DNA',
+    'oscillations': 'Oscillations / Flight 305 Tape',
+    'tena-bar-seven-gates-to-pass': 'Tena Bar',
+  }
+  item_titles = {i['slug']: i['title'] for i in items}
+  pill_order = ['elsinore-ghost', 'splitting-hairs-slides', 'oscillations']
+  for r in reqs:
+    s = r.get('related_slug', '')
+    if s and s not in pill_order:
+      pill_order.append(s)
+  pills_html = ''
+  for s in pill_order:
+    cnt = sum(1 for r in reqs if r.get('related_slug') == s)
+    if not cnt:
+      continue
+    label = pill_labels.get(s) or item_titles.get(s) or next((r.get('related_title') for r in reqs if r.get('related_slug') == s), s)
+    pills_html += f'\n    <button type="button" class="fpill" data-filter-slug="{E(s)}" onclick="setFoiaSlug(\'{E(s)}\', this)">{E(label)} ({cnt})</button>'
+
   foia_body = f'''<div class="crumb"><a href="../">Home</a> › FOIA Tracker</div>
 <h1>FOIA Tracker</h1>
 <p class="sub">Primary-source requests for unreleased NORJAK serials, lab bench notes, physical exhibits, and unredacted files</p>
@@ -556,10 +579,7 @@ if 'foia' in S:
 
 <div class="foia-bar">
   <div class="foia-pills" role="group" aria-label="Filter by investigation">
-    <button type="button" class="fpill active" data-filter-slug="all" onclick="setFoiaSlug('all', this)">All Requests ({n_total})</button>
-    <button type="button" class="fpill" data-filter-slug="elsinore-ghost" onclick="setFoiaSlug('elsinore-ghost', this)">Elsinore Ghost ({sum(1 for r in reqs if r.get('related_slug')=='elsinore-ghost')})</button>
-    <button type="button" class="fpill" data-filter-slug="splitting-hairs-slides" onclick="setFoiaSlug('splitting-hairs-slides', this)">Splitting Hair(s) Slides / DNA ({sum(1 for r in reqs if r.get('related_slug')=='splitting-hairs-slides')})</button>
-    <button type="button" class="fpill" data-filter-slug="oscillations" onclick="setFoiaSlug('oscillations', this)">Oscillations / Flight 305 Tape ({sum(1 for r in reqs if r.get('related_slug')=='oscillations')})</button>
+    <button type="button" class="fpill active" data-filter-slug="all" onclick="setFoiaSlug('all', this)">All Requests ({n_total})</button>{pills_html}
   </div>
   <div class="foia-ctrls">
     <input type="search" id="foia-q" placeholder="Search FOIPA #, Bates, name…" aria-label="Search FOIA requests" oninput="filterFoia()">
